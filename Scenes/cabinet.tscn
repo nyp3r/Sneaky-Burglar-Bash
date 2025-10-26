@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://cnf46ap2io83d"]
+
+[ext_resource type="Texture2D" uid="uid://dynumur8k5lb8" path="res://Assets/Sprites/cabinet.png" id="1_7a4v6"]
+[ext_resource type="Script" uid="uid://cdx1s02lomp7v" path="res://Scripts/cabinet.gd" id="1_imhc6"]
+[ext_resource type="Texture2D" uid="uid://ddpqgajasvmv4" path="res://Assets/Sprites/closed_cabinet.png" id="3_i6gei"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_imhc6"]
+size = Vector2(24, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ogna"]
+size = Vector2(2.7928581, 25.010925)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i6gei"]
+size = Vector2(19, 30)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6ogna"]
+polygon = PackedVector2Array(-29, -7, -27, -9, -12, 10, -12, -12, 12, -12, 12, 12, -14, 12)
+
+[node name="Cabinet" type="StaticBody2D"]
+script = ExtResource("1_imhc6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_imhc6")
+
+[node name="OpenSprite" type="Sprite2D" parent="."]
+position = Vector2(-8, 0)
+texture = ExtResource("1_7a4v6")
+
+[node name="ClosedSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-8, 0)
+texture = ExtResource("3_i6gei")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-20.189373, 1.7667363)
+rotation = -0.6590704
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_6ogna")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-21.5, -5)
+shape = SubResource("RectangleShape2D_i6gei")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_6ogna")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

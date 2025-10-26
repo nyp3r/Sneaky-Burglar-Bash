@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnkp0obp2ipjq"]
+
+[ext_resource type="Texture2D" uid="uid://bm5jvc1h85o8g" path="res://Assets/Sprites/Door.png" id="1_w6aom"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p0e35"]
+size = Vector2(32, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w6aom"]
+size = Vector2(2, 6)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_w6aom"]
+polygon = PackedVector2Array(-14, -3, -14, 3, 14, 3, 14, -3)
+
+[node name="Door" type="RigidBody2D"]
+gravity_scale = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("1_w6aom")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.85, 0.85)
+shape = SubResource("RectangleShape2D_p0e35")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(15, 0)
+node_a = NodePath("..")
+node_b = NodePath("../StaticBody2D")
+angular_limit_lower = -3.1415927
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(15, 0)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_w6aom")
+disabled = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+z_index = 15
+occluder = SubResource("OccluderPolygon2D_w6aom")

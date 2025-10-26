@@ -1,0 +1,109 @@
+[gd_scene load_steps=16 format=3 uid="uid://di3nwwsf4b3pg"]
+
+[ext_resource type="Script" uid="uid://dqjaw5bs00hd6" path="res://Scripts/player.gd" id="1_kyqiw"]
+[ext_resource type="Texture2D" uid="uid://y6phs8vpbof6" path="res://Assets/Sprites/Player.png" id="1_rpqav"]
+[ext_resource type="AudioStream" uid="uid://cwvrowewfp32t" path="res://Assets/Sound/player_footsteps.mp3" id="3_gntrk"]
+[ext_resource type="FontFile" uid="uid://dm7rqamcs5b1i" path="res://Assets/Fonts/lunchds.ttf" id="4_5ixxa"]
+[ext_resource type="Script" uid="uid://b6n0cwtj3wmw4" path="res://Scenes/interaction_prompt.gd" id="5_5ixxa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kyqiw"]
+radius = 13.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gntrk"]
+atlas = ExtResource("1_rpqav")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dewec"]
+atlas = ExtResource("1_rpqav")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ixxa"]
+atlas = ExtResource("1_rpqav")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nn08x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gntrk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dewec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ixxa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_ebmjs"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.52841145, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.3910073, 0.3910073, 0.3910073, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kyqiw"]
+gradient = SubResource("Gradient_ebmjs")
+fill = 2
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 1)
+metadata/_snap_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_5ixxa"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gntrk"]
+gradient = SubResource("Gradient_5ixxa")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+metadata/_snap_enabled = true
+metadata/_snap_count = 2
+
+[sub_resource type="LabelSettings" id="LabelSettings_nn08x"]
+font = ExtResource("4_5ixxa")
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+script = ExtResource("1_kyqiw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 20
+shape = SubResource("CircleShape2D_kyqiw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1.7763568e-15, -1.9073486e-06)
+scale = Vector2(0.33, 0.33)
+sprite_frames = SubResource("SpriteFrames_nn08x")
+
+[node name="FlashLight" type="PointLight2D" parent="."]
+position = Vector2(8.484365, -8.216354)
+rotation = 2.3515713
+scale = Vector2(1.014, 1)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_kyqiw")
+offset = Vector2(-31.97461, 31.973145)
+
+[node name="PointLight" type="PointLight2D" parent="."]
+scale = Vector2(1.0625, 1.0625)
+texture = SubResource("GradientTexture2D_gntrk")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_gntrk")
+bus = &"Gameplay"
+
+[node name="InteractionPrompt" type="Label" parent="."]
+visible = false
+z_index = 25
+offset_left = 11.0
+offset_top = -9.0
+offset_right = 20.0
+offset_bottom = 7.0
+pivot_offset = Vector2(4, 9)
+text = "e"
+label_settings = SubResource("LabelSettings_nn08x")
+script = ExtResource("5_5ixxa")
+offset = Vector2(15, -21.5)
