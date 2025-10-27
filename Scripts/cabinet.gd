@@ -19,10 +19,10 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and not game_manager.player_is_hidden and can_hide:
-		game_manager.hide_player(self)
+		game_manager.hide_player()
 		open_sprite.visible = false
 		closed_sprite.visible = true
 	elif Input.is_action_just_pressed("interact") and game_manager.player_is_hidden:
-		game_manager.unhide_player(self)
+		game_manager.unhide_player()
 		open_sprite.visible = true
 		closed_sprite.visible = false

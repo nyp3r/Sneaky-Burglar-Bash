@@ -10,12 +10,12 @@ var player_is_hidden = false
 func _process(delta: float) -> void:
 	volume_linear = player.audio.volume_linear
 
-func hide_player(body: PhysicsBody2D):
+func hide_player():
 	player.visible = false
 	player.movement_enabled = false
 	player_is_hidden = true
 
-func unhide_player(body: PhysicsBody2D):
+func unhide_player():
 	player.visible = true
 	player.movement_enabled = true
 	player_is_hidden = false
