@@ -159,9 +159,12 @@ script = ExtResource("5_v158k")
 
 [node name="Enemy" parent="Path2D/PathFollow2D" instance=ExtResource("4_3dryh")]
 unique_name_in_owner = true
-position = Vector2(-42.000515, 35.77648)
-rotation = -1.3455195
+position = Vector2(-3.8146973e-06, 0)
+rotation = 1.6024616
 scale = Vector2(1, 1)
+hearing_radius = 300.0
+min_hear_volume = 0.0
+max_hear_volume = 0.5
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true

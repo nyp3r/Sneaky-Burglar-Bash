@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 var movement_enabled = true
 
@@ -44,7 +45,7 @@ func _physics_process(delta):
 		elif Input.is_action_just_released("run"):
 			speed = WALK_SPEED
 	
-	audio.pitch_scale = speed / WALK_SPEED
+	audio.pitch_scale = float(speed) / float(WALK_SPEED)
 	audio.volume_linear = float(speed) / float(WALK_SPEED) * BASE_VOLUME
 	if input_direction == Vector2.ZERO:
 		audio.volume_linear = 0.0
