@@ -18,7 +18,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 		can_hide = false
 		game_manager.toggle_interaction_prompt()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and not game_manager.player_is_hidden and can_hide:
 		game_manager.hide_player()
 		toggle_open_close()

@@ -20,7 +20,7 @@ func get_input() -> Vector2:
 	velocity = input_direction * speed
 	return input_direction
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var input_direction = get_input()
 	if input_direction != Vector2.ZERO:
 		rotation = input_direction.angle() + deg_to_rad(90)

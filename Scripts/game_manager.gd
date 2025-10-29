@@ -7,7 +7,7 @@ class_name GameManager
 
 var player_is_hidden = false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	volume_linear = player.audio.volume_linear
 
 func hide_player():
