@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://y6phs8vpbof6" path="res://Assets/Sprites/Player.png" id="1_rpqav"]
 [ext_resource type="AudioStream" uid="uid://cwvrowewfp32t" path="res://Assets/Sound/player_footsteps.mp3" id="3_gntrk"]
 [ext_resource type="FontFile" uid="uid://dm7rqamcs5b1i" path="res://Assets/Fonts/lunchds.ttf" id="4_5ixxa"]
-[ext_resource type="Script" path="res://Scripts/interaction_prompt.gd" id="4_nn08x"]
+[ext_resource type="Script" uid="uid://b6n0cwtj3wmw4" path="res://Scripts/interaction_prompt.gd" id="4_nn08x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kyqiw"]
 radius = 13.0
@@ -103,5 +103,5 @@ text = "e"
 label_settings = SubResource("LabelSettings_nn08x")
 script = ExtResource("4_nn08x")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="FootstepAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_gntrk")

@@ -6,7 +6,7 @@ const MAX_VIEW_DISTANE := 150
 const ANGLE_BETWEEN_RAYS := deg_to_rad(10)
 
 @onready var spectrum_analyzer := AudioServer.get_bus_effect_instance(0, 0) as AudioEffectSpectrumAnalyzerInstance
-@onready var game_manager: Node = %GameManager
+@onready var game_manager: GameManager = %GameManager
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var path_follow: EnemyPath = $".."
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
@@ -54,8 +54,9 @@ func _physics_process(delta: float) -> void:
 					break
 	
 	if chasing:
+		navigation_agent.target_position = get_tree().get_first_node_in_group("Player").global_position
 		var direction = (navigation_agent.get_next_path_position() - global_position).normalized()
-		velocity = velocity.lerp(direction * 100, delta)
+		velocity = velocity.lerp(direction * 200, delta)
 		move_and_slide()
 
 func _process(_delta: float) -> void:
@@ -64,11 +65,15 @@ func _process(_delta: float) -> void:
 	
 	var spacial_volume = 1 / game_manager.volume_linear * distance_to_player
 	if spacial_volume < MAX_SPACIAL_VOLUME:
-		path_follow.paused = true
-		chasing = true
-		reparent(owner)
+		game_manager.hunt_started.emit()
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:
 		get_tree().reload_current_scene()
+
+
+func _on_hunt_started() -> void:
+	path_follow.paused = true
+	chasing = true
+	reparent(owner)

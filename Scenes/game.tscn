@@ -212,3 +212,8 @@ rotation = -1.5707964
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 unique_name_in_owner = true
 navigation_polygon = SubResource("NavigationPolygon_o5yvi")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="hunt_started" from="GameManager" to="GameManager" method="_on_hunt_started"]
+[connection signal="hunt_started" from="GameManager" to="Path2D/PathFollow2D/Enemy" method="_on_hunt_started"]

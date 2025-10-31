@@ -54,6 +54,6 @@ func _physics_process(_delta):
 func resolve_collisions() -> void:
 	for i in get_slide_collision_count():
 		var collision := get_slide_collision(i)
-		var body := collision.get_collider()as RigidBody2D
+		var body := collision.get_collider() as RigidBody2D
 		if body:
 			body.apply_force(-100.0 * collision.get_normal())
