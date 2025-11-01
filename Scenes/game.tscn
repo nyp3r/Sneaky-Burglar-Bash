@@ -192,11 +192,12 @@ pitch_scale = 0.43
 autoplay = true
 max_distance = 300.0
 panning_strength = 3.0
+bus = &"Gameplay"
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Map" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
 
-[node name="CanvasModulate" type="CanvasModulate" parent="CanvasLayer"]
+[node name="CanvasModulate" type="CanvasModulate" parent="Map"]
 light_mask = 2
 visibility_layer = 2
 position = Vector2(-22, 13)
@@ -214,6 +215,17 @@ unique_name_in_owner = true
 navigation_polygon = SubResource("NavigationPolygon_o5yvi")
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="UI"]
+offset_left = 10.0
+offset_top = 1.0
+offset_right = 22.0
+offset_bottom = 127.0
+max_value = 1000000.0
+value = 31.19
+fill_mode = 3
 
 [connection signal="hunt_started" from="GameManager" to="GameManager" method="_on_hunt_started"]
 [connection signal="hunt_started" from="GameManager" to="Path2D/PathFollow2D/Enemy" method="_on_hunt_started"]

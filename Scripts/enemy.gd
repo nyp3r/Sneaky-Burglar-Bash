@@ -5,7 +5,6 @@ const VISION_CONE_ANGLE := deg_to_rad(100)
 const MAX_VIEW_DISTANE := 150
 const ANGLE_BETWEEN_RAYS := deg_to_rad(10)
 
-@onready var spectrum_analyzer := AudioServer.get_bus_effect_instance(0, 0) as AudioEffectSpectrumAnalyzerInstance
 @onready var game_manager: GameManager = %GameManager
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var path_follow: EnemyPath = $".."
@@ -59,18 +58,9 @@ func _physics_process(delta: float) -> void:
 		velocity = velocity.lerp(direction * 200, delta)
 		move_and_slide()
 
-func _process(_delta: float) -> void:
-	var player = get_tree().get_first_node_in_group("Player") as CharacterBody2D
-	var distance_to_player = global_position.distance_to(player.global_position)
-	
-	var spacial_volume = 1 / game_manager.volume_linear * distance_to_player
-	if spacial_volume < MAX_SPACIAL_VOLUME:
-		game_manager.hunt_started.emit()
-
-
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:
-		get_tree().reload_current_scene()
+		get_tree().call_deferred("reload_current_scene")
 
 
 func _on_hunt_started() -> void:

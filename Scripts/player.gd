@@ -10,7 +10,7 @@ const RUN_SPEED = 200
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var game_manager: Node = %GameManager
-@onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var audio: AudioStreamPlayer2D = $FootstepAudio
 @onready var interaction_prompt: Label = $InteractionPrompt
 
 const BASE_VOLUME = 0.5
