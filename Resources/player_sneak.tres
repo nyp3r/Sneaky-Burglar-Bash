@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="GameplaySound" load_steps=3 format=3 uid="uid://cll08elusab8h"]
+
+[ext_resource type="Script" uid="uid://bite41gb84nrm" path="res://Scripts/Resources/gameplay_sounds.gd" id="1_ddtln"]
+[ext_resource type="AudioStream" uid="uid://bj4qyvro61phd" path="res://Assets/Sound/player_sneak_boot.mp3" id="2_bjc2a"]
+
+[resource]
+script = ExtResource("1_ddtln")
+sound = ExtResource("2_bjc2a")
+volume_score = 2.5
+metadata/_custom_type_script = "uid://bite41gb84nrm"
