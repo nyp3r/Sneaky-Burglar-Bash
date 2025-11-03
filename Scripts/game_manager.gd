@@ -3,15 +3,17 @@ class_name GameManager
 
 @onready var enemy: CharacterBody2D = %Enemy
 @onready var player: CharacterBody2D = %Player
-@onready var progress_bar: ProgressBar = $"../UI/ProgressBar"
-var current_volume_score: float = 0.0
-var max_volume_score: float = 0.0
 
-const VOLUME_SCORE_MAX = 15.5
-const VOLUME_MAX = 1.0
+var current_volume_score: int:
+	get:
+		var biggest: int = 0
+		for source in volume_scores:
+			if volume_scores[source] > biggest:
+				biggest = volume_scores[source]
+		return biggest
+var volume_scores: Dictionary[AudioStreamPlayer2D, int]
+
 var player_is_hidden = false
-
-signal hunt_started
 
 func _process(_delta: float) -> void:
 	pass
@@ -30,11 +32,6 @@ func _process(_delta: float) -> void:
 
 func toggle_interaction_prompt():
 	player.interaction_prompt.visible = !player.interaction_prompt.visible
-
-
-func _on_hunt_started() -> void:
-	pass # Replace with function body.
-
 
 func _on_cabinet_player_exposed() -> void:
 	player.visible = true

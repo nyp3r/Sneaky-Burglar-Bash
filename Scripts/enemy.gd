@@ -2,8 +2,8 @@ extends CharacterBody2D
 class_name Enemy
 
 enum sound {
-	occluded = 10,
-	direct = 24,
+	occluded = 5,
+	direct = 10,
 }
 
 const VISION_CONE_ANGLE := deg_to_rad(100)
@@ -50,10 +50,8 @@ func _physics_process(delta: float) -> void:
 			if child is RayCast2D:
 				var ray = child as RayCast2D
 				if ray.is_colliding() and ray.get_collider() is Player:
-					path_follow.paused = true
-					chasing = true
-					reparent(owner)
-					navigation_agent.target_position = target.global_position
+					print("enemy.gd: enemy sees player")
+					start_hunt()
 					break
 	
 	if chasing:
@@ -61,17 +59,22 @@ func _physics_process(delta: float) -> void:
 		var direction = (navigation_agent.get_next_path_position() - global_position).normalized()
 		velocity = velocity.lerp(direction * 200, delta)
 		move_and_slide()
+	
+	if get_spacial_volume_score() < 50:
+		start_hunt()
+
+func start_hunt():
+	path_follow.paused = true
+	chasing = true
+	reparent(owner) 
+
+func get_spacial_volume_score() -> int: 
+	var distance_to_player = global_position.distance_to(target.global_position)
+	return distance_to_player / game_manager.current_volume_score
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:
 		get_tree().call_deferred("reload_current_scene")
-
-
-func _on_hunt_started() -> void:
-	path_follow.paused = true
-	chasing = true
-	reparent(owner)
-
 
 func _on_cabinet_player_exposed() -> void:
 	for child in get_children():

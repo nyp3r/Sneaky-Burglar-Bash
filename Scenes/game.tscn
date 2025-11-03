@@ -121,9 +121,9 @@ sources/2 = SubResource("TileSetAtlasSource_nnt18")
 
 [sub_resource type="Curve2D" id="Curve2D_v158k"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 170, 0, 0, 0, 0, -282, 168, 0, 0, 0, 0, -326, 98, 0, 0, 0, 0, -508, 80, 0, 0, 0, 0, -310, 128, 0, 0, 0, 0, 10, 178, 0, 0, 0, 0, 16, 294, 0, 0, 0, 0, -740, 300, 0, 0, 0, 0, -736, 608, 0, 0, 0, 0, -550, 616, 0, 0, 0, 0, -556, 440, 0, 0, 0, 0, -192, 414, 0, 0, 0, 0, -176, 486, 0, 0, 0, 0, -52, 482)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 42, 0, 0, 0, 0, 18, 170, 0, 0, 0, 0, -282, 168, 0, 0, 0, 0, -326, 98, 0, 0, 0, 0, -508, 80, 0, 0, 0, 0, -310, 128, 0, 0, 0, 0, 10, 178, 0, 0, 0, 0, 16, 294, 0, 0, 0, 0, -740, 300, 0, 0, 0, 0, -736, 608, 0, 0, 0, 0, -550, 616, 0, 0, 0, 0, -556, 440, 0, 0, 0, 0, -192, 414, 0, 0, 0, 0, -176, 486, 0, 0, 0, 0, -52, 482)
 }
-point_count = 15
+point_count = 16
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_o5yvi"]
 vertices = PackedVector2Array(322, 158, 162.09375, 158, 162.90625, 67, 302, 143.85938, 489, 66, 510, 66, 510, 126, 502, 126, 489, 68, 502, 162, 510, 162, 510, 190, 322, 190, 253, 67, 253, 99, 292, 99, 292, 117.859375, 338, 121.57031, 338, 98, 350, 98, 350, 162, 490, 126, 450, 126, 450, 68, 490, 162)
@@ -174,7 +174,7 @@ scale = Vector2(0.5, 0.5)
 curve = SubResource("Curve2D_v158k")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-rotation = 1.465307
+rotation = 1.0882831
 loop = false
 script = ExtResource("5_v158k")
 
@@ -206,8 +206,6 @@ navigation_polygon = SubResource("NavigationPolygon_o5yvi")
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 
-[connection signal="hunt_started" from="GameManager" to="GameManager" method="_on_hunt_started"]
-[connection signal="hunt_started" from="GameManager" to="Path2D/PathFollow2D/Enemy" method="_on_hunt_started"]
 [connection signal="player_exposed" from="Cabinet" to="GameManager" method="_on_cabinet_player_exposed"]
 [connection signal="player_exposed" from="Cabinet" to="Path2D/PathFollow2D/Enemy" method="_on_cabinet_player_exposed"]
 [connection signal="player_exposed" from="Cabinet" to="Cabinet" method="_on_player_exposed"]
