@@ -53,8 +53,7 @@ func _physics_process(delta: float) -> void:
 					print("enemy.gd: enemy sees player")
 					start_hunt()
 					break
-	
-	if chasing:
+	else:
 		navigation_agent.target_position = get_tree().get_first_node_in_group("Player").global_position
 		var direction = (navigation_agent.get_next_path_position() - global_position).normalized()
 		velocity = velocity.lerp(direction * 200, delta)
