@@ -36,12 +36,13 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	sound_ray_cast.target_position = sound_ray_cast.to_local(target.global_position)
-	if sound_ray_cast.is_colliding() and not sound_ray_cast.get_collider().is_class("CharacterBody2D"):
-		AudioServer.set_bus_effect_enabled(3, 0, true)
-		audio.volume_db = sound.occluded
-	else:
-		AudioServer.set_bus_effect_enabled(3, 0, false)
-		audio.volume_db = sound.direct
+	if not game_manager.player_is_hidden:
+		if sound_ray_cast.is_colliding() and not sound_ray_cast.get_collider().is_class("CharacterBody2D"):
+			AudioServer.set_bus_effect_enabled(3, 0, true)
+			audio.volume_db = sound.occluded
+		else:
+			AudioServer.set_bus_effect_enabled(3, 0, false)
+			audio.volume_db = sound.direct
 		
 	
 	if not chasing:
@@ -70,3 +71,16 @@ func _on_hunt_started() -> void:
 	path_follow.paused = true
 	chasing = true
 	reparent(owner)
+
+
+func _on_cabinet_player_exposed() -> void:
+	for child in get_children():
+			if child is RayCast2D:
+				child.enabled = true
+
+
+func _on_cabinet_player_hid() -> void:
+	for child in get_children():
+			if child is RayCast2D:
+				child.enabled = false
+	audio.volume_db = sound.occluded

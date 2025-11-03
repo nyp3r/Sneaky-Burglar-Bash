@@ -28,19 +28,21 @@ func _process(_delta: float) -> void:
 	#if spacial_volume < VOLUME_MAX:
 		#hunt_started.emit()
 
-func hide_player():
-	player.visible = false
-	player.movement_enabled = false
-	player_is_hidden = true
-
-func unhide_player():
-	player.visible = true
-	player.movement_enabled = true
-	player_is_hidden = false
-
 func toggle_interaction_prompt():
 	player.interaction_prompt.visible = !player.interaction_prompt.visible
 
 
 func _on_hunt_started() -> void:
 	pass # Replace with function body.
+
+
+func _on_cabinet_player_exposed() -> void:
+	player.visible = true
+	player.movement_enabled = true
+	player_is_hidden = false
+
+
+func _on_cabinet_player_hid() -> void:
+	player.visible = false
+	player.movement_enabled = false
+	player_is_hidden = true
