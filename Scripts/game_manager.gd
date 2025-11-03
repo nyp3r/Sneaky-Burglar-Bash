@@ -4,7 +4,6 @@ class_name GameManager
 @onready var enemy: CharacterBody2D = %Enemy
 @onready var player: CharacterBody2D = %Player
 @onready var progress_bar: ProgressBar = $"../UI/ProgressBar"
-@onready var spectrum_analyzer: AudioEffectInstance = AudioServer.get_bus_effect_instance(2, 0)
 var current_volume_score: float = 0.0
 var max_volume_score: float = 0.0
 
@@ -15,18 +14,19 @@ var player_is_hidden = false
 signal hunt_started
 
 func _process(_delta: float) -> void:
-	var volume_current = spectrum_analyzer.get_magnitude_for_frequency_range(0, 10000).length()
-	if volume_current > VOLUME_MAX or current_volume_score > VOLUME_SCORE_MAX:
-		hunt_started.emit()
-	 
-	var distance_to_player = enemy.global_position.distance_to(player.global_position)
-	
-	var spacial_volume = 1 / volume_current * distance_to_player
-	if progress_bar != null:
-		progress_bar.value = spacial_volume
-	
-	if spacial_volume < VOLUME_MAX:
-		hunt_started.emit()
+	pass
+	#var volume_current = spectrum_analyzer.get_magnitude_for_frequency_range(0, 10000).length()
+	#if volume_current > VOLUME_MAX or current_volume_score > VOLUME_SCORE_MAX:
+		#hunt_started.emit()
+	 #
+	#var distance_to_player = enemy.global_position.distance_to(player.global_position)
+	#
+	#var spacial_volume = 1 / volume_current * distance_to_player
+	#if progress_bar != null:
+		#progress_bar.value = spacial_volume
+	#
+	#if spacial_volume < VOLUME_MAX:
+		#hunt_started.emit()
 
 func hide_player():
 	player.visible = false

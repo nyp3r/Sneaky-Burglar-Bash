@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dghuphmeuvh0n"]
+[gd_scene load_steps=6 format=3 uid="uid://dghuphmeuvh0n"]
 
 [ext_resource type="Script" uid="uid://b8f8ew87fv6p0" path="res://Scripts/enemy.gd" id="1_1f0kj"]
 [ext_resource type="Texture2D" uid="uid://y36ub15abdxi" path="res://Assets/Sprites/Enemy.png" id="1_hghv2"]
+[ext_resource type="AudioStream" uid="uid://dk2rl1qkvgicy" path="res://Assets/Sound/enemy_walking_barefeet.mp3" id="3_afpow"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1f0kj"]
 size = Vector2(60, 22)
@@ -26,5 +27,16 @@ shape = SubResource("RectangleShape2D_1f0kj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_afpow")
+
+[node name="SoundRayCast" type="RayCast2D" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_afpow")
+volume_db = 24.0
+pitch_scale = 0.43
+autoplay = true
+max_distance = 300.0
+panning_strength = 3.0
+bus = &"Enemy"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

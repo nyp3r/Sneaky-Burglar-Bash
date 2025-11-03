@@ -3,6 +3,10 @@ class_name Player
 
 var movement_enabled = true
 
+@export var sneak_sound: AudioStreamMP3
+@export var walk_sound: AudioStreamMP3
+@export var run_sound: AudioStreamMP3
+
 const WALK_SPEED = 100
 const SNEAK_SPEED = 50
 const RUN_SPEED = 200
@@ -12,8 +16,6 @@ const RUN_SPEED = 200
 @onready var game_manager: Node = %GameManager
 @onready var audio: AudioStreamPlayer2D = $FootstepAudio
 @onready var interaction_prompt: Label = $InteractionPrompt
-
-const BASE_VOLUME = 0.5
 
 func get_input() -> Vector2:
 	var input_direction = Input.get_vector("left", "right", "up", "down")
@@ -38,17 +40,16 @@ func _physics_process(_delta):
 	if movement_enabled:
 		if Input.is_action_just_pressed("sneak"):
 			speed = SNEAK_SPEED
+			audio.stream = sneak_sound
 		elif Input.is_action_just_released("sneak"):
 			speed = WALK_SPEED
+			audio.stream = walk_sound
 		elif Input.is_action_just_pressed("run"):
 			speed = RUN_SPEED
+			audio.stream = run_sound
 		elif Input.is_action_just_released("run"):
 			speed = WALK_SPEED
-	
-	audio.pitch_scale = float(speed) / float(WALK_SPEED)
-	audio.volume_linear = float(speed) / float(WALK_SPEED) * BASE_VOLUME
-	if input_direction == Vector2.ZERO:
-		audio.volume_linear = 0.0
+			audio.stream = walk_sound
 
 
 func resolve_collisions() -> void:

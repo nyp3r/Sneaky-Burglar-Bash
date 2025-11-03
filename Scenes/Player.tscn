@@ -1,9 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://di3nwwsf4b3pg"]
+[gd_scene load_steps=18 format=3 uid="uid://di3nwwsf4b3pg"]
 
 [ext_resource type="Script" uid="uid://dqjaw5bs00hd6" path="res://Scripts/player.gd" id="1_kyqiw"]
 [ext_resource type="Texture2D" uid="uid://y6phs8vpbof6" path="res://Assets/Sprites/Player.png" id="1_rpqav"]
-[ext_resource type="AudioStream" uid="uid://cwvrowewfp32t" path="res://Assets/Sound/player_footsteps.mp3" id="3_gntrk"]
+[ext_resource type="AudioStream" uid="uid://bj4qyvro61phd" path="res://Assets/Sound/player_sneak_boot.mp3" id="2_52ee3"]
+[ext_resource type="AudioStream" uid="uid://d0kfxm7ebk6u1" path="res://Assets/Sound/player_walk_boots.mp3" id="3_bhhdu"]
 [ext_resource type="FontFile" uid="uid://dm7rqamcs5b1i" path="res://Assets/Fonts/lunchds.ttf" id="4_5ixxa"]
+[ext_resource type="AudioStream" uid="uid://cfs53s38q1rrf" path="res://Assets/Sound/player_run_boot.mp3" id="4_megsn"]
 [ext_resource type="Script" uid="uid://b6n0cwtj3wmw4" path="res://Scripts/interaction_prompt.gd" id="4_nn08x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kyqiw"]
@@ -69,6 +71,9 @@ outline_color = Color(0, 0, 0, 1)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_kyqiw")
+sneak_sound = ExtResource("2_52ee3")
+walk_sound = ExtResource("3_bhhdu")
+run_sound = ExtResource("4_megsn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 20
@@ -104,5 +109,6 @@ label_settings = SubResource("LabelSettings_nn08x")
 script = ExtResource("4_nn08x")
 
 [node name="FootstepAudio" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_gntrk")
+stream = ExtResource("3_bhhdu")
+volume_db = 24.0
 bus = &"Gameplay"
