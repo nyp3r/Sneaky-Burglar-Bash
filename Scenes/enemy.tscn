@@ -21,8 +21,6 @@ texture = ExtResource("1_hghv2")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_1f0kj")
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -37,5 +35,7 @@ autoplay = true
 max_distance = 300.0
 panning_strength = 3.0
 bus = &"Enemy"
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

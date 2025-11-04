@@ -49,7 +49,7 @@ func _physics_process(delta: float) -> void:
 		for child in get_children():
 			if child is RayCast2D:
 				var ray = child as RayCast2D
-				if ray.is_colliding() and ray.get_collider() is Player:
+				if ray.is_colliding() and ray.get_collider() is Player and ray.name != sound_ray_cast.name:
 					print("enemy.gd: enemy sees player")
 					start_hunt()
 					break
@@ -59,20 +59,23 @@ func _physics_process(delta: float) -> void:
 		velocity = velocity.lerp(direction * 200, delta)
 		move_and_slide()
 	
-	if get_spacial_volume_score() < 50:
-		start_hunt()
+	#if get_spacial_volume_score() < 50:
+		#start_hunt()
+	print(get_spacial_volume_score())
 
 func start_hunt():
 	path_follow.paused = true
 	chasing = true
-	reparent(owner) 
+	reparent(owner)
 
 func get_spacial_volume_score() -> int: 
 	var distance_to_player = global_position.distance_to(target.global_position)
+	if game_manager.current_volume_score == 0:
+		return -1
 	return distance_to_player / game_manager.current_volume_score
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body is Player:
+	if body is Player and not game_manager.player_is_hidden:
 		get_tree().call_deferred("reload_current_scene")
 
 func _on_cabinet_player_exposed() -> void:

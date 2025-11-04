@@ -16,6 +16,9 @@ enum sound_score {
 const WALK_SPEED = 100
 const SNEAK_SPEED = 50
 const RUN_SPEED = 200
+var running = false
+var sneaking = false
+
 @onready var speed = WALK_SPEED
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -39,28 +42,34 @@ func _physics_process(_delta):
 	
 	if input_direction == Vector2.ZERO or not movement_enabled:
 		audio.stop()
-		game_manager.volume_scores.erase(audio)
+		game_manager.volume_scores.erase(audio) 
 	
 	if input_direction != Vector2.ZERO and not audio.playing and movement_enabled:
 		audio.play()
 	
 	if movement_enabled:
-		if Input.is_action_just_pressed("sneak"):
+		if Input.is_action_just_pressed("sneak"): # Fix volume score for sneak and run
+			sneaking = true
 			speed = SNEAK_SPEED
 			audio.stream = sneak_sound
-			game_manager.volume_scores[audio] = sound_score.SNEAK
+			game_manager.volume_scores[audio] = sound_score.SNEAK 
 		elif Input.is_action_just_released("sneak"):
+			sneaking = false
 			speed = WALK_SPEED
 			audio.stream = walk_sound
-			game_manager.volume_scores[audio] = sound_score.WALK
+			game_manager.volume_scores[audio] = sound_score.WALK 
 		elif Input.is_action_just_pressed("run"):
+			running = true
 			speed = RUN_SPEED
 			audio.stream = run_sound
-			game_manager.volume_scores[audio] = sound_score.RUN
+			game_manager.volume_scores[audio] = sound_score.RUN 
 		elif Input.is_action_just_released("run"):
+			running = false
 			speed = WALK_SPEED
 			audio.stream = walk_sound
-			game_manager.volume_scores[audio] = sound_score.WALK
+			game_manager.volume_scores[audio] = sound_score.WALK 
+		elif not running and not sneaking:
+			game_manager.volume_scores[audio] = sound_score.WALK 
 
 
 func resolve_collisions() -> void:
