@@ -42,34 +42,37 @@ func _physics_process(_delta):
 	
 	if input_direction == Vector2.ZERO or not movement_enabled:
 		audio.stop()
-		game_manager.volume_scores.erase(audio) 
+		game_manager.volume_scores[audio] = 0
 	
 	if input_direction != Vector2.ZERO and not audio.playing and movement_enabled:
 		audio.play()
+		match audio.stream:
+			sneak_sound:
+				game_manager.volume_scores[audio] = sound_score.SNEAK
+			
+			walk_sound:
+				game_manager.volume_scores[audio] = sound_score.WALK 
+			
+			run_sound:
+				game_manager.volume_scores[audio] = sound_score.RUN
 	
 	if movement_enabled:
-		if Input.is_action_just_pressed("sneak"): # Fix volume score for sneak and run
+		if Input.is_action_just_pressed("sneak"):
 			sneaking = true
 			speed = SNEAK_SPEED
 			audio.stream = sneak_sound
-			game_manager.volume_scores[audio] = sound_score.SNEAK 
 		elif Input.is_action_just_released("sneak"):
 			sneaking = false
 			speed = WALK_SPEED
 			audio.stream = walk_sound
-			game_manager.volume_scores[audio] = sound_score.WALK 
 		elif Input.is_action_just_pressed("run"):
 			running = true
 			speed = RUN_SPEED
 			audio.stream = run_sound
-			game_manager.volume_scores[audio] = sound_score.RUN 
 		elif Input.is_action_just_released("run"):
 			running = false
 			speed = WALK_SPEED
-			audio.stream = walk_sound
-			game_manager.volume_scores[audio] = sound_score.WALK 
-		elif not running and not sneaking:
-			game_manager.volume_scores[audio] = sound_score.WALK 
+			audio.stream = walk_sound 
 
 
 func resolve_collisions() -> void:
