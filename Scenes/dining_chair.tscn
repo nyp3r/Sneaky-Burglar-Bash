@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwufawg15sc1m"]
+
+[ext_resource type="Texture2D" uid="uid://ht36xhjdbv67" path="res://Assets/Sprites/dining_chair.png" id="1_met7g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rcneg"]
+size = Vector2(26, 26)
+
+[node name="DiningChair" type="RigidBody2D"]
+gravity_scale = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.8125, 0.8125)
+texture = ExtResource("1_met7g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rcneg")
