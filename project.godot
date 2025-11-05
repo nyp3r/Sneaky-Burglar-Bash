@@ -30,10 +30,11 @@ version_control/autoload_on_startup=true
 [file_customization]
 
 folder_colors={
-"res://Assets/": "teal",
+"res://Assets/": "pink",
 "res://Resources/": "orange",
 "res://Scenes/": "blue",
-"res://Scripts/": "green"
+"res://Scripts/": "green",
+"res://addons/": "yellow"
 }
 
 [global_group]
