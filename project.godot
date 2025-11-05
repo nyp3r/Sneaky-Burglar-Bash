@@ -78,6 +78,10 @@ interact={
 ]
 }
 
+[navigation]
+
+2d/warnings/navmesh_edge_merge_errors=false
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

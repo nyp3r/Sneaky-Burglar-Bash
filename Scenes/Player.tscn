@@ -70,6 +70,8 @@ outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
+motion_mode = 1
+wall_min_slide_angle = 0.0
 script = ExtResource("1_kyqiw")
 sneak_sound = ExtResource("2_52ee3")
 walk_sound = ExtResource("3_bhhdu")

@@ -1,6 +1,9 @@
 extends CharacterBody2D
 class_name Enemy
 
+var speed = 100
+var accelaration = 2
+
 enum sound {
 	occluded = 5,
 	direct = 10,
@@ -17,6 +20,9 @@ const ANGLE_BETWEEN_RAYS := deg_to_rad(10)
 @onready var sound_ray_cast: RayCast2D = $SoundRayCast
 @onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @export var target: Player
+
+@export var walk_sound: AudioStreamMP3
+@export var run_sound: AudioStreamMP3
 
 const MAX_SPACIAL_VOLUME = 300
 var chasing = false
@@ -50,28 +56,35 @@ func _physics_process(delta: float) -> void:
 			if child is RayCast2D:
 				var ray = child as RayCast2D
 				if ray.is_colliding() and ray.get_collider() is Player and ray.name != sound_ray_cast.name:
-					print("enemy.gd: enemy sees player")
 					start_hunt()
 					break
 	else:
-		navigation_agent.target_position = get_tree().get_first_node_in_group("Player").global_position
-		var direction = (navigation_agent.get_next_path_position() - global_position).normalized()
-		velocity = velocity.lerp(direction * 200, delta)
 		move_and_slide()
+		navigation_agent.target_position = get_tree().get_first_node_in_group("Player").global_position
+		if not navigation_agent.is_navigation_finished():
+			var direction := (navigation_agent.get_next_path_position() - global_position).normalized()
+			velocity = velocity.lerp(direction * speed, accelaration * delta)
+		else:
+			velocity = velocity.lerp(Vector2.ZERO, accelaration * delta)
+	move_and_slide()
+
 	
-	#if get_spacial_volume_score() < 50:
-		#start_hunt()
+	var spacial_volume_score = get_spacial_volume_score()
+	if spacial_volume_score < 10 and spacial_volume_score >= 0:
+		start_hunt()
 	print(get_spacial_volume_score())
 
 func start_hunt():
-	path_follow.paused = true
-	chasing = true
-	reparent(owner)
+	if not chasing:
+		audio.stop()
+		audio.stream = run_sound
+		audio.play()
+		path_follow.paused = true
+		chasing = true
+		reparent(owner)
 
-func get_spacial_volume_score() -> int: 
+func get_spacial_volume_score() -> int:
 	var distance_to_player = global_position.distance_to(target.global_position)
-	if game_manager.current_volume_score == 0:
-		return -1
 	return distance_to_player / game_manager.current_volume_score
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
