@@ -59,14 +59,16 @@ func _physics_process(delta: float) -> void:
 					start_hunt()
 					break
 	else:
-		move_and_slide()
-		navigation_agent.target_position = get_tree().get_first_node_in_group("Player").global_position
+		navigation_agent.target_position = target.global_position
+		look_at(navigation_agent.get_next_path_position())
 		if not navigation_agent.is_navigation_finished():
 			var direction := (navigation_agent.get_next_path_position() - global_position).normalized()
-			velocity = velocity.lerp(direction * speed, accelaration * delta)
+			#velocity = velocity.lerp(direction * speed, accelaration * delta)
+			var steer = (direction * speed - velocity) * 4.0
+			velocity += steer * delta
 		else:
-			velocity = velocity.lerp(Vector2.ZERO, accelaration * delta)
-	move_and_slide()
+			velocity = Vector2.ZERO
+		move_and_slide()
 
 	
 	var spacial_volume_score = get_spacial_volume_score()

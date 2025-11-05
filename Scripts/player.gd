@@ -52,7 +52,6 @@ func _physics_process(_delta):
 			
 			walk_sound:
 				game_manager.volume_scores[audio] = sound_score.WALK 
-			
 			run_sound:
 				game_manager.volume_scores[audio] = sound_score.RUN
 	

@@ -9,7 +9,6 @@
 [ext_resource type="Script" uid="uid://b6n0cwtj3wmw4" path="res://Scripts/interaction_prompt.gd" id="4_nn08x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kyqiw"]
-radius = 13.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gntrk"]
 atlas = ExtResource("1_rpqav")
