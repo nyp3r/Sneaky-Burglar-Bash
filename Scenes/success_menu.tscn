@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://droq5mpdru2bs"]
+
+[ext_resource type="FontFile" uid="uid://dm7rqamcs5b1i" path="res://Assets/Fonts/lunchds.ttf" id="1_mcl6d"]
+[ext_resource type="Script" uid="uid://bu5r7wfimxj37" path="res://Scripts/button.gd" id="2_uyvdl"]
+
+[node name="SuccessMenu" type="Node2D"]
+
+[node name="Button" type="Button" parent="."]
+offset_left = -144.0
+offset_top = -32.0
+offset_right = 146.0
+offset_bottom = 27.0
+pivot_offset = Vector2(143, 32)
+theme_override_colors/font_hover_color = Color(0.007843138, 0.007843138, 0.007843138, 1)
+theme_override_fonts/font = ExtResource("1_mcl6d")
+theme_override_font_sizes/font_size = 50
+text = "Play again"
+script = ExtResource("2_uyvdl")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Label" type="Label" parent="."]
+offset_left = -307.0
+offset_top = -206.0
+offset_right = 308.0
+offset_bottom = -114.0
+theme_override_colors/font_color = Color(0, 0.54901963, 0, 1)
+theme_override_fonts/font = ExtResource("1_mcl6d")
+theme_override_font_sizes/font_size = 91
+text = "You escaped!"
+
+[connection signal="button_down" from="Button" to="Button" method="_on_button_down"]

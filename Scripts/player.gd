@@ -26,6 +26,8 @@ var sneaking = false
 @onready var audio: AudioStreamPlayer2D = $FootstepAudio
 @onready var interaction_prompt: Label = $InteractionPrompt
 
+var has_teddy_bear = false
+
 func get_input() -> Vector2:
 	var input_direction = Input.get_vector("left", "right", "up", "down")
 	velocity = input_direction * speed
@@ -80,3 +82,9 @@ func resolve_collisions() -> void:
 		var body := collision.get_collider() as RigidBody2D
 		if body:
 			body.apply_force(-100.0 * collision.get_normal())
+
+
+func _on_teddy_bear_2_body_entered(body: Node2D) -> void:
+	if body.name == name:
+		has_teddy_bear = true
+		animated_sprite.frame = 1

@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://dynumur8k5lb8" path="res://Assets/Sprites/cabinet.png" id="1_7a4v6"]
 [ext_resource type="Script" uid="uid://cdx1s02lomp7v" path="res://Scripts/cabinet.gd" id="1_imhc6"]
 [ext_resource type="Texture2D" uid="uid://ddpqgajasvmv4" path="res://Assets/Sprites/closed_cabinet.png" id="3_i6gei"]
-[ext_resource type="AudioStream" uid="uid://68etlxi6pjct" path="res://Assets/Sound/cabinet_open.mp3" id="4_4e4eg"]
-[ext_resource type="AudioStream" uid="uid://dxglmkckg1hcx" path="res://Assets/Sound/cabinet_close.mp3" id="5_jeqn1"]
+[ext_resource type="AudioStream" uid="uid://68etlxi6pjct" path="res://Assets/Sound/Cabinet/cabinet_open.mp3" id="4_4e4eg"]
+[ext_resource type="AudioStream" uid="uid://dxglmkckg1hcx" path="res://Assets/Sound/Cabinet/cabinet_close.mp3" id="5_jeqn1"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_i6gei"]
 polygon = PackedVector2Array(-14, -12, 12, -12, 12, 12, -14, 12)

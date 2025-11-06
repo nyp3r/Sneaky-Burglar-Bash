@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dghuphmeuvh0n"]
+[gd_scene load_steps=8 format=3 uid="uid://dghuphmeuvh0n"]
 
 [ext_resource type="Script" uid="uid://b8f8ew87fv6p0" path="res://Scripts/enemy.gd" id="1_1f0kj"]
 [ext_resource type="Texture2D" uid="uid://y36ub15abdxi" path="res://Assets/Sprites/Enemy.png" id="1_hghv2"]
-[ext_resource type="AudioStream" uid="uid://bgpdd2i6hdtmw" path="res://Assets/Sound/enemy_run_barefeet.mp3" id="3_287tu"]
-[ext_resource type="AudioStream" uid="uid://dk2rl1qkvgicy" path="res://Assets/Sound/enemy_walking_barefeet.mp3" id="3_afpow"]
+[ext_resource type="AudioStream" uid="uid://bgpdd2i6hdtmw" path="res://Assets/Sound/Enemy/enemy_run_barefeet.mp3" id="3_287tu"]
+[ext_resource type="AudioStream" uid="uid://dk2rl1qkvgicy" path="res://Assets/Sound/Enemy/enemy_walking_barefeet.mp3" id="3_afpow"]
+[ext_resource type="AudioStream" uid="uid://lbkgx6tt8hwi" path="res://Assets/Sound/Enemy/laugh.mp3" id="4_0830c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_afpow"]
 radius = 28.0
@@ -18,6 +19,7 @@ wall_min_slide_angle = 0.0
 script = ExtResource("1_1f0kj")
 walk_sound = ExtResource("3_afpow")
 run_sound = ExtResource("3_287tu")
+laugh_sound = ExtResource("4_0830c")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(4, 0)
@@ -34,7 +36,7 @@ shape = SubResource("CircleShape2D_287tu")
 
 [node name="SoundRayCast" type="RayCast2D" parent="."]
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="FootstepAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_afpow")
 volume_db = 10.0
 autoplay = true
@@ -45,4 +47,11 @@ bus = &"Enemy"
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 1.0
 
+[node name="LaughTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="VoiceAudio" type="AudioStreamPlayer2D" parent="."]
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="LaughTimer" to="." method="_on_laugh_timer_timeout"]
