@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bqcvqpwu2ao8x"
-path="res://.godot/imported/Nightstand.png-98003e510987a2305e0cd200e5dda1de.ctex"
+path="res://.godot/imported/Nightstand.png-3ba8d917cf2c3f71fa23a8bbc27369ea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Tiles/Nightstand.png"
-dest_files=["res://.godot/imported/Nightstand.png-98003e510987a2305e0cd200e5dda1de.ctex"]
+source_file="res://Assets/Sprites/Nightstand.png"
+dest_files=["res://.godot/imported/Nightstand.png-3ba8d917cf2c3f71fa23a8bbc27369ea.ctex"]
 
 [params]
 

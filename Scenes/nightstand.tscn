@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://vnmg3vtft0mr"]
+
+[ext_resource type="Script" uid="uid://cmys6fwkl350h" path="res://Scripts/nightstand.gd" id="1_pislf"]
+[ext_resource type="Texture2D" uid="uid://bqcvqpwu2ao8x" path="res://Assets/Sprites/Nightstand.png" id="1_qh6by"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pislf"]
+size = Vector2(26, 26)
+
+[sub_resource type="Gradient" id="Gradient_5ixxa"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_me17v"]
+gradient = SubResource("Gradient_5ixxa")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+metadata/_snap_enabled = true
+metadata/_snap_count = 2
+
+[node name="Nightstand" type="StaticBody2D"]
+script = ExtResource("1_pislf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_pislf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_qh6by")
+
+[node name="PointLight" type="PointLight2D" parent="."]
+scale = Vector2(1.21875, 1.2187501)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_me17v")
