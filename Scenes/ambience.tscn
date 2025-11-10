@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://df36wc3epbymh"]
+
+[ext_resource type="AudioStream" uid="uid://du3reh36aw6dk" path="res://Assets/Sound/creepy-ambience-long-hollow-loop_130bpm.mp3" id="1_l12mp"]
+
+[node name="Ambience" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_l12mp")
+autoplay = true
+bus = &"Music"

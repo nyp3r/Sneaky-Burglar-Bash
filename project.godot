@@ -18,6 +18,10 @@ config/features=PackedStringArray("4.5", "GL Compatibility")
 
 buses/default_bus_layout="uid://ey43g1ibkx3w"
 
+[autoload]
+
+Ambience="*res://Scenes/ambience.tscn"
+
 [display]
 
 window/size/initial_position_type=4

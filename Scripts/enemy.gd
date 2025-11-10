@@ -93,13 +93,13 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player and not game_manager.player_is_hidden:
 		get_tree().change_scene_to_file("res://Scenes/fail_menu.tscn")
 
-func _on_cabinet_player_exposed() -> void:
+func _on_player_exposed() -> void:
 	for child in get_children():
 			if child is RayCast2D:
 				child.enabled = true
 
 
-func _on_cabinet_player_hid() -> void:
+func _on_player_hid() -> void:
 	for child in get_children():
 			if child is RayCast2D:
 				child.enabled = false

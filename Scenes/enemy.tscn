@@ -40,7 +40,7 @@ shape = SubResource("CircleShape2D_287tu")
 stream = ExtResource("3_afpow")
 volume_db = 10.0
 autoplay = true
-max_distance = 150.0
+max_distance = 300.0
 panning_strength = 3.0
 bus = &"Enemy"
 

@@ -27,6 +27,7 @@ shape = SubResource("RectangleShape2D_pislf")
 texture = ExtResource("1_qh6by")
 
 [node name="PointLight" type="PointLight2D" parent="."]
-scale = Vector2(1.21875, 1.2187501)
+visible = false
+scale = Vector2(2.7611628, 2.7611628)
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_me17v")
