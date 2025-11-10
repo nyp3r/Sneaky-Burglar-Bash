@@ -1,7 +1,9 @@
 extends CharacterBody2D
 class_name Enemy
 
-var speed = 100
+var speed: int
+const WALK_SPEED = 50
+const SPRINT_SPEED = 200
 var accelaration = 2
 
 enum sound {
@@ -15,13 +17,14 @@ const ANGLE_BETWEEN_RAYS := deg_to_rad(10)
 
 @onready var game_manager: GameManager = %GameManager
 @onready var sprite: Sprite2D = $Sprite2D
-@onready var path_follow: EnemyPath = $".."
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var sound_ray_cast: RayCast2D = $SoundRayCast
 @onready var footstep_audio: AudioStreamPlayer2D = $FootstepAudio
 @onready var voice_audio: AudioStreamPlayer2D = $VoiceAudio
 @onready var laugh_timer: Timer = $LaughTimer
+@onready var navigation_region: NavigationRegion2D = %NavigationRegion2D
 @export var target: Player
+@onready var spawner_timer: Timer = $SpawnerTimer
 
 @export var walk_sound: AudioStreamMP3
 @export var run_sound: AudioStreamMP3
@@ -42,6 +45,7 @@ func generate_raycasts() -> void:
 
 func _ready() -> void:
 	generate_raycasts()
+	speed = WALK_SPEED
 
 func _physics_process(delta: float) -> void:
 	sound_ray_cast.target_position = sound_ray_cast.to_local(target.global_position)
@@ -52,7 +56,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			AudioServer.set_bus_effect_enabled(3, 0, false)
 			footstep_audio.volume_db = sound.direct
-		
+	
 	
 	if not chasing:
 		for child in get_children():
@@ -63,14 +67,16 @@ func _physics_process(delta: float) -> void:
 					break
 	else:
 		navigation_agent.target_position = target.global_position
+	
+	
+	if not navigation_agent.is_navigation_finished():
 		look_at(navigation_agent.get_next_path_position())
-		if not navigation_agent.is_navigation_finished():
-			var direction := (navigation_agent.get_next_path_position() - global_position).normalized()
-			var steer = (direction * speed - velocity) * 4.0
-			velocity += steer * delta
-		else:
-			velocity = Vector2.ZERO
-		move_and_slide()
+		var direction := (navigation_agent.get_next_path_position() - global_position).normalized()
+		var steer = (direction * speed - velocity) * 4.0
+		velocity += steer * delta
+	else:
+		velocity = Vector2.ZERO
+	move_and_slide()
 	
 	var spacial_volume_score = get_spacial_volume_score()
 	if spacial_volume_score < 10 and spacial_volume_score >= 0:
@@ -81,8 +87,8 @@ func start_hunt():
 		footstep_audio.stop()
 		footstep_audio.stream = run_sound
 		footstep_audio.play()
-		path_follow.paused = true
 		chasing = true
+		speed = SPRINT_SPEED
 		reparent(owner)
 
 func get_spacial_volume_score() -> int:
@@ -110,3 +116,13 @@ func _on_laugh_timer_timeout() -> void:
 	if not voice_audio.playing and randi_range(0, 10) == 0:
 		voice_audio.stream = laugh_sound
 		voice_audio.play()
+
+
+func _on_spawner_timer_timeout() -> void:
+	var navigation_region_rid := navigation_region.get_rid()
+	position = NavigationServer2D.region_get_random_point(navigation_region_rid, 0, false)
+	navigation_agent.target_position = NavigationServer2D.region_get_random_point(navigation_region.get_rid(), 0, false)
+
+
+func _on_navigation_finished() -> void: 
+	navigation_agent.target_position = NavigationServer2D.region_get_random_point(navigation_region.get_rid(), 0, false)
