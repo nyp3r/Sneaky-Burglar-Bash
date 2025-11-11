@@ -81,6 +81,14 @@ stream = ExtResource("4_4e4eg")
 [node name="CloseAudioStream" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_jeqn1")
 
+[node name="OpenAudioTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="CloseAudioTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="OpenCloseTimer" to="." method="_on_open_close_timer_timeout"]
+[connection signal="timeout" from="OpenAudioTimer" to="." method="_on_open_audio_timer_timeout"]
+[connection signal="timeout" from="CloseAudioTimer" to="." method="_on_close_audio_timer_timeout"]

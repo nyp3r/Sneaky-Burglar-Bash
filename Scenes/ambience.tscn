@@ -4,5 +4,6 @@
 
 [node name="Ambience" type="AudioStreamPlayer2D"]
 stream = ExtResource("1_l12mp")
+volume_db = -9.942
 autoplay = true
 bus = &"Music"

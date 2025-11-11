@@ -138,7 +138,6 @@ script = ExtResource("1_wowpa")
 player = NodePath("../Player")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="GroundTileMap" type="TileMapLayer" parent="."]
@@ -156,7 +155,7 @@ script = ExtResource("5_o5yvi")
 
 [node name="Player" parent="." instance=ExtResource("2_qxrlw")]
 unique_name_in_owner = true
-position = Vector2(489.00003, 388)
+position = Vector2(495, 414)
 motion_mode = 0
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -172,7 +171,7 @@ target = NodePath("../Player")
 
 [node name="TeddyBear2" parent="." instance=ExtResource("13_rfjv2")]
 z_index = 5
-position = Vector2(112, 333)
+position = Vector2(117, 300)
 scale = Vector2(0.5, 0.5)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]

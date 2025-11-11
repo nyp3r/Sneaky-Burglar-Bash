@@ -41,6 +41,7 @@ stream = ExtResource("3_afpow")
 volume_db = 10.0
 autoplay = true
 max_distance = 300.0
+attenuation = 2.0
 panning_strength = 3.0
 bus = &"Enemy"
 
@@ -51,7 +52,9 @@ wait_time = 5.0
 autostart = true
 
 [node name="VoiceAudio" type="AudioStreamPlayer2D" parent="."]
+volume_db = -8.294
 max_distance = 200.0
+attenuation = 2.0000005
 
 [node name="SpawnerTimer" type="Timer" parent="."]
 wait_time = 0.05

@@ -4,7 +4,7 @@ class_name LightSwitch
 @onready var game_manager: GameManager = %GameManager
 @onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 var can_toggle_lights = false
-
+const VOLUME_SCORE = 10
 signal lights_toggled
 
 func _on_body_entered(body: Node2D) -> void:
@@ -22,3 +22,7 @@ func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and can_toggle_lights:
 			lights_toggled.emit()
 			audio.play()
+			game_manager.volume_scores[audio] = VOLUME_SCORE
+
+func _on_audio_stream_player_2d_finished() -> void:
+	game_manager.volume_scores.erase(audio)

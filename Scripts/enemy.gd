@@ -50,7 +50,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	sound_ray_cast.target_position = sound_ray_cast.to_local(target.global_position)
 	if not game_manager.player_is_hidden:
-		if sound_ray_cast.is_colliding() and not sound_ray_cast.get_collider().is_class("CharacterBody2D"):
+		if sound_ray_cast.is_colliding() and not sound_ray_cast.get_collider().is_class("CharacterBody2D"): 
 			AudioServer.set_bus_effect_enabled(3, 0, true)
 			footstep_audio.volume_db = sound.occluded
 		else:
@@ -88,8 +88,7 @@ func start_hunt():
 		footstep_audio.stream = run_sound
 		footstep_audio.play()
 		chasing = true
-		speed = SPRINT_SPEED
-		reparent(owner)
+		speed = SPRINT_SPEED 
 
 func get_spacial_volume_score() -> int:
 	var distance_to_player = global_position.distance_to(target.global_position)

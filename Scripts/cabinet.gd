@@ -7,10 +7,21 @@ extends StaticBody2D
 @onready var open_close_timer: Timer = $OpenCloseTimer
 @onready var open_audio_stream: AudioStreamPlayer2D = $OpenAudioStream
 @onready var close_audio_stream: AudioStreamPlayer2D = $CloseAudioStream
+@onready var open_audio_timer: Timer = $OpenAudioTimer
+@onready var close_audio_timer: Timer = $CloseAudioTimer
+
+enum volume_scores {
+	OPEN = 10,
+	CLOSE = 10
+}
 
 var is_in_range = false
 
 var can_open_close = true
+
+func _ready() -> void:
+	open_audio_timer.wait_time = open_audio_stream.stream.get_length()
+	close_audio_timer.wait_time = close_audio_stream.stream.get_length()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"): 
@@ -46,6 +57,8 @@ func close_cabinet():
 	can_open_close = false
 	toggle_open_close()
 	close_audio_stream.play()
+	close_audio_timer.start()
+	game_manager.volume_scores[close_audio_stream] = volume_scores.CLOSE
 
 
 func open_cabinet():
@@ -53,7 +66,18 @@ func open_cabinet():
 	can_open_close = false
 	toggle_open_close()
 	open_audio_stream.play()
+	open_audio_timer.start()
+	game_manager.volume_scores[open_audio_stream] = volume_scores.OPEN
 
 
 func _on_open_close_timer_timeout() -> void:
 	can_open_close = true
+
+
+func _on_close_audio_timer_timeout() -> void:
+	if not game_manager.volume_scores.erase(close_audio_stream):
+		print("cabinet: close audio stream did not exist")
+
+
+func _on_open_audio_timer_timeout() -> void:
+	game_manager.volume_scores.erase(open_audio_stream)
