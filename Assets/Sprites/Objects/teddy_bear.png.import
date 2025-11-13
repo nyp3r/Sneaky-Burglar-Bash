@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dl4phkooqfm6s"
-path="res://.godot/imported/floor_tiles.jpg-69d6124fd61368ae0bcd34e5648511ec.ctex"
+uid="uid://cugcel3s5mwu3"
+path="res://.godot/imported/teddy_bear.png-bc3e2c3d87734eef681896c643c26562.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/floor_tiles.jpg"
-dest_files=["res://.godot/imported/floor_tiles.jpg-69d6124fd61368ae0bcd34e5648511ec.ctex"]
+source_file="res://Assets/Sprites/Objects/teddy_bear.png"
+dest_files=["res://.godot/imported/teddy_bear.png-bc3e2c3d87734eef681896c643c26562.ctex"]
 
 [params]
 

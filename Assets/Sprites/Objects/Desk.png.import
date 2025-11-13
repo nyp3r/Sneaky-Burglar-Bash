@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cugcel3s5mwu3"
-path="res://.godot/imported/teddy_bear.png-9ec44c0e91ab4306c6fed9e24b14dae3.ctex"
+uid="uid://c53xd7bb6qrdc"
+path="res://.godot/imported/Desk.png-3501982ee0df90ec72266add558838f1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/teddy_bear.png"
-dest_files=["res://.godot/imported/teddy_bear.png-9ec44c0e91ab4306c6fed9e24b14dae3.ctex"]
+source_file="res://Assets/Sprites/Objects/Desk.png"
+dest_files=["res://.godot/imported/Desk.png-3501982ee0df90ec72266add558838f1.ctex"]
 
 [params]
 

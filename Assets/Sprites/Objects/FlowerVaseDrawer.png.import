@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqcvqpwu2ao8x"
-path="res://.godot/imported/Nightstand.png-3ba8d917cf2c3f71fa23a8bbc27369ea.ctex"
+uid="uid://g3qkhtuff2so"
+path="res://.godot/imported/FlowerVaseDrawer.png-c5b32665fb6ec1ccffaaddeb752abc23.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Nightstand.png"
-dest_files=["res://.godot/imported/Nightstand.png-3ba8d917cf2c3f71fa23a8bbc27369ea.ctex"]
+source_file="res://Assets/Sprites/Objects/FlowerVaseDrawer.png"
+dest_files=["res://.godot/imported/FlowerVaseDrawer.png-c5b32665fb6ec1ccffaaddeb752abc23.ctex"]
 
 [params]
 

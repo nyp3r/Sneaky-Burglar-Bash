@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b5sar0rityel2"]
 
-[ext_resource type="Texture2D" uid="uid://dym4ll2k2ukeg" path="res://Assets/Sprites/Kitchen.png" id="1_7u47w"]
+[ext_resource type="Texture2D" uid="uid://dym4ll2k2ukeg" path="res://Assets/Sprites/Objects/Kitchen.png" id="1_7u47w"]
 
 [node name="Kitchen" type="StaticBody2D"]
 

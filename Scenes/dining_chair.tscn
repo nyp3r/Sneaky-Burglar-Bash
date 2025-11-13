@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cwufawg15sc1m"]
 
-[ext_resource type="Texture2D" uid="uid://ht36xhjdbv67" path="res://Assets/Sprites/dining_chair.png" id="1_met7g"]
+[ext_resource type="Texture2D" uid="uid://ht36xhjdbv67" path="res://Assets/Sprites/Objects/dining_chair.png" id="1_met7g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rcneg"]
 size = Vector2(26, 26)

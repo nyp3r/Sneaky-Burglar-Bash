@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://vnmg3vtft0mr"]
 
 [ext_resource type="Script" uid="uid://cmys6fwkl350h" path="res://Scripts/nightstand.gd" id="1_pislf"]
-[ext_resource type="Texture2D" uid="uid://bqcvqpwu2ao8x" path="res://Assets/Sprites/Nightstand.png" id="1_qh6by"]
+[ext_resource type="Texture2D" uid="uid://bqcvqpwu2ao8x" path="res://Assets/Sprites/Objects/Nightstand.png" id="1_qh6by"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pislf"]
 size = Vector2(26, 26)

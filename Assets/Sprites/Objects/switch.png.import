@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://x0telxq48503"
-path="res://.godot/imported/wall_tile.jpg-67f0dfed8115117285fed0f80ab4eb56.ctex"
+uid="uid://dk6l6rjg0f73o"
+path="res://.godot/imported/switch.png-a881dce054630faf3c0dc32b97e596b6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/wall_tile.jpg"
-dest_files=["res://.godot/imported/wall_tile.jpg-67f0dfed8115117285fed0f80ab4eb56.ctex"]
+source_file="res://Assets/Sprites/Objects/switch.png"
+dest_files=["res://.godot/imported/switch.png-a881dce054630faf3c0dc32b97e596b6.ctex"]
 
 [params]
 

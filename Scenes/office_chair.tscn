@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c1i0w8531fv70"]
 
-[ext_resource type="Texture2D" uid="uid://b8ipbp7fxomam" path="res://Assets/Sprites/office_chair.png" id="1_f674f"]
+[ext_resource type="Texture2D" uid="uid://b8ipbp7fxomam" path="res://Assets/Sprites/Objects/office_chair.png" id="1_f674f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_86g6b"]
 radius = 12.0415945

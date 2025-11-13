@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://o7losaualib0"]
 
-[ext_resource type="Texture2D" uid="uid://c53xd7bb6qrdc" path="res://Assets/Sprites/Desk.png" id="1_825yk"]
+[ext_resource type="Texture2D" uid="uid://c53xd7bb6qrdc" path="res://Assets/Sprites/Objects/Desk.png" id="1_825yk"]
 
 [node name="Desk" type="StaticBody2D"]
 

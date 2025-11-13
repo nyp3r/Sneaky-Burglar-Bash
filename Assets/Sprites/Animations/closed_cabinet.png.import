@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bm5jvc1h85o8g"
-path="res://.godot/imported/Door.png-b9191d63c99d4a76f73a0c99e043368f.ctex"
+uid="uid://ddpqgajasvmv4"
+path="res://.godot/imported/closed_cabinet.png-dd46ca939bba9ef9e79aaac93dbd68b1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Door.png"
-dest_files=["res://.godot/imported/Door.png-b9191d63c99d4a76f73a0c99e043368f.ctex"]
+source_file="res://Assets/Sprites/Animations/closed_cabinet.png"
+dest_files=["res://.godot/imported/closed_cabinet.png-dd46ca939bba9ef9e79aaac93dbd68b1.ctex"]
 
 [params]
 

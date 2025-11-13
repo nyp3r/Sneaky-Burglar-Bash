@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://g3qkhtuff2so"
-path="res://.godot/imported/FlowerVaseDrawer.png-d38a758e7e2a43757d82c0646a078ec6.ctex"
+uid="uid://bym28reiowebi"
+path="res://.godot/imported/teddy_bearV2.png-18bbb17002d572901653db723ee9712b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Tiles/FlowerVaseDrawer.png"
-dest_files=["res://.godot/imported/FlowerVaseDrawer.png-d38a758e7e2a43757d82c0646a078ec6.ctex"]
+source_file="res://Assets/Sprites/Objects/teddy_bearV2.png"
+dest_files=["res://.godot/imported/teddy_bearV2.png-18bbb17002d572901653db723ee9712b.ctex"]
 
 [params]
 

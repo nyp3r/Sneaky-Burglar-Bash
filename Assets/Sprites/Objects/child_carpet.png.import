@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2kwqalmr6bf3"
-path="res://.godot/imported/toilet.png-fdbf617a6b0f5b561a3b31ce05f63f3a.ctex"
+uid="uid://vw8j715pu1ih"
+path="res://.godot/imported/child_carpet.png-ce2b21d4d0960835831d159ef33f5051.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/toilet.png"
-dest_files=["res://.godot/imported/toilet.png-fdbf617a6b0f5b561a3b31ce05f63f3a.ctex"]
+source_file="res://Assets/Sprites/Objects/child_carpet.png"
+dest_files=["res://.godot/imported/child_carpet.png-ce2b21d4d0960835831d159ef33f5051.ctex"]
 
 [params]
 

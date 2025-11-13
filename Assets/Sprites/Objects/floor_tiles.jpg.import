@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ht36xhjdbv67"
-path="res://.godot/imported/dining_chair.png-8b662d44de38dcf89a9606cab4d922f7.ctex"
+uid="uid://dl4phkooqfm6s"
+path="res://.godot/imported/floor_tiles.jpg-c885301575cf6d49c398e19fd0646bd8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/dining_chair.png"
-dest_files=["res://.godot/imported/dining_chair.png-8b662d44de38dcf89a9606cab4d922f7.ctex"]
+source_file="res://Assets/Sprites/Objects/floor_tiles.jpg"
+dest_files=["res://.godot/imported/floor_tiles.jpg-c885301575cf6d49c398e19fd0646bd8.ctex"]
 
 [params]
 

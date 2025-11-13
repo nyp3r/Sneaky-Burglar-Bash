@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c6sbp8h6sxgis"]
 
-[ext_resource type="Texture2D" uid="uid://do1mlwqf45hep" path="res://Assets/Sprites/dining_table.png" id="1_vtbi1"]
+[ext_resource type="Texture2D" uid="uid://do1mlwqf45hep" path="res://Assets/Sprites/Objects/dining_table.png" id="1_vtbi1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7n66n"]
 size = Vector2(120, 48)

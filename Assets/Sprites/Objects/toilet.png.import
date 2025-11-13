@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://y6phs8vpbof6"
-path="res://.godot/imported/Player.png-b2c065f608361c5ef203209a6fcc30ba.ctex"
+uid="uid://c2kwqalmr6bf3"
+path="res://.godot/imported/toilet.png-6c335584df2d85f0a88261ca13b4a091.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Player.png"
-dest_files=["res://.godot/imported/Player.png-b2c065f608361c5ef203209a6fcc30ba.ctex"]
+source_file="res://Assets/Sprites/Objects/toilet.png"
+dest_files=["res://.godot/imported/toilet.png-6c335584df2d85f0a88261ca13b4a091.ctex"]
 
 [params]
 

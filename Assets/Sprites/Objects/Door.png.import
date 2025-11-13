@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxsx6yvinp0m0"
-path="res://.godot/imported/tiles.png-b55e1ea9ed0066a714a8d5e91fe44ac3.ctex"
+uid="uid://bm5jvc1h85o8g"
+path="res://.godot/imported/Door.png-0de9a018f80cda9febd7dc3596d33b57.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/tiles.png"
-dest_files=["res://.godot/imported/tiles.png-b55e1ea9ed0066a714a8d5e91fe44ac3.ctex"]
+source_file="res://Assets/Sprites/Objects/Door.png"
+dest_files=["res://.godot/imported/Door.png-0de9a018f80cda9febd7dc3596d33b57.ctex"]
 
 [params]
 

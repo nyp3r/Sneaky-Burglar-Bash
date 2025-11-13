@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ld7plmowoqq3"]
 
-[ext_resource type="Texture2D" uid="uid://dk6l6rjg0f73o" path="res://Assets/Sprites/switch.png" id="1_06m6k"]
+[ext_resource type="Texture2D" uid="uid://dk6l6rjg0f73o" path="res://Assets/Sprites/Objects/switch.png" id="1_06m6k"]
 [ext_resource type="Script" uid="uid://c1q3m8t4hjhq2" path="res://Scripts/light_switch.gd" id="1_ysq76"]
 [ext_resource type="AudioStream" uid="uid://bvt3t0qf5oev" path="res://Assets/Sound/light-switch.mp3" id="3_2qx2t"]
 

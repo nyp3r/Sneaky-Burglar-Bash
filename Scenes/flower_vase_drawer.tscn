@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cibxaa6enkbtb"]
 
 [ext_resource type="Script" uid="uid://bualcjplibagk" path="res://Scripts/flower_vase_drawer.gd" id="1_ggrd6"]
-[ext_resource type="Texture2D" uid="uid://g3qkhtuff2so" path="res://Assets/Sprites/Tiles/FlowerVaseDrawer.png" id="2_gfb2m"]
+[ext_resource type="Texture2D" uid="uid://g3qkhtuff2so" path="res://Assets/Sprites/Objects/FlowerVaseDrawer.png" id="2_gfb2m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f1j46"]
 size = Vector2(78, 46)

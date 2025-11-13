@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://do1mlwqf45hep"
-path="res://.godot/imported/dining_table.png-bfba33604b8bd97339f544caca906aa4.ctex"
+uid="uid://dv0gv0eu2gf4k"
+path="res://.godot/imported/bathroom_table.png-831c5569b814382964dbc80329badfaf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/dining_table.png"
-dest_files=["res://.godot/imported/dining_table.png-bfba33604b8bd97339f544caca906aa4.ctex"]
+source_file="res://Assets/Sprites/Objects/bathroom_table.png"
+dest_files=["res://.godot/imported/bathroom_table.png-831c5569b814382964dbc80329badfaf.ctex"]
 
 [params]
 

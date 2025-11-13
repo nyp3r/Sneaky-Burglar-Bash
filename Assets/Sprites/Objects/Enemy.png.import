@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dynumur8k5lb8"
-path="res://.godot/imported/cabinet.png-22e52eaa9e413755b6d74e34f742490e.ctex"
+uid="uid://y36ub15abdxi"
+path="res://.godot/imported/Enemy.png-e30543d9c085dd66627a95ff07f1f99c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/cabinet.png"
-dest_files=["res://.godot/imported/cabinet.png-22e52eaa9e413755b6d74e34f742490e.ctex"]
+source_file="res://Assets/Sprites/Objects/Enemy.png"
+dest_files=["res://.godot/imported/Enemy.png-e30543d9c085dd66627a95ff07f1f99c.ctex"]
 
 [params]
 

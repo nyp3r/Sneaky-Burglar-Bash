@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dym4ll2k2ukeg"
-path="res://.godot/imported/Kitchen.png-b32a7fd1dda16184eef90c37c49fcd09.ctex"
+uid="uid://dynumur8k5lb8"
+path="res://.godot/imported/cabinet.png-3e2c4888a1a67fd0cfd94e63b0801fc7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Kitchen.png"
-dest_files=["res://.godot/imported/Kitchen.png-b32a7fd1dda16184eef90c37c49fcd09.ctex"]
+source_file="res://Assets/Sprites/Animations/cabinet.png"
+dest_files=["res://.godot/imported/cabinet.png-3e2c4888a1a67fd0cfd94e63b0801fc7.ctex"]
 
 [params]
 
