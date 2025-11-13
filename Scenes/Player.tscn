@@ -8,8 +8,6 @@
 [ext_resource type="Script" uid="uid://b6n0cwtj3wmw4" path="res://Scripts/interaction_prompt.gd" id="4_nn08x"]
 [ext_resource type="Texture2D" uid="uid://blgg4fvbdxvfv" path="res://Assets/Sprites/Animations/girl.png" id="5_52ee3"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_kyqiw"]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_52ee3"]
 atlas = ExtResource("5_52ee3")
 region = Rect2(0, 0, 31, 32)
@@ -31,6 +29,8 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kyqiw"]
 
 [sub_resource type="Gradient" id="Gradient_ebmjs"]
 interpolation_mode = 2
@@ -69,16 +69,16 @@ sneak_sound = ExtResource("2_52ee3")
 walk_sound = ExtResource("3_bhhdu")
 run_sound = ExtResource("4_megsn")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-z_index = 20
-shape = SubResource("CircleShape2D_kyqiw")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1.7763568e-15, -1.9073486e-06)
-rotation = 3.1415927
+rotation = -3.1415925
 scale = Vector2(0.74999994, 0.74999994)
 sprite_frames = SubResource("SpriteFrames_megsn")
 flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 20
+shape = SubResource("CircleShape2D_kyqiw")
 
 [node name="FlashLight" type="PointLight2D" parent="."]
 position = Vector2(8.484365, -8.216354)

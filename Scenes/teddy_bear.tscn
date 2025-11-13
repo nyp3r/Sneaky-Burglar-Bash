@@ -1,22 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://deri83j050jm1"]
+[gd_scene load_steps=4 format=3 uid="uid://deri83j050jm1"]
 
 [ext_resource type="Script" uid="uid://00oh86aseq13" path="res://Scripts/teddy_bear.gd" id="1_f8etk"]
 [ext_resource type="Texture2D" uid="uid://cugcel3s5mwu3" path="res://Assets/Sprites/teddy_bear.png" id="1_lg7ig"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f8etk"]
 radius = 14.0
-
-[sub_resource type="Gradient" id="Gradient_f8etk"]
-offsets = PackedFloat32Array(0.6111111, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_qbaau"]
-gradient = SubResource("Gradient_f8etk")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(1, 0.5)
-metadata/_snap_enabled = true
-metadata/_snap_count = 2
 
 [node name="TeddyBear" type="Area2D"]
 script = ExtResource("1_f8etk")
@@ -26,10 +14,5 @@ shape = SubResource("CircleShape2D_f8etk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_lg7ig")
-
-[node name="PointLight" type="PointLight2D" parent="."]
-position = Vector2(0, 3)
-scale = Vector2(0.6576669, 0.5940116)
-texture = SubResource("GradientTexture2D_qbaau")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

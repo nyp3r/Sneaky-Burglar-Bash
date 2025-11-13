@@ -26,9 +26,6 @@ script = ExtResource("1_8uqln")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_8uqln")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_yfxyx")
-
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -43,6 +40,9 @@ visible = false
 scale = Vector2(1.125, 0.625)
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_ki1gv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_yfxyx")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5sar0rityel2"]
+
+[ext_resource type="Texture2D" uid="uid://dym4ll2k2ukeg" path="res://Assets/Sprites/Kitchen.png" id="1_7u47w"]
+
+[node name="Kitchen" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-88, 0)
+polygon = PackedVector2Array(176, 0, 176, 24, 103, 24, 103, 27, 83, 27, 83, 24, 58, 24, 58, 38, 39, 38, 39, 24, 3, 24, 16, 30, 16, 32, 13, 32, 0, 26, 0, 0)
+
+[node name="Kitchen" type="Sprite2D" parent="."]
+position = Vector2(0, 20)
+texture = ExtResource("1_7u47w")

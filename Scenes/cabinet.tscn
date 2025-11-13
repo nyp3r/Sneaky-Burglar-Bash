@@ -6,6 +6,12 @@
 [ext_resource type="AudioStream" uid="uid://68etlxi6pjct" path="res://Assets/Sound/Cabinet/cabinet_open.mp3" id="4_4e4eg"]
 [ext_resource type="AudioStream" uid="uid://dxglmkckg1hcx" path="res://Assets/Sound/Cabinet/cabinet_close.mp3" id="5_jeqn1"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ogna"]
+size = Vector2(27, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i6gei"]
+size = Vector2(19, 30)
+
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_i6gei"]
 polygon = PackedVector2Array(-14, -12, 12, -12, 12, 12, -14, 12)
 
@@ -23,39 +29,8 @@ metadata/_snap_count = 2
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6ogna"]
 polygon = PackedVector2Array(-29, -7, -27, -9, -12, 10, -12, -12, 12, -12, 12, 12, -14, 12)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ogna"]
-size = Vector2(27, 24)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i6gei"]
-size = Vector2(19, 30)
-
 [node name="Cabinet" type="StaticBody2D"]
 script = ExtResource("1_imhc6")
-
-[node name="Toggles" type="Node2D" parent="."]
-position = Vector2(-8, 0)
-
-[node name="ClosedSprite" type="Sprite2D" parent="Toggles"]
-visible = false
-texture = ExtResource("3_i6gei")
-
-[node name="ClosedLightOccluder" type="LightOccluder2D" parent="Toggles"]
-visible = false
-position = Vector2(8, 0)
-occluder = SubResource("OccluderPolygon2D_i6gei")
-
-[node name="ClosedPointLight" type="PointLight2D" parent="Toggles"]
-visible = false
-position = Vector2(-5, 0)
-scale = Vector2(1.0625, 1.0625)
-texture = SubResource("GradientTexture2D_4e4eg")
-
-[node name="OpenedLightOccluder" type="LightOccluder2D" parent="Toggles"]
-position = Vector2(8, 0)
-occluder = SubResource("OccluderPolygon2D_6ogna")
-
-[node name="OpenedSprite" type="Sprite2D" parent="Toggles"]
-texture = ExtResource("1_7a4v6")
 
 [node name="ClosedCollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2(-1.5, 0)
@@ -86,6 +61,31 @@ one_shot = true
 
 [node name="CloseAudioTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="Toggles" type="Node2D" parent="."]
+position = Vector2(-8, 0)
+
+[node name="ClosedLightOccluder" type="LightOccluder2D" parent="Toggles"]
+visible = false
+position = Vector2(8, 0)
+occluder = SubResource("OccluderPolygon2D_i6gei")
+
+[node name="ClosedPointLight" type="PointLight2D" parent="Toggles"]
+visible = false
+position = Vector2(-5, 0)
+scale = Vector2(1.0625, 1.0625)
+texture = SubResource("GradientTexture2D_4e4eg")
+
+[node name="OpenedLightOccluder" type="LightOccluder2D" parent="Toggles"]
+position = Vector2(8, 0)
+occluder = SubResource("OccluderPolygon2D_6ogna")
+
+[node name="ClosedSprite" type="Sprite2D" parent="Toggles"]
+visible = false
+texture = ExtResource("3_i6gei")
+
+[node name="OpenedSprite" type="Sprite2D" parent="Toggles"]
+texture = ExtResource("1_7a4v6")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

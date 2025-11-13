@@ -7,9 +7,9 @@ size = Vector2(26, 26)
 
 [node name="DiningChair" type="StaticBody2D"]
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rcneg")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.8125, 0.8125)
 texture = ExtResource("1_met7g")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_rcneg")

@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://o7losaualib0"]
+
+[ext_resource type="Texture2D" uid="uid://c53xd7bb6qrdc" path="res://Assets/Sprites/Desk.png" id="1_825yk"]
+
+[node name="Desk" type="StaticBody2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, -28, -15, -28, -12, -31, -12, -36, -15, -39, -20, -39, -23, -36, -23, -31, -20, -28, -34, -28, -34, -10, -30, 0, -29, 1, -29, 11, -30, 13, -34, 23, -34, 40, 0, 40)
+
+[node name="Desk" type="Sprite2D" parent="."]
+position = Vector2(-17, 0)
+texture = ExtResource("1_825yk")
