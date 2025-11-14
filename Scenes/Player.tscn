@@ -6,31 +6,13 @@
 [ext_resource type="FontFile" uid="uid://dm7rqamcs5b1i" path="res://Assets/Fonts/lunchds.ttf" id="4_5ixxa"]
 [ext_resource type="AudioStream" uid="uid://cfs53s38q1rrf" path="res://Assets/Sound/Player/player_run_boot.mp3" id="4_megsn"]
 [ext_resource type="Script" uid="uid://b6n0cwtj3wmw4" path="res://Scripts/interaction_prompt.gd" id="4_nn08x"]
-[ext_resource type="Texture2D" uid="uid://blgg4fvbdxvfv" path="res://Assets/Sprites/Animations/girl.png" id="5_52ee3"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_52ee3"]
-atlas = ExtResource("5_52ee3")
-region = Rect2(0, 0, 31, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bhhdu"]
-atlas = ExtResource("5_52ee3")
-region = Rect2(31, 0, 31, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_megsn"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_52ee3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bhhdu")
-}],
-"loop": false,
-"name": &"default",
-"speed": 5.0
-}]
+[ext_resource type="Texture2D" uid="uid://cs04y5jgunqfv" path="res://Assets/Sprites/Animations/player_man.png" id="5_52ee3"]
+[ext_resource type="Script" uid="uid://d2tl2mlg2c5d" path="res://Scripts/States/Utility/state_machine.gd" id="8_megsn"]
+[ext_resource type="Script" uid="uid://cnljpitby5fgm" path="res://Scripts/armed.gd" id="9_yoq75"]
+[ext_resource type="Script" uid="uid://cqitagi37qlyh" path="res://Scripts/unarmed.gd" id="10_yoq75"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kyqiw"]
+radius = 7.0
 
 [sub_resource type="Gradient" id="Gradient_ebmjs"]
 interpolation_mode = 2
@@ -69,26 +51,37 @@ sneak_sound = ExtResource("2_52ee3")
 walk_sound = ExtResource("3_bhhdu")
 run_sound = ExtResource("4_megsn")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1.7763568e-15, -1.9073486e-06)
-rotation = -3.1415925
-scale = Vector2(0.74999994, 0.74999994)
-sprite_frames = SubResource("SpriteFrames_megsn")
-flip_h = true
+[node name="ArmedSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(2.9999998, -2.3841858e-07)
+rotation = 1.5707964
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_52ee3")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 64)
+
+[node name="UnarmedSprite" type="Sprite2D" parent="."]
+position = Vector2(2.9999998, -2.3841858e-07)
+rotation = 1.5707964
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_52ee3")
+region_enabled = true
+region_rect = Rect2(64, 0, 64, 64)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 20
 shape = SubResource("CircleShape2D_kyqiw")
 
 [node name="FlashLight" type="PointLight2D" parent="."]
-position = Vector2(8.484365, -8.216354)
-rotation = 2.3515713
+position = Vector2(12, 10)
+rotation = 3.926991
 scale = Vector2(1.014, 1)
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_kyqiw")
 offset = Vector2(-31.97461, 31.973145)
 
 [node name="PointLight" type="PointLight2D" parent="."]
+rotation = 1.5707964
 scale = Vector2(1.0625, 1.0625)
 texture = SubResource("GradientTexture2D_gntrk")
 
@@ -107,3 +100,14 @@ script = ExtResource("4_nn08x")
 [node name="FootstepAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_bhhdu")
 bus = &"Gameplay"
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("8_megsn")
+initial_state = NodePath("Unarmed")
+metadata/_custom_type_script = "uid://d2tl2mlg2c5d"
+
+[node name="Armed" type="Node" parent="StateMachine"]
+script = ExtResource("9_yoq75")
+
+[node name="Unarmed" type="Node" parent="StateMachine"]
+script = ExtResource("10_yoq75")

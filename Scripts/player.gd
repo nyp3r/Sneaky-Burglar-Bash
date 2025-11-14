@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Player
 
+signal picked_up_gun
+
 var movement_enabled = true
 
 @export var sneak_sound: AudioStreamMP3
@@ -21,12 +23,13 @@ var sneaking = false
 
 @onready var speed = WALK_SPEED
 
-@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var unarmed_sprite: Sprite2D = $UnarmedSprite
+@onready var armed_sprite: Sprite2D = $ArmedSprite
 @onready var game_manager: GameManager = %GameManager
 @onready var audio: AudioStreamPlayer2D = $FootstepAudio
 @onready var interaction_prompt: Label = $InteractionPrompt
 
-var has_teddy_bear = false
+var has_gun = false
 
 func get_input() -> Vector2:
 	var input_direction = Input.get_vector("left", "right", "up", "down")
@@ -41,6 +44,8 @@ func _physics_process(_delta):
 	if movement_enabled:
 		if move_and_slide():
 			resolve_collisions()
+	
+	look_at(get_global_mouse_position())
 	
 	if input_direction == Vector2.ZERO or not movement_enabled:
 		audio.stop()
@@ -86,5 +91,5 @@ func resolve_collisions() -> void:
 
 func _on_teddy_bear_2_body_entered(body: Node2D) -> void:
 	if body.name == name:
-		has_teddy_bear = true
-		animated_sprite.frame = 1
+		picked_up_gun.emit()
+		has_gun = true

@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cwufawg15sc1m" path="res://Scenes/dining_chair.tscn" id="7_rfjv2"]
 [ext_resource type="PackedScene" uid="uid://cnf46ap2io83d" path="res://Scenes/cabinet.tscn" id="7_v158k"]
 [ext_resource type="PackedScene" uid="uid://ld7plmowoqq3" path="res://Scenes/light_switch.tscn" id="8_nb51f"]
-[ext_resource type="PackedScene" uid="uid://deri83j050jm1" path="res://Scenes/teddy_bear.tscn" id="13_rfjv2"]
+[ext_resource type="PackedScene" uid="uid://deri83j050jm1" path="res://Scenes/gun.tscn" id="13_rfjv2"]
 [ext_resource type="Script" uid="uid://b5ycbuh80mdfq" path="res://Scripts/escape.gd" id="14_1phco"]
 [ext_resource type="PackedScene" uid="uid://vnmg3vtft0mr" path="res://Scenes/nightstand.tscn" id="14_nb51f"]
 [ext_resource type="PackedScene" uid="uid://b5sar0rityel2" path="res://Scenes/kitchen.tscn" id="14_nnt18"]
@@ -174,7 +174,7 @@ script = ExtResource("5_o5yvi")
 [node name="Player" parent="." instance=ExtResource("2_qxrlw")]
 unique_name_in_owner = true
 z_index = 10
-position = Vector2(493, 411)
+position = Vector2(141, 258)
 motion_mode = 0
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -189,9 +189,9 @@ rotation = 3.1375606
 scale = Vector2(0.50000006, 0.50000006)
 target = NodePath("../Player")
 
-[node name="TeddyBear" parent="." instance=ExtResource("13_rfjv2")]
+[node name="Gun" parent="." instance=ExtResource("13_rfjv2")]
 z_index = 5
-position = Vector2(116, 299)
+position = Vector2(160, 224)
 scale = Vector2(0.5, 0.5)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
@@ -293,5 +293,5 @@ texture = ExtResource("20_7nbq1")
 position = Vector2(328, 331)
 gravity_scale = 0.0
 
-[connection signal="body_entered" from="TeddyBear" to="Player" method="_on_teddy_bear_2_body_entered"]
+[connection signal="body_entered" from="Gun" to="Player" method="_on_teddy_bear_2_body_entered"]
 [connection signal="lights_toggled" from="NavigationRegion2D/LightSwitch" to="NavigationRegion2D/Nightstand" method="_on_light_switch_lights_toggled"]

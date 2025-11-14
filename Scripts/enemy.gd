@@ -1,6 +1,9 @@
 extends CharacterBody2D
 class_name Enemy
 
+var current_health: int
+const MAX_HEALTH = 10
+
 var speed: int
 const WALK_SPEED = 50
 const SPRINT_SPEED = 200
