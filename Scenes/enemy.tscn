@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://dghuphmeuvh0n"]
 
 [ext_resource type="Script" uid="uid://b8f8ew87fv6p0" path="res://Scripts/enemy.gd" id="1_1f0kj"]
-[ext_resource type="Texture2D" uid="uid://y36ub15abdxi" path="res://Assets/Sprites/Objects/Enemy.png" id="1_hghv2"]
 [ext_resource type="AudioStream" uid="uid://bgpdd2i6hdtmw" path="res://Assets/Sound/Enemy/enemy_run_barefeet.mp3" id="3_287tu"]
 [ext_resource type="AudioStream" uid="uid://dk2rl1qkvgicy" path="res://Assets/Sound/Enemy/enemy_walking_barefeet.mp3" id="3_afpow"]
 [ext_resource type="AudioStream" uid="uid://lbkgx6tt8hwi" path="res://Assets/Sound/Enemy/laugh.mp3" id="4_0830c"]
+[ext_resource type="Texture2D" uid="uid://ctfc61srvkstw" path="res://Assets/Sprites/Animations/Robber.png" id="5_0830c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_afpow"]
 radius = 28.0
@@ -22,9 +22,8 @@ run_sound = ExtResource("3_287tu")
 laugh_sound = ExtResource("4_0830c")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(4, 0)
 rotation = -4.712389
-texture = ExtResource("1_hghv2")
+texture = ExtResource("5_0830c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_afpow")

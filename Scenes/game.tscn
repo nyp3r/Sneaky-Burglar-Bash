@@ -1,15 +1,18 @@
-[gd_scene load_steps=35 format=4 uid="uid://ewigleghuhyb"]
+[gd_scene load_steps=40 format=4 uid="uid://ewigleghuhyb"]
 
 [ext_resource type="Script" uid="uid://dcrv568baw8fr" path="res://Scripts/game_manager.gd" id="1_wowpa"]
 [ext_resource type="PackedScene" uid="uid://di3nwwsf4b3pg" path="res://Scenes/Player.tscn" id="2_qxrlw"]
 [ext_resource type="Texture2D" uid="uid://b1qsj1harbfpq" path="res://Assets/Sprites/Tiles/Ground.png" id="2_wowpa"]
 [ext_resource type="Texture2D" uid="uid://kbsqbojhxtes" path="res://Assets/Sprites/Tiles/WallsNew.png" id="3_h4fw4"]
 [ext_resource type="PackedScene" uid="uid://dghuphmeuvh0n" path="res://Scenes/enemy.tscn" id="4_3dryh"]
+[ext_resource type="Script" uid="uid://dr5ls8hlvsf40" path="res://Scripts/shooting_point.gd" id="5_7t8sx"]
 [ext_resource type="Script" uid="uid://cmfl8602vtkds" path="res://Scripts/player_audio_listener.gd" id="5_o5yvi"]
 [ext_resource type="PackedScene" uid="uid://nh6itc03a132" path="res://Scenes/bed.tscn" id="6_1l0tm"]
+[ext_resource type="AudioStream" uid="uid://d61oxxvth1wg" path="res://Assets/Sound/Player/pistol_shot.mp3" id="6_mg4q0"]
 [ext_resource type="PackedScene" uid="uid://c6sbp8h6sxgis" path="res://Scenes/dining_table.tscn" id="6_rku1e"]
 [ext_resource type="PackedScene" uid="uid://cwufawg15sc1m" path="res://Scenes/dining_chair.tscn" id="7_rfjv2"]
 [ext_resource type="PackedScene" uid="uid://cnf46ap2io83d" path="res://Scenes/cabinet.tscn" id="7_v158k"]
+[ext_resource type="AudioStream" uid="uid://cv7tas6wl4w01" path="res://Assets/Sound/Player/reload.mp3" id="7_vm72l"]
 [ext_resource type="PackedScene" uid="uid://ld7plmowoqq3" path="res://Scenes/light_switch.tscn" id="8_nb51f"]
 [ext_resource type="PackedScene" uid="uid://deri83j050jm1" path="res://Scenes/gun.tscn" id="13_rfjv2"]
 [ext_resource type="Script" uid="uid://b5ycbuh80mdfq" path="res://Scripts/escape.gd" id="14_1phco"]
@@ -21,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://b0tgclm5ygw36" path="res://Scenes/bathroom_table.tscn" id="19_iivbl"]
 [ext_resource type="Texture2D" uid="uid://vw8j715pu1ih" path="res://Assets/Sprites/Objects/child_carpet.png" id="20_7nbq1"]
 [ext_resource type="PackedScene" uid="uid://daw1p8d7i01af" path="res://Scenes/toy_1.tscn" id="21_exi56"]
+[ext_resource type="FontFile" uid="uid://dm7rqamcs5b1i" path="res://Assets/Fonts/lunchds.ttf" id="25_22asu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h4fw4"]
 texture = ExtResource("2_wowpa")
@@ -147,6 +151,10 @@ occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_nnt18")
 
+[sub_resource type="LabelSettings" id="LabelSettings_fkdbe"]
+font = ExtResource("25_22asu")
+font_size = 64
+
 [node name="Game" type="Node2D"]
 
 [node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("player")]
@@ -181,6 +189,21 @@ motion_mode = 0
 position = Vector2(-3.0517578e-05, 0)
 zoom = Vector2(3, 3)
 
+[node name="ShootingPoint" type="Marker2D" parent="Player"]
+position = Vector2(13, 0)
+script = ExtResource("5_7t8sx")
+metadata/_custom_type_script = "uid://dr5ls8hlvsf40"
+
+[node name="ShootAudio" type="AudioStreamPlayer2D" parent="Player/ShootingPoint"]
+position = Vector2(-13, 0)
+stream = ExtResource("6_mg4q0")
+
+[node name="ReloadTimer" type="Timer" parent="Player/ShootingPoint"]
+one_shot = true
+
+[node name="ReloadAudio" type="AudioStreamPlayer2D" parent="Player/ShootingPoint"]
+stream = ExtResource("7_vm72l")
+
 [node name="Enemy" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_3dryh")]
 unique_name_in_owner = true
 z_index = 10
@@ -199,6 +222,8 @@ unique_name_in_owner = true
 navigation_polygon = SubResource("NavigationPolygon_o5yvi")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="NavigationRegion2D"]
+z_index = 20
+z_as_relative = false
 tile_map_data = PackedByteArray("AAAJAAwAAgAAAAAAAGAKAAwAAgABAAAAAFALAAwAAgAAAAAAAGAMAAwAAgADAAAAAGANAAwAAgAAAAAAAGAOAAwAAgADAAAAAGARAAwAAgAAAAAAAGASAAwAAgAAAAAAAGATAAwAAgAAAAAAAGAUAAwAAgAAAAAAAGAVAAwAAgAAAAAAAGAWAAwAAgACAAAAADAIAAwAAgADAAAAAGAQAAwAAgADAAAAAGAHAAwAAgADAAAAAGAHAAsAAgAAAAAAAAAHAAoAAgAAAAAAAAAIAAkAAgACAAAAAFAMAAgAAgAAAAAAAAAOAAgAAgAAAAAAADAHAAkAAgADAAAAAAAIAAsAAgABAAAAAAAIAAoAAgABAAAAAAAHAAgAAgAAAAAAAAAHAAcAAgADAAAAAFAFAAcAAgADAAAAAGACAAcAAgADAAAAAAAFAAYAAgADAAAAADAEAAYAAgAAAAAAAFADAAYAAgAAAAAAAFACAAYAAgADAAAAAAACAAgAAgABAAAAAAACAAkAAgAAAAAAAAACAAoAAgAAAAAAAAACAAsAAgAAAAAAAAACAAwAAgACAAAAAGAEAAwAAgABAAAAAFADAAwAAgAAAAAAAGAFAAwAAgAAAAAAAGAGAAwAAgAAAAAAAGAFAAUAAgADAAAAAFAHAAUAAgADAAAAAGAIAAUAAgAAAAAAAGAJAAUAAgADAAAAAGAMAAIAAgADAAAAAFAMAAAAAgAAAAAAAFALAAAAAgABAAAAAFANAAAAAgABAAAAAFAPAAAAAgABAAAAAFAOAAAAAgADAAAAAFAIAAAAAgABAAAAAFAJAAAAAgAAAAAAAFAKAAAAAgAAAAAAAFAJAAQAAgAAAAAAAAAJAAMAAgAAAAAAAAAJAAIAAgADAAAAAFAHAAMAAgAAAAAAAAAHAAIAAgADAAAAAAAHAAAAAgADAAAAAFAGAAAAAgABAAAAAFAFAAAAAgAAAAAAAFACAAAAAgACAAAAAAACAAEAAgAAAAAAAAACAAIAAgAAAAAAAAACAAMAAgAAAAAAAAACAAQAAgAAAAAAAAACAAUAAgADAAAAAAAMAAMAAgAAAAAAADAOAAUAAgADAAAAADAMAAUAAgADAAAAAGAKAAUAAgAAAAAAAGAMAAQAAgAAAAAAADAKAAIAAgAAAAAAAFALAAIAAgAAAAAAAFAIAAIAAgAAAAAAAFARAAAAAgAAAAAAAFAQAAAAAgAAAAAAAFASAAAAAgADAAAAAFATAAAAAgABAAAAAFAVAAAAAgAAAAAAAFAUAAAAAgAAAAAAAFAWAAAAAgACAAAAAFAWAAEAAgAAAAAAADAWAAIAAgAAAAAAADAWAAMAAgADAAAAADAWAAQAAgAAAAAAADAWAAcAAgABAAAAAAAWAAkAAgADAAAAADAWAAgAAgAAAAAAADAWAAYAAgAAAAAAADAWAAUAAgAAAAAAADAQAAoAAgAAAAAAAAAMAAsAAgAAAAAAAAAMAAoAAgAAAAAAAAAMAAkAAgAAAAAAAAAOAAQAAgAAAAAAAAAOAAMAAgAAAAAAAAAOAAIAAgADAAAAADAOAAEAAgAAAAAAAAAOAAsAAgAAAAAAAAASAAEAAgAAAAAAAAADAAAAAgABAAAAAFAEAAAAAgAAAAAAAFANAAIAAgAAAAAAAFAQAAkAAgACAAAAAAAVAAkAAgAAAAAAAFAUAAkAAgAAAAAAAFATAAkAAgAAAAAAAFASAAkAAgAAAAAAAFARAAkAAgAAAAAAAFAWAAoAAgAAAAAAADATAAMAAgAAAAAAAGAVAAMAAgAAAAAAAGAUAAMAAgAAAAAAAGASAAMAAgADAAAAAAAOAAcAAgADAAAAADAIAAcAAgAAAAAAAFAKAAcAAgAAAAAAAFALAAcAAgAAAAAAAFAMAAcAAgADAAAAAFANAAcAAgAAAAAAAFA=")
 tile_set = SubResource("TileSet_ewbju")
 
@@ -255,15 +280,6 @@ position = Vector2(712, 64)
 [node name="OfficeChair" parent="NavigationRegion2D" instance=ExtResource("16_ewbju")]
 position = Vector2(668, 71)
 
-[node name="Map" type="CanvasLayer" parent="."]
-follow_viewport_enabled = true
-
-[node name="CanvasModulate" type="CanvasModulate" parent="Map"]
-light_mask = 2
-visibility_layer = 2
-position = Vector2(-22, 13)
-color = Color(0.24583766, 0.24583772, 0.24583766, 1)
-
 [node name="Escape2" type="RayCast2D" parent="."]
 position = Vector2(720, 385)
 target_position = Vector2(0, -32)
@@ -293,5 +309,16 @@ texture = ExtResource("20_7nbq1")
 position = Vector2(328, 331)
 gravity_scale = 0.0
 
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Ammo" type="Label" parent="UI"]
+offset_left = 19.0
+offset_top = 19.0
+offset_right = 163.0
+offset_bottom = 83.0
+text = "5/20"
+label_settings = SubResource("LabelSettings_fkdbe")
+
+[connection signal="timeout" from="Player/ShootingPoint/ReloadTimer" to="Player/ShootingPoint" method="_on_reload_timer_timeout"]
 [connection signal="body_entered" from="Gun" to="Player" method="_on_teddy_bear_2_body_entered"]
 [connection signal="lights_toggled" from="NavigationRegion2D/LightSwitch" to="NavigationRegion2D/Nightstand" method="_on_light_switch_lights_toggled"]

@@ -22,10 +22,12 @@ func hide_player():
 	player.visible = false
 	player.movement_enabled = false
 	player_is_hidden = true
-	enemy._on_player_hid()
+	if enemy:
+		enemy._on_player_hid()
 
 func expose_player():
 	player.visible = true
 	player.movement_enabled = true
-	player_is_hidden = false
-	enemy._on_player_exposed()
+	player_is_hidden = false 
+	if enemy:
+		enemy._on_player_exposed()

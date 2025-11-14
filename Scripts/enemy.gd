@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Enemy
 
-var current_health: int
+@onready var current_health := MAX_HEALTH
 const MAX_HEALTH = 10
 
 var speed: int
@@ -97,9 +97,18 @@ func get_spacial_volume_score() -> int:
 	var distance_to_player = global_position.distance_to(target.global_position)
 	return distance_to_player / game_manager.current_volume_score
 
+func _on_bullet_hit(body):
+	if body.name != name:
+		return
+	
+	current_health -= 1
+	if current_health < 0:
+		
+		queue_free()
+
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player and not game_manager.player_is_hidden:
-		get_tree().change_scene_to_file("res://Scenes/fail_menu.tscn")
+		get_tree().call_deferred("change_scene_to_file", "res://Scenes/fail_menu.tscn")
 
 func _on_player_exposed() -> void:
 	for child in get_children():
