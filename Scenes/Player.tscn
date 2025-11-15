@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://di3nwwsf4b3pg"]
+[gd_scene load_steps=20 format=3 uid="uid://di3nwwsf4b3pg"]
 
 [ext_resource type="Script" uid="uid://dqjaw5bs00hd6" path="res://Scripts/player.gd" id="1_kyqiw"]
 [ext_resource type="AudioStream" uid="uid://bj4qyvro61phd" path="res://Assets/Sound/Player/player_sneak_boot.mp3" id="2_52ee3"]
@@ -7,12 +7,18 @@
 [ext_resource type="AudioStream" uid="uid://cfs53s38q1rrf" path="res://Assets/Sound/Player/player_run_boot.mp3" id="4_megsn"]
 [ext_resource type="Script" uid="uid://b6n0cwtj3wmw4" path="res://Scripts/interaction_prompt.gd" id="4_nn08x"]
 [ext_resource type="Texture2D" uid="uid://cs04y5jgunqfv" path="res://Assets/Sprites/Animations/player_man.png" id="5_52ee3"]
+[ext_resource type="Texture2D" uid="uid://j1es2h3jdo54" path="res://Assets/Sprites/Animations/player_with_gun.png" id="5_ksbbd"]
 [ext_resource type="Script" uid="uid://d2tl2mlg2c5d" path="res://Scripts/States/Utility/state_machine.gd" id="8_megsn"]
 [ext_resource type="Script" uid="uid://cnljpitby5fgm" path="res://Scripts/armed.gd" id="9_yoq75"]
 [ext_resource type="Script" uid="uid://cqitagi37qlyh" path="res://Scripts/unarmed.gd" id="10_yoq75"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kyqiw"]
 radius = 7.0
+
+[sub_resource type="Gradient" id="Gradient_ksbbd"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_glx4g"]
+gradient = SubResource("Gradient_ksbbd")
 
 [sub_resource type="Gradient" id="Gradient_ebmjs"]
 interpolation_mode = 2
@@ -52,11 +58,10 @@ walk_sound = ExtResource("3_bhhdu")
 run_sound = ExtResource("4_megsn")
 
 [node name="ArmedSprite" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(2.9999998, -2.3841858e-07)
 rotation = 1.5707964
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("5_52ee3")
+texture = ExtResource("5_ksbbd")
 region_enabled = true
 region_rect = Rect2(0, 0, 64, 64)
 
@@ -72,7 +77,17 @@ region_rect = Rect2(64, 0, 64, 64)
 z_index = 20
 shape = SubResource("CircleShape2D_kyqiw")
 
+[node name="GunLight" type="PointLight2D" parent="."]
+position = Vector2(15, 0)
+rotation = 3.1415927
+scale = Vector2(1.0047046, 12.730755)
+skew = 0.013902545
+shadow_enabled = true
+texture = SubResource("GradientTexture1D_glx4g")
+offset = Vector2(-127.990685, 0.005744934)
+
 [node name="FlashLight" type="PointLight2D" parent="."]
+visible = false
 position = Vector2(12, 10)
 rotation = 3.926991
 scale = Vector2(1.014, 1)
@@ -81,6 +96,7 @@ texture = SubResource("GradientTexture2D_kyqiw")
 offset = Vector2(-31.97461, 31.973145)
 
 [node name="PointLight" type="PointLight2D" parent="."]
+position = Vector2(0, -2.1316282e-14)
 rotation = 1.5707964
 scale = Vector2(1.0625, 1.0625)
 texture = SubResource("GradientTexture2D_gntrk")

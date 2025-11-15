@@ -6,7 +6,7 @@ const MAX_HEALTH = 10
 
 var speed: int
 const WALK_SPEED = 50
-const SPRINT_SPEED = 200
+const SPRINT_SPEED = 125
 var accelaration = 2
 
 enum sound {
@@ -26,6 +26,7 @@ const ANGLE_BETWEEN_RAYS := deg_to_rad(10)
 @onready var voice_audio: AudioStreamPlayer2D = $VoiceAudio
 @onready var laugh_timer: Timer = $LaughTimer
 @onready var navigation_region: NavigationRegion2D = %NavigationRegion2D
+@onready var cover_navigation: NavigationRegion2D = %CoverNavigation
 @export var target: Player
 @onready var spawner_timer: Timer = $SpawnerTimer
 
@@ -35,6 +36,7 @@ const ANGLE_BETWEEN_RAYS := deg_to_rad(10)
 
 const MAX_SPACIAL_VOLUME = 300
 var chasing = false
+var is_behind_cover = false
 
 func generate_raycasts() -> void:
 	var ray_count := VISION_CONE_ANGLE / ANGLE_BETWEEN_RAYS
@@ -68,8 +70,6 @@ func _physics_process(delta: float) -> void:
 				if ray.is_colliding() and ray.get_collider() is Player and ray.name != sound_ray_cast.name:
 					start_hunt()
 					break
-	else:
-		navigation_agent.target_position = target.global_position
 	
 	
 	if not navigation_agent.is_navigation_finished():
@@ -91,7 +91,9 @@ func start_hunt():
 		footstep_audio.stream = run_sound
 		footstep_audio.play()
 		chasing = true
-		speed = SPRINT_SPEED 
+		speed = SPRINT_SPEED
+		if not is_behind_cover:
+			navigation_agent.target_position = NavigationServer2D.region_get_random_point(navigation_region.get_rid(), 0, false)
 
 func get_spacial_volume_score() -> int:
 	var distance_to_player = global_position.distance_to(target.global_position)
@@ -135,5 +137,6 @@ func _on_spawner_timer_timeout() -> void:
 	navigation_agent.target_position = NavigationServer2D.region_get_random_point(navigation_region.get_rid(), 0, false)
 
 
-func _on_navigation_finished() -> void: 
-	navigation_agent.target_position = NavigationServer2D.region_get_random_point(navigation_region.get_rid(), 0, false)
+func _on_navigation_finished() -> void:
+	if not chasing:
+		navigation_agent.target_position = NavigationServer2D.region_get_random_point(navigation_region.get_rid(), 0, false)
