@@ -1,6 +1,8 @@
 extends Node
 class_name GameManager
 
+var time := 0.0
+
 @onready var enemy: Enemy = %Enemy
 @export var player: Player
 
@@ -31,3 +33,11 @@ func expose_player():
 	player_is_hidden = false 
 	if enemy:
 		enemy._on_player_exposed()
+
+func _process(delta: float) -> void:
+	time += delta
+
+func save_score():
+	var file = FileAccess.open("res://save_file.txt", FileAccess.WRITE)
+	file.store_float(time)
+	file.close()

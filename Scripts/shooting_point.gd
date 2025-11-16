@@ -1,7 +1,7 @@
 extends Marker2D
 class_name ShootingPoint
 
-const VOLUME_SCORE = 10
+const VOLUME_SCORE = 50
 
 const BULLET = preload("uid://pccngkaro4fo")
 @onready var enemy: Enemy = %Enemy

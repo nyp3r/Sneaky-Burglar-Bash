@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Enemy
 
 @onready var current_health := MAX_HEALTH
-const MAX_HEALTH = 10
+const MAX_HEALTH = 1
 
 var speed: int
 const WALK_SPEED = 50
@@ -26,9 +26,10 @@ const ANGLE_BETWEEN_RAYS := deg_to_rad(10)
 @onready var voice_audio: AudioStreamPlayer2D = $VoiceAudio
 @onready var laugh_timer: Timer = $LaughTimer
 @onready var navigation_region: NavigationRegion2D = %NavigationRegion2D
-@onready var cover_navigation: NavigationRegion2D = %CoverNavigation
 @export var target: Player
 @onready var spawner_timer: Timer = $SpawnerTimer
+@onready var enemy_nav_target: Node2D = %EnemyNavTarget
+@onready var escape: RayCast2D = %Escape
 
 @export var walk_sound: AudioStreamMP3
 @export var run_sound: AudioStreamMP3
@@ -36,7 +37,6 @@ const ANGLE_BETWEEN_RAYS := deg_to_rad(10)
 
 const MAX_SPACIAL_VOLUME = 300
 var chasing = false
-var is_behind_cover = false
 
 func generate_raycasts() -> void:
 	var ray_count := VISION_CONE_ANGLE / ANGLE_BETWEEN_RAYS
@@ -51,6 +51,7 @@ func generate_raycasts() -> void:
 func _ready() -> void:
 	generate_raycasts()
 	speed = WALK_SPEED
+var is_behind_cover = false
 
 func _physics_process(delta: float) -> void:
 	sound_ray_cast.target_position = sound_ray_cast.to_local(target.global_position)
@@ -92,8 +93,7 @@ func start_hunt():
 		footstep_audio.play()
 		chasing = true
 		speed = SPRINT_SPEED
-		if not is_behind_cover:
-			navigation_agent.target_position = NavigationServer2D.region_get_random_point(navigation_region.get_rid(), 0, false)
+		navigation_agent.target_position = enemy_nav_target.global_position
 
 func get_spacial_volume_score() -> int:
 	var distance_to_player = global_position.distance_to(target.global_position)
@@ -104,9 +104,9 @@ func _on_bullet_hit(body):
 		return
 	
 	current_health -= 1
-	if current_health < 0:
-		
-		queue_free()
+	if current_health <= 0:
+		game_manager.save_score()
+		get_tree().call_deferred("change_scene_to_file", "res://Scenes/success_menu.tscn")
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player and not game_manager.player_is_hidden:
@@ -138,5 +138,7 @@ func _on_spawner_timer_timeout() -> void:
 
 
 func _on_navigation_finished() -> void:
-	if not chasing:
+	if not chasing: 
 		navigation_agent.target_position = NavigationServer2D.region_get_random_point(navigation_region.get_rid(), 0, false)
+		if navigation_agent.target_position.x > escape.global_position.x:
+			navigation_agent.navigation_finished.emit()
