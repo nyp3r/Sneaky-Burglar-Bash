@@ -30,6 +30,7 @@ var sneaking = false
 @onready var interaction_prompt: Label = $InteractionPrompt
 
 var has_gun = false
+var gun_equipped := false
 
 func get_input() -> Vector2:
 	var input_direction = Input.get_vector("left", "right", "up", "down")

@@ -10,6 +10,7 @@ func enter():
 	player.armed_sprite.visible = true
 	gun_light.visible = true
 	flash_light.visible = false
+	player.gun_equipped = true
 
 func physics_process(_delta):
 	if Input.is_action_just_pressed("switch item"):

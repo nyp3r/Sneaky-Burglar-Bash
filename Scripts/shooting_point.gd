@@ -23,7 +23,7 @@ func _ready() -> void:
 	shoot_volume_score_timer.wait_time = shoot_audio.stream.get_length()
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("shoot") and player.has_gun and not reloading and current_ammo + current_clip_size > 0:
+	if Input.is_action_just_pressed("shoot") and player.has_gun and not reloading and current_ammo + current_clip_size > 0 and player.gun_equipped:
 		if current_clip_size > 0:
 			current_clip_size -= 1
 			ammo_label.text = str(current_clip_size) + "/" + str(current_ammo)

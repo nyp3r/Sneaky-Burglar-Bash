@@ -10,6 +10,7 @@ func enter():
 	player.armed_sprite.visible = false
 	gun_light.visible = false
 	flash_light.visible = true
+	player.gun_equipped = false
 	player.picked_up_gun.connect(_on_gun_picked_up)
 
 func _on_gun_picked_up():
