@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://vsftyn4vferc"]
+
+[ext_resource type="FontFile" uid="uid://dm7rqamcs5b1i" path="res://Assets/Fonts/lunchds.ttf" id="1_3pow5"]
+[ext_resource type="Script" uid="uid://cu2f7wqo3a4m3" path="res://Scripts/general_slider.gd" id="2_g82af"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g82af"]
+font = ExtResource("1_3pow5")
+font_size = 32
+outline_size = 8
+outline_color = Color(0, 0.2784314, 0.54509807, 1)
+
+[node name="VolumeMenu" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.5
+offset_top = -20.0
+offset_right = 104.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 20
+text = "General"
+label_settings = SubResource("LabelSettings_g82af")
+
+[node name="GeneralSlider" type="HSlider" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 4
+script = ExtResource("2_g82af")
+
+[connection signal="drag_ended" from="CanvasLayer/VBoxContainer/HBoxContainer/GeneralSlider" to="CanvasLayer/VBoxContainer/HBoxContainer/GeneralSlider" method="_on_drag_ended"]

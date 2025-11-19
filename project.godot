@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Stellas Teddy Bear"
-run/main_scene="uid://ewigleghuhyb"
+config/name="Sneaky Burgler Bash"
+run/main_scene="uid://dlokdh6plsfy2"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 
 [audio]
@@ -103,3 +103,4 @@ shoot={
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0, 0.48177105, 0.91800064, 1)
