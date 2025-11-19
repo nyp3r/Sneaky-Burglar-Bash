@@ -48,4 +48,5 @@ func _on_clear_scores_button_pressed() -> void:
 	var latest_score_file = FileAccess.open("res://latest_score.txt", FileAccess.WRITE)
 	scores_file.resize(0)
 	latest_score_file.resize(0)
+	highscore_indicator_label.visible = false
 	load_scores()

@@ -4,16 +4,15 @@
 [ext_resource type="AudioStream" uid="uid://bgpdd2i6hdtmw" path="res://Assets/Sound/Enemy/enemy_run_barefeet.mp3" id="3_287tu"]
 [ext_resource type="AudioStream" uid="uid://dk2rl1qkvgicy" path="res://Assets/Sound/Enemy/enemy_walking_barefeet.mp3" id="3_afpow"]
 [ext_resource type="AudioStream" uid="uid://lbkgx6tt8hwi" path="res://Assets/Sound/Enemy/laugh.mp3" id="4_0830c"]
-[ext_resource type="Texture2D" uid="uid://ctfc61srvkstw" path="res://Assets/Sprites/Animations/Robber.png" id="5_0830c"]
+[ext_resource type="Texture2D" uid="uid://csn6d058hdt35" path="res://Assets/Sprites/objects.png" id="5_0830c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_afpow"]
-radius = 28.0
+radius = 10.049875
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_287tu"]
-radius = 30.0
+radius = 11.0
 
 [node name="Enemy" type="CharacterBody2D"]
-scale = Vector2(0.5, 0.5)
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_1f0kj")
@@ -22,8 +21,9 @@ run_sound = ExtResource("3_287tu")
 laugh_sound = ExtResource("4_0830c")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = -4.712389
 texture = ExtResource("5_0830c")
+region_enabled = true
+region_rect = Rect2(165.93156, 63.9534, 20.105408, 32.19934)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_afpow")
@@ -40,20 +40,11 @@ stream = ExtResource("3_afpow")
 volume_db = 10.0
 autoplay = true
 max_distance = 300.0
-attenuation = 2.0
+attenuation = 0.43527573
 panning_strength = 3.0
 bus = &"Enemy"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-
-[node name="LaughTimer" type="Timer" parent="."]
-wait_time = 5.0
-autostart = true
-
-[node name="VoiceAudio" type="AudioStreamPlayer2D" parent="."]
-volume_db = -8.294
-max_distance = 200.0
-attenuation = 2.0000005
 
 [node name="SpawnerTimer" type="Timer" parent="."]
 wait_time = 0.05
@@ -62,5 +53,4 @@ autostart = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_finished"]
-[connection signal="timeout" from="LaughTimer" to="." method="_on_laugh_timer_timeout"]
 [connection signal="timeout" from="SpawnerTimer" to="." method="_on_spawner_timer_timeout"]

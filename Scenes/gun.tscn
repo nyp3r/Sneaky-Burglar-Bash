@@ -1,10 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://deri83j050jm1"]
+[gd_scene load_steps=6 format=3 uid="uid://deri83j050jm1"]
 
 [ext_resource type="Script" uid="uid://00oh86aseq13" path="res://Scripts/gun_pickup.gd" id="1_f8etk"]
-[ext_resource type="Texture2D" uid="uid://ch5bgad0kt0sc" path="res://Assets/Sprites/Objects/gun.png" id="2_f8etk"]
+[ext_resource type="Texture2D" uid="uid://csn6d058hdt35" path="res://Assets/Sprites/objects.png" id="2_oqrbh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f8etk"]
-radius = 9.0
+radius = 5.0
+
+[sub_resource type="Gradient" id="Gradient_oqrbh"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t6ynv"]
+gradient = SubResource("Gradient_oqrbh")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+metadata/_snap_enabled = true
+metadata/_snap_count = 2
 
 [node name="Gun" type="Area2D"]
 script = ExtResource("1_f8etk")
@@ -13,7 +24,15 @@ script = ExtResource("1_f8etk")
 shape = SubResource("CircleShape2D_f8etk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 2)
-texture = ExtResource("2_f8etk")
+position = Vector2(1, 0)
+texture = ExtResource("2_oqrbh")
+region_enabled = true
+region_rect = Rect2(173.9923, 108.018234, 8.041031, 8.032974)
+
+[node name="PointLight" type="PointLight2D" parent="."]
+position = Vector2(0, -2.1316282e-14)
+rotation = 1.5707964
+scale = Vector2(0.26839527, 0.26839536)
+texture = SubResource("GradientTexture2D_t6ynv")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

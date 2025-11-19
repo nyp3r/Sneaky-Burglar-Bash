@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://di3nwwsf4b3pg"]
+[gd_scene load_steps=19 format=3 uid="uid://di3nwwsf4b3pg"]
 
 [ext_resource type="Script" uid="uid://dqjaw5bs00hd6" path="res://Scripts/player.gd" id="1_kyqiw"]
 [ext_resource type="AudioStream" uid="uid://bj4qyvro61phd" path="res://Assets/Sound/Player/player_sneak_boot.mp3" id="2_52ee3"]
@@ -6,8 +6,7 @@
 [ext_resource type="FontFile" uid="uid://dm7rqamcs5b1i" path="res://Assets/Fonts/lunchds.ttf" id="4_5ixxa"]
 [ext_resource type="AudioStream" uid="uid://cfs53s38q1rrf" path="res://Assets/Sound/Player/player_run_boot.mp3" id="4_megsn"]
 [ext_resource type="Script" uid="uid://b6n0cwtj3wmw4" path="res://Scripts/interaction_prompt.gd" id="4_nn08x"]
-[ext_resource type="Texture2D" uid="uid://j1es2h3jdo54" path="res://Assets/Sprites/Animations/player_with_gun.png" id="5_ksbbd"]
-[ext_resource type="Texture2D" uid="uid://duv6ybcw75u8p" path="res://Assets/Sprites/Animations/player_with_flashlight.png" id="6_ksbbd"]
+[ext_resource type="Texture2D" uid="uid://csn6d058hdt35" path="res://Assets/Sprites/objects.png" id="5_yoq75"]
 [ext_resource type="Script" uid="uid://d2tl2mlg2c5d" path="res://Scripts/States/Utility/state_machine.gd" id="8_megsn"]
 [ext_resource type="Script" uid="uid://cnljpitby5fgm" path="res://Scripts/armed.gd" id="9_yoq75"]
 [ext_resource type="Script" uid="uid://cqitagi37qlyh" path="res://Scripts/unarmed.gd" id="10_yoq75"]
@@ -64,18 +63,16 @@ z_index = 20
 shape = SubResource("CircleShape2D_kyqiw")
 
 [node name="ArmedSprite" type="Sprite2D" parent="."]
-position = Vector2(2.9999998, -2.3841858e-07)
-rotation = 1.5707964
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("5_ksbbd")
+position = Vector2(7, -2.3841858e-07)
+texture = ExtResource("5_yoq75")
 region_enabled = true
-region_rect = Rect2(0, 0, 64, 64)
+region_rect = Rect2(127.96746, 96.973045, 28.011955, 30.065323)
 
 [node name="UnarmedSprite" type="Sprite2D" parent="."]
 position = Vector2(3, 0)
-rotation = 1.5707964
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("6_ksbbd")
+texture = ExtResource("5_yoq75")
+region_enabled = true
+region_rect = Rect2(127.97109, 64.9833, 20.130333, 30.053413)
 
 [node name="GunLight" type="PointLight2D" parent="."]
 unique_name_in_owner = true
@@ -89,8 +86,7 @@ offset = Vector2(-127.631, 0.006)
 
 [node name="FlashLight" type="PointLight2D" parent="."]
 unique_name_in_owner = true
-visible = false
-position = Vector2(12, 10)
+position = Vector2(11, 13.000002)
 rotation = 3.926991
 scale = Vector2(1.014, 1)
 shadow_enabled = true

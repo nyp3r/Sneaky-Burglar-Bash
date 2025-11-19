@@ -1,0 +1,45 @@
+[gd_scene load_steps=10 format=3 uid="uid://bj1faf3kchvjo"]
+
+[ext_resource type="Texture2D" uid="uid://dsmp6m4hso4u6" path="res://Assets/Sprites/Animations/waypoint_marker1.png" id="1_kavi6"]
+[ext_resource type="Texture2D" uid="uid://b5gepnlujahma" path="res://Assets/Sprites/Animations/waypoint_marker2.png" id="2_oc8m6"]
+[ext_resource type="Script" uid="uid://ca34klh2c4frx" path="res://Scripts/waypoint_marker.gd" id="2_uudsn"]
+[ext_resource type="Texture2D" uid="uid://be8t2lllo5m18" path="res://Assets/Sprites/Animations/waypoint_marker3.png" id="3_2s66s"]
+[ext_resource type="Texture2D" uid="uid://cwhcw717i1kku" path="res://Assets/Sprites/Animations/waypoint_marker4.png" id="4_jyhr1"]
+[ext_resource type="Texture2D" uid="uid://b7w3f4uv8aw3u" path="res://Assets/Sprites/Animations/waypoint_marker5.png" id="5_d20qb"]
+[ext_resource type="Texture2D" uid="uid://dgl6rwm4gxnr1" path="res://Assets/Sprites/Animations/waypoint_marker6.png" id="6_sf4ok"]
+[ext_resource type="Texture2D" uid="uid://nfx4re8udvkl" path="res://Assets/Sprites/Animations/waypoint_marker7.png" id="7_t6tgh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_crcw3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_kavi6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_oc8m6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2s66s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jyhr1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_d20qb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_sf4ok")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_t6tgh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="WaypointMarker" type="AnimatedSprite2D"]
+z_index = 20
+sprite_frames = SubResource("SpriteFrames_crcw3")
+frame_progress = 0.11666959
+script = ExtResource("2_uudsn")

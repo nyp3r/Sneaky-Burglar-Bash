@@ -1,8 +1,8 @@
 extends CharacterBody2D
 class_name Enemy
 
-@onready var current_health := MAX_HEALTH
-const MAX_HEALTH = 1
+@onready var current_health := max_health
+@export var max_health := 1
 
 var speed: int
 const WALK_SPEED = 50
@@ -23,8 +23,6 @@ const ANGLE_BETWEEN_RAYS := deg_to_rad(10)
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var sound_ray_cast: RayCast2D = $SoundRayCast
 @onready var footstep_audio: AudioStreamPlayer2D = $FootstepAudio
-@onready var voice_audio: AudioStreamPlayer2D = $VoiceAudio
-@onready var laugh_timer: Timer = $LaughTimer
 @onready var navigation_region: NavigationRegion2D = %NavigationRegion2D
 @export var target: Player
 @onready var spawner_timer: Timer = $SpawnerTimer
@@ -123,12 +121,6 @@ func _on_player_hid() -> void:
 			if child is RayCast2D:
 				child.enabled = false
 	footstep_audio.volume_db = sound.occluded
-
-
-func _on_laugh_timer_timeout() -> void:
-	if not voice_audio.playing and randi_range(0, 10) == 0:
-		voice_audio.stream = laugh_sound
-		voice_audio.play()
 
 
 func _on_spawner_timer_timeout() -> void:
