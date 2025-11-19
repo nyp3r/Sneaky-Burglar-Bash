@@ -1,9 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://df36wc3epbymh"]
 
-[ext_resource type="AudioStream" uid="uid://du3reh36aw6dk" path="res://Assets/Sound/creepy-ambience-long-hollow-loop_130bpm.mp3" id="1_l12mp"]
+[ext_resource type="AudioStream" uid="uid://c836e22p17dcu" path="res://Assets/Sound/ES_Careful Steps - The Fly Guy Five.mp3" id="1_l12mp"]
 
 [node name="Ambience" type="AudioStreamPlayer2D"]
 stream = ExtResource("1_l12mp")
-volume_db = -9.942
+volume_db = -23.448
 autoplay = true
+max_distance = 4096.0
+attenuation = 0.001
 bus = &"Music"

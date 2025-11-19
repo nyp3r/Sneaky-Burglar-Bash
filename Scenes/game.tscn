@@ -187,7 +187,7 @@ script = ExtResource("5_o5yvi")
 [node name="Player" parent="." instance=ExtResource("2_qxrlw")]
 unique_name_in_owner = true
 z_index = 10
-position = Vector2(176, 276)
+position = Vector2(743, 370)
 rotation = -3.1415927
 motion_mode = 0
 

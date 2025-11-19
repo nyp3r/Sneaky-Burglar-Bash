@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c836e22p17dcu"
+path="res://.godot/imported/ES_Careful Steps - The Fly Guy Five.mp3-6fb30fcf4c9249320659bdf1cd2344e2.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound/ES_Careful Steps - The Fly Guy Five.mp3"
+dest_files=["res://.godot/imported/ES_Careful Steps - The Fly Guy Five.mp3-6fb30fcf4c9249320659bdf1cd2344e2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
