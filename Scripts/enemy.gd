@@ -104,6 +104,7 @@ func _on_bullet_hit(body):
 	current_health -= 1
 	if current_health <= 0:
 		game_manager.save_score()
+		GlobalInfo.set_menu_music()
 		get_tree().call_deferred("change_scene_to_file", "res://Scenes/success_menu.tscn")
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

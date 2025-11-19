@@ -298,7 +298,7 @@ position = Vector2(372, 258)
 
 [node name="Escape" type="RayCast2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(720, 385)
+position = Vector2(720, 384)
 target_position = Vector2(0, -32)
 script = ExtResource("14_1phco")
 

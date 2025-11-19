@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ymbb7ntasi2t"]
 
-[ext_resource type="FontFile" uid="uid://dm7rqamcs5b1i" path="res://Assets/Fonts/lunchds.ttf" id="1_7y5a0"]
 [ext_resource type="Script" uid="uid://bwrbe5ttv1gy2" path="res://Scripts/settings_menu.gd" id="1_8ef0u"]
+[ext_resource type="FontFile" uid="uid://c2nvekmrvmbwg" path="res://Assets/Fonts/Daydream DEMO.otf" id="2_437ti"]
 
 [node name="SettingsMenu" type="Node2D"]
 script = ExtResource("1_8ef0u")
@@ -29,8 +29,8 @@ layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_colors/font_outline_color = Color(0, 0.2765172, 0.5450768, 1)
 theme_override_constants/outline_size = 20
-theme_override_fonts/font = ExtResource("1_7y5a0")
-theme_override_font_sizes/font_size = 96
+theme_override_fonts/font = ExtResource("2_437ti")
+theme_override_font_sizes/font_size = 64
 text = "Volume
 "
 flat = true
@@ -40,8 +40,8 @@ layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_colors/font_outline_color = Color(0, 0.2765172, 0.5450768, 1)
 theme_override_constants/outline_size = 20
-theme_override_fonts/font = ExtResource("1_7y5a0")
-theme_override_font_sizes/font_size = 96
+theme_override_fonts/font = ExtResource("2_437ti")
+theme_override_font_sizes/font_size = 64
 text = "Controls"
 flat = true
 
@@ -50,8 +50,8 @@ layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_colors/font_outline_color = Color(0, 0.2765172, 0.5450768, 1)
 theme_override_constants/outline_size = 20
-theme_override_fonts/font = ExtResource("1_7y5a0")
-theme_override_font_sizes/font_size = 96
+theme_override_fonts/font = ExtResource("2_437ti")
+theme_override_font_sizes/font_size = 64
 text = "Back"
 flat = true
 

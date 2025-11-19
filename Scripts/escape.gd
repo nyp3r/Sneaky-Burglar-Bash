@@ -5,4 +5,5 @@ extends RayCast2D
 func _physics_process(_delta: float) -> void:
 	if is_colliding():
 		if get_collider().name == enemy.name:
-			get_tree().change_scene_to_file("res://Scenes/fail_menu.tscn")
+			GlobalInfo.set_menu_music()
+			get_tree().change_scene_to_file("res://Scenes/Menus/fail_menu.tscn")

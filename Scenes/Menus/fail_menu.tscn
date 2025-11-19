@@ -1,0 +1,74 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbusgy88131aa"]
+
+[ext_resource type="FontFile" uid="uid://c2nvekmrvmbwg" path="res://Assets/Fonts/Daydream DEMO.otf" id="1_j2q4m"]
+[ext_resource type="Script" uid="uid://dus8m330giwtl" path="res://Scenes/Menus/fail_menu.gd" id="1_t7x5e"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_t7x5e"]
+font = ExtResource("1_j2q4m")
+font_size = 80
+font_color = Color(1, 0, 0, 1)
+
+[node name="SuccessMenu" type="Node2D"]
+script = ExtResource("1_t7x5e")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ButtonContainer" type="VBoxContainer" parent="CanvasLayer"]
+layout_direction = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -274.0
+offset_top = -220.0
+offset_right = 274.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/ButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.82879, 0.00015887961, 8.750171e-05, 1)
+theme_override_fonts/font = ExtResource("1_j2q4m")
+theme_override_font_sizes/font_size = 80
+text = "Fail"
+label_settings = SubResource("LabelSettings_t7x5e")
+
+[node name="PlayAgainButton" type="Button" parent="CanvasLayer/ButtonContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_outline_color = Color(0, 0.2765172, 0.5450768, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("1_j2q4m")
+theme_override_font_sizes/font_size = 32
+text = "Play again"
+flat = true
+
+[node name="SettingsButton" type="Button" parent="CanvasLayer/ButtonContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_outline_color = Color(0, 0.2765172, 0.5450768, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("1_j2q4m")
+theme_override_font_sizes/font_size = 32
+text = "Settings
+"
+flat = true
+
+[node name="MainMenuButton" type="Button" parent="CanvasLayer/ButtonContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_outline_color = Color(0, 0.2765172, 0.5450768, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("1_j2q4m")
+theme_override_font_sizes/font_size = 32
+text = "Main Menu"
+flat = true
+
+[connection signal="pressed" from="CanvasLayer/ButtonContainer/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/ButtonContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/ButtonContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
