@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bbusgy88131aa"]
 
 [ext_resource type="FontFile" uid="uid://c2nvekmrvmbwg" path="res://Assets/Fonts/Daydream DEMO.otf" id="1_j2q4m"]
-[ext_resource type="Script" uid="uid://dus8m330giwtl" path="res://Scenes/Menus/fail_menu.gd" id="1_t7x5e"]
+[ext_resource type="Script" uid="uid://dus8m330giwtl" path="res://Scripts/fail_menu.gd" id="1_t7x5e"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_t7x5e"]
 font = ExtResource("1_j2q4m")
