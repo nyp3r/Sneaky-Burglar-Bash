@@ -5,7 +5,7 @@ var time := 0.0
 
 @onready var enemy: Enemy = %Enemy
 @export var player: Player
-const START_MENU = preload("uid://dlokdh6plsfy2")
+const PAUSE_MENU = preload("uid://c2as8aqc7jbyy")
 
 var current_volume_score: int:
 	get:
@@ -36,10 +36,6 @@ func expose_player():
 		enemy._on_player_exposed()
 
 func _process(delta: float) -> void:
-	#if Input.is_action_just_pressed("pause"):
-		#START_MENU.instantiate()
-		#get_tree().paused = true
-	
 	time += delta
 
 func save_score():

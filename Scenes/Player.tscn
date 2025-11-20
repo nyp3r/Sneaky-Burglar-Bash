@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://dqjaw5bs00hd6" path="res://Scripts/player.gd" id="1_kyqiw"]
 [ext_resource type="AudioStream" uid="uid://bj4qyvro61phd" path="res://Assets/Sound/Player/player_sneak_boot.mp3" id="2_52ee3"]
 [ext_resource type="AudioStream" uid="uid://d0kfxm7ebk6u1" path="res://Assets/Sound/Player/player_walk_boots.mp3" id="3_bhhdu"]
-[ext_resource type="FontFile" uid="uid://dm7rqamcs5b1i" path="res://Assets/Fonts/lunchds.ttf" id="4_5ixxa"]
 [ext_resource type="AudioStream" uid="uid://cfs53s38q1rrf" path="res://Assets/Sound/Player/player_run_boot.mp3" id="4_megsn"]
 [ext_resource type="Script" uid="uid://b6n0cwtj3wmw4" path="res://Scripts/interaction_prompt.gd" id="4_nn08x"]
 [ext_resource type="Texture2D" uid="uid://csn6d058hdt35" path="res://Assets/Sprites/objects.png" id="5_yoq75"]
+[ext_resource type="FontFile" uid="uid://c2nvekmrvmbwg" path="res://Assets/Fonts/Daydream DEMO.otf" id="6_yoq75"]
 [ext_resource type="Script" uid="uid://d2tl2mlg2c5d" path="res://Scripts/States/Utility/state_machine.gd" id="8_megsn"]
 [ext_resource type="Script" uid="uid://cnljpitby5fgm" path="res://Scripts/armed.gd" id="9_yoq75"]
 [ext_resource type="Script" uid="uid://cqitagi37qlyh" path="res://Scripts/unarmed.gd" id="10_yoq75"]
@@ -46,7 +46,8 @@ metadata/_snap_enabled = true
 metadata/_snap_count = 2
 
 [sub_resource type="LabelSettings" id="LabelSettings_nn08x"]
-font = ExtResource("4_5ixxa")
+font = ExtResource("6_yoq75")
+font_size = 8
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
@@ -102,10 +103,10 @@ texture = SubResource("GradientTexture2D_gntrk")
 [node name="InteractionPrompt" type="Label" parent="."]
 visible = false
 z_index = 25
-offset_left = 11.0
-offset_top = -9.0
-offset_right = 20.0
-offset_bottom = 7.0
+offset_left = 22.0
+offset_top = -5.0
+offset_right = 31.0
+offset_bottom = 11.0
 pivot_offset = Vector2(4, 9)
 text = "e"
 label_settings = SubResource("LabelSettings_nn08x")

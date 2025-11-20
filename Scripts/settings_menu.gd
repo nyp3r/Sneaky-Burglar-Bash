@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 
 func _on_volume_button_pressed() -> void:
