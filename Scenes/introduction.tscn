@@ -1,7 +1,8 @@
-[gd_scene load_steps=35 format=4 uid="uid://bfppl7dtdik3s"]
+[gd_scene load_steps=38 format=4 uid="uid://bfppl7dtdik3s"]
 
 [ext_resource type="Script" uid="uid://hyowrkncq4m7" path="res://Scenes/cutscene_animation.gd" id="1_3n4rm"]
 [ext_resource type="Texture2D" uid="uid://b1qsj1harbfpq" path="res://Assets/Sprites/Tiles/Ground.png" id="2_fpwqe"]
+[ext_resource type="Texture2D" uid="uid://misg0q2rej3o" path="res://Assets/Sprites/pointing_arrow.png" id="3_8s01c"]
 [ext_resource type="Texture2D" uid="uid://kbsqbojhxtes" path="res://Assets/Sprites/Tiles/WallsNew.png" id="10_nel0q"]
 [ext_resource type="PackedScene" uid="uid://cnf46ap2io83d" path="res://Scenes/cabinet.tscn" id="11_kknv5"]
 [ext_resource type="PackedScene" uid="uid://nh6itc03a132" path="res://Scenes/bed.tscn" id="12_hvooy"]
@@ -16,12 +17,13 @@
 [ext_resource type="PackedScene" uid="uid://b6ocr04t125ba" path="res://Scenes/baby_bed.tscn" id="21_hmvu2"]
 [ext_resource type="Texture2D" uid="uid://vw8j715pu1ih" path="res://Assets/Sprites/Objects/child_carpet.png" id="23_t3quj"]
 [ext_resource type="Texture2D" uid="uid://il05ytfdaynn" path="res://Assets/Sprites/Objects/toy1.png" id="24_jwrta"]
+[ext_resource type="FontFile" uid="uid://c2nvekmrvmbwg" path="res://Assets/Fonts/Daydream DEMO.otf" id="25_5rcbg"]
 [ext_resource type="Texture2D" uid="uid://csn6d058hdt35" path="res://Assets/Sprites/objects.png" id="28_d36il"]
 [ext_resource type="Texture2D" uid="uid://bsqc8lc2rdejp" path="res://Assets/Sprites/enemy.png" id="29_ei2dt"]
 
 [sub_resource type="Animation" id="Animation_ei2dt"]
 resource_name = "animation"
-length = 3.0
+length = 20.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -44,7 +46,163 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 3),
 "transitions": PackedFloat32Array(1, 3.0314333),
 "update": 0,
-"values": [Vector2(764, 369), Vector2(293, 211)]
+"values": [Vector2(764, 369), Vector2(444, 211)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3.01, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.6392157)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/ColorRect/RichTextLabel:visible_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(3.5, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/ColorRect/RichTextLabel:theme_override_colors/font_outline_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/ColorRect:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/ColorRect/RichTextLabel:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(12, 13),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("TextureRect:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(13.5, 14, 15.5, 16.5, 19, 20),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Burglar:visible_ratio")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(14, 15.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Enemy:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(16.5, 16.85, 17.2, 17.55, 17.9, 18.25, 18.6),
+"transitions": PackedFloat32Array(1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05),
+"update": 0,
+"values": [Vector2(613, 79), Vector2(327, 212), Vector2(673, 368), Vector2(314, 307), Vector2(125, 64.00003), Vector2(116, 230), Vector2(613, 79)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("TextureRect:size")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(19),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(96, 48)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("TextureRect/Label:text")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(19),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Gun"]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Burglar:text")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(19, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["He could be anywhere!", "Get it without being seen or heard"]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("TextureRect:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(19),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(626, 57)]
 }
 
 [sub_resource type="Animation" id="Animation_fpwqe"]
@@ -73,12 +231,171 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(764, 369)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.6392157)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/ColorRect/RichTextLabel:visible_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/ColorRect/RichTextLabel:theme_override_colors/font_outline_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [null]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/ColorRect:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/ColorRect/RichTextLabel:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("TextureRect:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Burglar:visible_ratio")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Enemy:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(613, 79)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("TextureRect:size")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(96, 48)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("TextureRect/Label:text")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Gun"]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Burglar:text")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["He could be anywhere!"]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("TextureRect:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(626, 57)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x1uwf"]
 _data = {
 &"RESET": SubResource("Animation_fpwqe"),
 &"animation": SubResource("Animation_ei2dt")
 }
+
+[sub_resource type="LabelSettings" id="LabelSettings_8s01c"]
+font = ExtResource("25_5rcbg")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h4fw4"]
 texture = ExtResource("2_fpwqe")
@@ -218,6 +535,80 @@ position = Vector2(764, 369)
 rotation = 3.1415925
 zoom = Vector2(3, 3)
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -473.0
+offset_top = -1043.0
+offset_right = 469.0
+offset_bottom = 1285.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6392157)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -229.0
+offset_top = -417.0
+offset_right = 233.0
+offset_bottom = 311.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("25_5rcbg")
+theme_override_font_sizes/normal_font_size = 32
+text = "You just got home and found out your house has been broken into. 
+
+Your plan: 
+Get your gun and shoot the burglar"
+fit_content = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 50
+offset_left = 626.0
+offset_top = 57.0
+offset_right = 722.0
+offset_bottom = 105.0
+texture = ExtResource("3_8s01c")
+
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 13.0
+offset_right = 230.0
+offset_bottom = 39.0
+text = "Gun"
+label_settings = SubResource("LabelSettings_8s01c")
+
+[node name="Burglar" type="RichTextLabel" parent="."]
+z_index = 4096
+offset_left = 236.0
+offset_top = 252.0
+offset_right = 401.0
+offset_bottom = 335.0
+theme_override_fonts/normal_font = ExtResource("25_5rcbg")
+theme_override_font_sizes/normal_font_size = 16
+text = "He could be anywhere!"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Enemy" type="Sprite2D" parent="."]
+z_index = 45
+position = Vector2(613, 79)
+rotation = 3.1368282
+texture = ExtResource("29_ei2dt")
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
 color = Color(0, 0, 0, 1)
@@ -324,11 +715,6 @@ z_index = 20
 z_as_relative = false
 tile_map_data = PackedByteArray("AAAJAAwAAgAAAAAAAGAKAAwAAgABAAAAAFALAAwAAgAAAAAAAGAMAAwAAgADAAAAAGANAAwAAgAAAAAAAGAOAAwAAgADAAAAAGARAAwAAgAAAAAAAGASAAwAAgAAAAAAAGATAAwAAgAAAAAAAGAUAAwAAgAAAAAAAGAVAAwAAgAAAAAAAGAWAAwAAgACAAAAADAIAAwAAgADAAAAAGAQAAwAAgADAAAAAGAHAAwAAgADAAAAAGAHAAsAAgAAAAAAAAAHAAoAAgAAAAAAAAAIAAkAAgACAAAAAFAMAAgAAgAAAAAAAAAOAAgAAgAAAAAAADAHAAkAAgADAAAAAAAIAAsAAgABAAAAAAAIAAoAAgABAAAAAAAHAAgAAgAAAAAAAAAHAAcAAgADAAAAAFAFAAcAAgADAAAAAGACAAcAAgADAAAAAAAFAAYAAgADAAAAADAEAAYAAgAAAAAAAFADAAYAAgAAAAAAAFACAAYAAgADAAAAAAACAAgAAgABAAAAAAACAAkAAgAAAAAAAAACAAoAAgAAAAAAAAACAAsAAgAAAAAAAAACAAwAAgACAAAAAGAEAAwAAgABAAAAAFADAAwAAgAAAAAAAGAFAAwAAgAAAAAAAGAGAAwAAgAAAAAAAGAFAAUAAgADAAAAAFAHAAUAAgADAAAAAGAIAAUAAgAAAAAAAGAJAAUAAgADAAAAAGAMAAIAAgADAAAAAFAMAAAAAgAAAAAAAFALAAAAAgABAAAAAFANAAAAAgABAAAAAFAPAAAAAgABAAAAAFAOAAAAAgADAAAAAFAIAAAAAgABAAAAAFAJAAAAAgAAAAAAAFAKAAAAAgAAAAAAAFAJAAQAAgAAAAAAAAAJAAMAAgAAAAAAAAAJAAIAAgADAAAAAFAHAAMAAgAAAAAAAAAHAAIAAgADAAAAAAAHAAAAAgADAAAAAFAGAAAAAgABAAAAAFAFAAAAAgAAAAAAAFACAAAAAgACAAAAAAACAAEAAgAAAAAAAAACAAIAAgAAAAAAAAACAAMAAgAAAAAAAAACAAQAAgAAAAAAAAACAAUAAgADAAAAAAAMAAMAAgAAAAAAADAOAAUAAgADAAAAADAMAAUAAgADAAAAAGAKAAUAAgAAAAAAAGAMAAQAAgAAAAAAADAKAAIAAgAAAAAAAFALAAIAAgAAAAAAAFAIAAIAAgAAAAAAAFARAAAAAgAAAAAAAFAQAAAAAgAAAAAAAFASAAAAAgADAAAAAFATAAAAAgABAAAAAFAVAAAAAgAAAAAAAFAUAAAAAgAAAAAAAFAWAAAAAgACAAAAAFAWAAEAAgAAAAAAADAWAAIAAgAAAAAAADAWAAMAAgADAAAAADAWAAQAAgAAAAAAADAWAAcAAgABAAAAAAAWAAkAAgADAAAAADAWAAgAAgAAAAAAADAWAAYAAgAAAAAAADAWAAUAAgAAAAAAADAQAAoAAgAAAAAAAAAMAAsAAgAAAAAAAAAMAAoAAgAAAAAAAAAMAAkAAgAAAAAAAAAOAAQAAgAAAAAAAAAOAAMAAgAAAAAAAAAOAAIAAgADAAAAADAOAAEAAgAAAAAAAAAOAAsAAgAAAAAAAAASAAEAAgAAAAAAAAADAAAAAgABAAAAAFAEAAAAAgAAAAAAAFANAAIAAgAAAAAAAFAQAAkAAgACAAAAAAAVAAkAAgAAAAAAAFAUAAkAAgAAAAAAAFATAAkAAgAAAAAAAFASAAkAAgAAAAAAAFARAAkAAgAAAAAAAFAWAAoAAgAAAAAAADATAAMAAgAAAAAAAGAVAAMAAgAAAAAAAGAUAAMAAgAAAAAAAGASAAMAAgADAAAAAAAOAAcAAgADAAAAADAIAAcAAgAAAAAAAFAKAAcAAgAAAAAAAFALAAcAAgAAAAAAAFAMAAcAAgADAAAAAFANAAcAAgAAAAAAAFAPAAwAAgAAAAAAAGA=")
 tile_set = SubResource("TileSet_ewbju")
-
-[node name="Enemy" type="Sprite2D" parent="."]
-position = Vector2(613, 79)
-rotation = -3.146357
-texture = ExtResource("29_ei2dt")
 
 [node name="Pistol" type="Sprite2D" parent="."]
 position = Vector2(161, 226)
