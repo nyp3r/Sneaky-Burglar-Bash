@@ -17,6 +17,7 @@ var current_volume_score: int:
 var volume_scores: Dictionary[AudioStreamPlayer2D, int]
 
 var player_is_hidden = false
+var player_has_gun_in_hand = false
 
 func toggle_interaction_prompt():
 	player.interaction_prompt.visible = !player.interaction_prompt.visible
@@ -37,15 +38,3 @@ func expose_player():
 
 func _process(delta: float) -> void:
 	time += delta
-
-func save_score():
-	var latest_score_file = FileAccess.open("res://latest_score.txt", FileAccess.WRITE)
-	var file = FileAccess.open("res://scores.txt", FileAccess.READ_WRITE)
-	
-	file.seek_end()
-	
-	file.store_float(time)
-	latest_score_file.store_float(time)
-	
-	file.close()
-	latest_score_file.close()

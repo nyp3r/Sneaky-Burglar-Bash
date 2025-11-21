@@ -2,7 +2,7 @@ extends Node
 class_name GlobalData
 
 var last_scene_path: String
-var ingame_music_volume: float = 0.5
+var ingame_music_volume: float = 0.25
 var menu_music_volume: float = 1.0
 
 func set_ingame_music():

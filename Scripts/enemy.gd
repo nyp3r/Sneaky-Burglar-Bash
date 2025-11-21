@@ -70,6 +70,8 @@ func _physics_process(delta: float) -> void:
 					start_hunt()
 					break
 	
+	if not game_manager.player_has_gun_in_hand:
+		navigation_agent.target_position = target.global_position 
 	
 	if not navigation_agent.is_navigation_finished():
 		look_at(navigation_agent.get_next_path_position())
@@ -99,17 +101,18 @@ func get_spacial_volume_score() -> int:
 
 func _on_bullet_hit(body):
 	if body.name != name:
-		return
+		return 
 	
 	current_health -= 1
 	if current_health <= 0:
 		game_manager.save_score()
 		GlobalInfo.set_menu_music()
-		get_tree().call_deferred("change_scene_to_file", "res://Scenes/success_menu.tscn")
+		get_tree().call_deferred("change_scene_to_file", "res://Scenes/Menus/success_menu.tscn")
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player and not game_manager.player_is_hidden:
-		get_tree().call_deferred("change_scene_to_file", "res://Scenes/fail_menu.tscn")
+		GlobalInfo.set_menu_music()
+		get_tree().call_deferred("change_scene_to_file", "res://Scenes/Menus/fail_menu.tscn")
 
 func _on_player_exposed() -> void:
 	for child in get_children():

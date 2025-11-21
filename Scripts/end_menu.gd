@@ -1,7 +1,8 @@
-extends Node2D
+extends Control
 
 
 func _on_play_again_button_pressed() -> void:
+	GlobalInfo.set_ingame_music()
 	get_tree().change_scene_to_file("res://Scenes/game.tscn")
 
 func _on_settings_button_pressed() -> void:

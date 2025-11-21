@@ -27,7 +27,7 @@ shape = SubResource("CircleShape2D_f8etk")
 position = Vector2(1, 0)
 texture = ExtResource("2_oqrbh")
 region_enabled = true
-region_rect = Rect2(173.9923, 108.018234, 8.041031, 8.032974)
+region_rect = Rect2(109.97544, 76.98311, 8.052681, 8.065567)
 
 [node name="PointLight" type="PointLight2D" parent="."]
 position = Vector2(0, -2.1316282e-14)

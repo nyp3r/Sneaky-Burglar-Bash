@@ -11,43 +11,64 @@ outline_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_ohvpv"]
 font = ExtResource("1_1s22t")
 font_size = 32
-font_color = Color(1, 0, 0, 1)
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_1iub3"]
 font_size = 32
 outline_color = Color(0, 0, 0, 1)
 
-[node name="SuccessMenu" type="Node2D"]
+[node name="SuccessMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 
 [node name="Button" type="Button" parent="."]
-offset_left = -144.0
-offset_top = 129.0
-offset_right = 146.0
-offset_bottom = 188.0
-pivot_offset = Vector2(143, 32)
-theme_override_colors/font_hover_color = Color(0.007843138, 0.007843138, 0.007843138, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -238.0
+offset_top = 135.0
+offset_right = 239.0
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0.2784314, 0.54509807, 1)
+theme_override_constants/outline_size = 16
 theme_override_fonts/font = ExtResource("1_1s22t")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 32
 text = "Play again"
+flat = true
 script = ExtResource("2_uyvdl")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="TitleLabel" type="Label" parent="."]
-offset_left = -305.0
-offset_top = -48.0
-offset_right = 310.0
-offset_bottom = 45.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -354.0
+offset_top = -74.0
+offset_right = 354.0
+offset_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 2
 pivot_offset = Vector2(305, 0)
 theme_override_colors/font_color = Color(0, 0.54901963, 0, 1)
 theme_override_fonts/font = ExtResource("1_1s22t")
-theme_override_font_sizes/font_size = 91
+theme_override_font_sizes/font_size = 64
 text = "Success!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
 offset_left = -556.0
 offset_top = -194.0
 offset_right = -216.0
@@ -62,16 +83,12 @@ text = "Top 5"
 label_settings = SubResource("LabelSettings_uyvdl")
 horizontal_alignment = 1
 
-[node name="HighscoreNumberLabel" type="Label" parent="VBoxContainer"]
+[node name="ScoreLabel0" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_1s22t")
 text = "-"
 label_settings = SubResource("LabelSettings_ohvpv")
 horizontal_alignment = 1
-
-[node name="ColorRect" type="ColorRect" parent="VBoxContainer"]
-layout_mode = 2
-color = Color(0.8081372, 4.428029e-06, 7.70092e-07, 1)
 
 [node name="ScoreLabel1" type="Label" parent="VBoxContainer"]
 layout_mode = 2
@@ -101,25 +118,16 @@ text = "-"
 label_settings = SubResource("LabelSettings_1iub3")
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-
 [node name="ClearScoresButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.007843138, 0.007843138, 0.007843138, 1)
+theme_override_constants/outline_size = 0
 theme_override_fonts/font = ExtResource("1_1s22t")
 theme_override_font_sizes/font_size = 32
 text = "Clear
 "
-
-[node name="HighscoreIndicatorLabel" type="Label" parent="."]
-offset_left = -506.0
-offset_top = -96.0
-offset_right = -434.0
-offset_bottom = -64.0
-text = "New!"
-label_settings = SubResource("LabelSettings_ohvpv")
-horizontal_alignment = 1
+flat = true
 
 [connection signal="button_down" from="Button" to="Button" method="_on_button_down"]
 [connection signal="pressed" from="VBoxContainer/ClearScoresButton" to="VBoxContainer" method="_on_clear_scores_button_pressed"]

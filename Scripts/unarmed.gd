@@ -4,13 +4,14 @@ class_name Unarmed
 @onready var player = owner as Player
 @onready var gun_light: PointLight2D = %GunLight
 @onready var flash_light: PointLight2D = %FlashLight
+@onready var game_manager: GameManager = $"../../../GameManager"
 
 func enter():
 	player.unarmed_sprite.visible = true
 	player.armed_sprite.visible = false
 	gun_light.visible = false
 	flash_light.visible = true
-	player.gun_equipped = false
+	game_manager.player_has_gun_in_hand = false
 	player.picked_up_gun.connect(_on_gun_picked_up)
 
 func _on_gun_picked_up():

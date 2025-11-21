@@ -23,7 +23,7 @@ laugh_sound = ExtResource("4_0830c")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("5_0830c")
 region_enabled = true
-region_rect = Rect2(165.93156, 63.9534, 20.105408, 32.19934)
+region_rect = Rect2(167.05309, 32.110607, 20.134476, 32.07729)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_afpow")

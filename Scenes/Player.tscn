@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://di3nwwsf4b3pg"]
+[gd_scene load_steps=17 format=3 uid="uid://di3nwwsf4b3pg"]
 
 [ext_resource type="Script" uid="uid://dqjaw5bs00hd6" path="res://Scripts/player.gd" id="1_kyqiw"]
 [ext_resource type="AudioStream" uid="uid://bj4qyvro61phd" path="res://Assets/Sound/Player/player_sneak_boot.mp3" id="2_52ee3"]
@@ -13,13 +13,6 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kyqiw"]
 radius = 7.0
-
-[sub_resource type="Gradient" id="Gradient_ksbbd"]
-offsets = PackedFloat32Array(0, 0.8240741, 1)
-colors = PackedColorArray(0, 0, 0, 1, 0.5138889, 0.5138889, 0.5138889, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_glx4g"]
-gradient = SubResource("Gradient_ksbbd")
 
 [sub_resource type="Gradient" id="Gradient_ebmjs"]
 interpolation_mode = 2
@@ -67,29 +60,29 @@ shape = SubResource("CircleShape2D_kyqiw")
 position = Vector2(7, -2.3841858e-07)
 texture = ExtResource("5_yoq75")
 region_enabled = true
-region_rect = Rect2(127.96746, 96.973045, 28.011955, 30.065323)
+region_rect = Rect2(128.93172, 64.97185, 28.241669, 30.15802)
 
 [node name="UnarmedSprite" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(3, 0)
 texture = ExtResource("5_yoq75")
 region_enabled = true
-region_rect = Rect2(127.97109, 64.9833, 20.130333, 30.053413)
-
-[node name="GunLight" type="PointLight2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(15, 0)
-rotation = 3.1415927
-scale = Vector2(1.0047046, 9.776085)
-skew = 0.013902545
-shadow_enabled = true
-texture = SubResource("GradientTexture1D_glx4g")
-offset = Vector2(-127.631, 0.006)
+region_rect = Rect2(128.91437, 32.957653, 20.248856, 30.131466)
 
 [node name="FlashLight" type="PointLight2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(11, 13.000002)
+position = Vector2(11.015694, 13.000829)
 rotation = 3.926991
-scale = Vector2(1.014, 1)
+scale = Vector2(1.4742185, 1.3914502)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_kyqiw")
+offset = Vector2(-31.97461, 31.973145)
+
+[node name="GunLight" type="PointLight2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(21.013586, -0.0004776544)
+rotation = 3.926991
+scale = Vector2(1.3790007, 1.3702905)
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_kyqiw")
 offset = Vector2(-31.97461, 31.973145)

@@ -1,37 +1,87 @@
-[gd_scene load_steps=54 format=4 uid="uid://ewigleghuhyb"]
+[gd_scene load_steps=35 format=4 uid="uid://bfppl7dtdik3s"]
 
-[ext_resource type="Script" uid="uid://dcrv568baw8fr" path="res://Scripts/game_manager.gd" id="1_wowpa"]
-[ext_resource type="PackedScene" uid="uid://di3nwwsf4b3pg" path="res://Scenes/Player.tscn" id="2_qxrlw"]
-[ext_resource type="Texture2D" uid="uid://b1qsj1harbfpq" path="res://Assets/Sprites/Tiles/Ground.png" id="2_wowpa"]
-[ext_resource type="Texture2D" uid="uid://kbsqbojhxtes" path="res://Assets/Sprites/Tiles/WallsNew.png" id="3_h4fw4"]
-[ext_resource type="PackedScene" uid="uid://dghuphmeuvh0n" path="res://Scenes/enemy.tscn" id="4_3dryh"]
-[ext_resource type="Script" uid="uid://dr5ls8hlvsf40" path="res://Scripts/shooting_point.gd" id="5_7t8sx"]
-[ext_resource type="Script" uid="uid://cmfl8602vtkds" path="res://Scripts/player_audio_listener.gd" id="5_o5yvi"]
-[ext_resource type="PackedScene" uid="uid://nh6itc03a132" path="res://Scenes/bed.tscn" id="6_1l0tm"]
-[ext_resource type="AudioStream" uid="uid://d61oxxvth1wg" path="res://Assets/Sound/Player/pistol_shot.mp3" id="6_mg4q0"]
-[ext_resource type="PackedScene" uid="uid://c6sbp8h6sxgis" path="res://Scenes/dining_table.tscn" id="6_rku1e"]
-[ext_resource type="PackedScene" uid="uid://cwufawg15sc1m" path="res://Scenes/dining_chair.tscn" id="7_rfjv2"]
-[ext_resource type="PackedScene" uid="uid://cnf46ap2io83d" path="res://Scenes/cabinet.tscn" id="7_v158k"]
-[ext_resource type="AudioStream" uid="uid://cv7tas6wl4w01" path="res://Assets/Sound/Player/reload.mp3" id="7_vm72l"]
-[ext_resource type="Texture2D" uid="uid://jm1gmwbxghix" path="res://Assets/Sprites/Animations/reload_indicator.png" id="8_cwurv"]
-[ext_resource type="PackedScene" uid="uid://ld7plmowoqq3" path="res://Scenes/light_switch.tscn" id="8_nb51f"]
-[ext_resource type="PackedScene" uid="uid://deri83j050jm1" path="res://Scenes/gun.tscn" id="13_rfjv2"]
-[ext_resource type="Script" uid="uid://b5ycbuh80mdfq" path="res://Scripts/escape.gd" id="14_1phco"]
-[ext_resource type="PackedScene" uid="uid://vnmg3vtft0mr" path="res://Scenes/nightstand.tscn" id="14_nb51f"]
-[ext_resource type="PackedScene" uid="uid://b5sar0rityel2" path="res://Scenes/kitchen.tscn" id="14_nnt18"]
-[ext_resource type="PackedScene" uid="uid://o7losaualib0" path="res://Scenes/desk.tscn" id="15_nnt18"]
-[ext_resource type="PackedScene" uid="uid://c1i0w8531fv70" path="res://Scenes/office_chair.tscn" id="16_ewbju"]
-[ext_resource type="PackedScene" uid="uid://b0tgclm5ygw36" path="res://Scenes/bathroom_table.tscn" id="19_iivbl"]
-[ext_resource type="Texture2D" uid="uid://vw8j715pu1ih" path="res://Assets/Sprites/Objects/child_carpet.png" id="20_7nbq1"]
-[ext_resource type="PackedScene" uid="uid://b6ocr04t125ba" path="res://Scenes/baby_bed.tscn" id="21_fkdbe"]
-[ext_resource type="Texture2D" uid="uid://il05ytfdaynn" path="res://Assets/Sprites/Objects/toy1.png" id="25_81klo"]
-[ext_resource type="Script" uid="uid://d1r87324j2uu8" path="res://Scripts/timer_label.gd" id="25_fkdbe"]
-[ext_resource type="FontFile" uid="uid://c2nvekmrvmbwg" path="res://Assets/Fonts/Daydream DEMO.otf" id="25_tgy6u"]
-[ext_resource type="PackedScene" uid="uid://bj1faf3kchvjo" path="res://Scenes/waypoint_marker.tscn" id="27_81klo"]
-[ext_resource type="PackedScene" uid="uid://c2as8aqc7jbyy" path="res://Scenes/Menus/pause_menu.tscn" id="27_tgy6u"]
+[ext_resource type="Script" uid="uid://hyowrkncq4m7" path="res://Scenes/cutscene_animation.gd" id="1_3n4rm"]
+[ext_resource type="Texture2D" uid="uid://b1qsj1harbfpq" path="res://Assets/Sprites/Tiles/Ground.png" id="2_fpwqe"]
+[ext_resource type="Texture2D" uid="uid://kbsqbojhxtes" path="res://Assets/Sprites/Tiles/WallsNew.png" id="10_nel0q"]
+[ext_resource type="PackedScene" uid="uid://cnf46ap2io83d" path="res://Scenes/cabinet.tscn" id="11_kknv5"]
+[ext_resource type="PackedScene" uid="uid://nh6itc03a132" path="res://Scenes/bed.tscn" id="12_hvooy"]
+[ext_resource type="PackedScene" uid="uid://c6sbp8h6sxgis" path="res://Scenes/dining_table.tscn" id="13_qux84"]
+[ext_resource type="PackedScene" uid="uid://cwufawg15sc1m" path="res://Scenes/dining_chair.tscn" id="14_iktsa"]
+[ext_resource type="PackedScene" uid="uid://ld7plmowoqq3" path="res://Scenes/light_switch.tscn" id="15_0slmf"]
+[ext_resource type="PackedScene" uid="uid://vnmg3vtft0mr" path="res://Scenes/nightstand.tscn" id="16_03iyt"]
+[ext_resource type="PackedScene" uid="uid://b5sar0rityel2" path="res://Scenes/kitchen.tscn" id="17_616rj"]
+[ext_resource type="PackedScene" uid="uid://o7losaualib0" path="res://Scenes/desk.tscn" id="18_m2h6a"]
+[ext_resource type="PackedScene" uid="uid://c1i0w8531fv70" path="res://Scenes/office_chair.tscn" id="19_dd3vi"]
+[ext_resource type="PackedScene" uid="uid://b0tgclm5ygw36" path="res://Scenes/bathroom_table.tscn" id="20_h5kyt"]
+[ext_resource type="PackedScene" uid="uid://b6ocr04t125ba" path="res://Scenes/baby_bed.tscn" id="21_hmvu2"]
+[ext_resource type="Texture2D" uid="uid://vw8j715pu1ih" path="res://Assets/Sprites/Objects/child_carpet.png" id="23_t3quj"]
+[ext_resource type="Texture2D" uid="uid://il05ytfdaynn" path="res://Assets/Sprites/Objects/toy1.png" id="24_jwrta"]
+[ext_resource type="Texture2D" uid="uid://csn6d058hdt35" path="res://Assets/Sprites/objects.png" id="28_d36il"]
+[ext_resource type="Texture2D" uid="uid://bsqc8lc2rdejp" path="res://Assets/Sprites/enemy.png" id="29_ei2dt"]
+
+[sub_resource type="Animation" id="Animation_ei2dt"]
+resource_name = "animation"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 2.3784146),
+"update": 0,
+"values": [Vector2(3, 3), Vector2(2, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 3.0314333),
+"update": 0,
+"values": [Vector2(764, 369), Vector2(293, 211)]
+}
+
+[sub_resource type="Animation" id="Animation_fpwqe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, 3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(764, 369)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x1uwf"]
+_data = {
+&"RESET": SubResource("Animation_fpwqe"),
+&"animation": SubResource("Animation_ei2dt")
+}
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h4fw4"]
-texture = ExtResource("2_wowpa")
+texture = ExtResource("2_fpwqe")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
@@ -51,7 +101,7 @@ tile_size = Vector2i(32, 32)
 sources/3 = SubResource("TileSetAtlasSource_h4fw4")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1l0tm"]
-texture = ExtResource("2_wowpa")
+texture = ExtResource("2_fpwqe")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -130,7 +180,7 @@ polygon = PackedVector2Array(-8, -8, -8, -16, 8, -16, 7.939808, -8, 16, -8, 16, 
 polygon = PackedVector2Array(-8, -8, -8, -16, 8, -16, 7.939808, -8, 16, -8, 16, 8, 8, 8, 8, 16, -8, 16, -8, 8, -8, 8, -16, 8, -16, -8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nnt18"]
-texture = ExtResource("3_h4fw4")
+texture = ExtResource("10_nel0q")
 texture_region_size = Vector2i(32, 32)
 2:0/0 = 0
 2:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_rfjv2")
@@ -155,87 +205,21 @@ occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_nnt18")
 
-[sub_resource type="LabelSettings" id="LabelSettings_fkdbe"]
-font = ExtResource("25_tgy6u")
-font_size = 64
-
-[sub_resource type="LabelSettings" id="LabelSettings_22asu"]
-font = ExtResource("25_tgy6u")
-font_size = 32
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mucmn"]
-atlas = ExtResource("8_cwurv")
-region = Rect2(0, 0, 9, 9)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8m3t6"]
-atlas = ExtResource("8_cwurv")
-region = Rect2(9, 0, 9, 9)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ese38"]
-atlas = ExtResource("8_cwurv")
-region = Rect2(18, 0, 9, 9)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oeip8"]
-atlas = ExtResource("8_cwurv")
-region = Rect2(27, 0, 9, 9)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xe308"]
-atlas = ExtResource("8_cwurv")
-region = Rect2(36, 0, 9, 9)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d3cha"]
-atlas = ExtResource("8_cwurv")
-region = Rect2(45, 0, 9, 9)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i26dy"]
-atlas = ExtResource("8_cwurv")
-region = Rect2(54, 0, 9, 9)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lmoi6"]
-atlas = ExtResource("8_cwurv")
-region = Rect2(63, 0, 9, 9)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_6uxt2"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mucmn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8m3t6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ese38")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oeip8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xe308")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d3cha")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_i26dy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lmoi6")
-}],
-"loop": false,
-"name": &"default",
-"speed": 7.0
-}]
-
 [node name="Game" type="Node2D"]
 
-[node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("player")]
-unique_name_in_owner = true
-process_mode = 3
-script = ExtResource("1_wowpa")
-player = NodePath("../Player")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_x1uwf")
+}
+script = ExtResource("1_3n4rm")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(764, 369)
+rotation = 3.1415925
+zoom = Vector2(3, 3)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="GroundTileMap" type="TileMapLayer" parent="."]
@@ -245,53 +229,6 @@ tile_set = SubResource("TileSet_ldgsr")
 [node name="SubGroundTileMap" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("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")
 tile_set = SubResource("TileSet_v158k")
-
-[node name="PlayerAudioListener" type="AudioListener2D" parent="."]
-position = Vector2(206, 34)
-current = true
-script = ExtResource("5_o5yvi")
-
-[node name="Player" parent="." instance=ExtResource("2_qxrlw")]
-unique_name_in_owner = true
-z_index = 10
-position = Vector2(160, 276)
-rotation = -3.1415927
-motion_mode = 0
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(-3.0517578e-05, 0)
-zoom = Vector2(3, 3)
-
-[node name="ShootingPoint" type="Marker2D" parent="Player"]
-position = Vector2(13, 0)
-script = ExtResource("5_7t8sx")
-metadata/_custom_type_script = "uid://dr5ls8hlvsf40"
-
-[node name="ShootAudio" type="AudioStreamPlayer2D" parent="Player/ShootingPoint"]
-position = Vector2(-13, 0)
-stream = ExtResource("6_mg4q0")
-
-[node name="ReloadTimer" type="Timer" parent="Player/ShootingPoint"]
-one_shot = true
-
-[node name="ReloadAudio" type="AudioStreamPlayer2D" parent="Player/ShootingPoint"]
-stream = ExtResource("7_vm72l")
-
-[node name="ShootVolumeScoreTimer" type="Timer" parent="Player/ShootingPoint"]
-one_shot = true
-
-[node name="Enemy" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_3dryh")]
-unique_name_in_owner = true
-z_index = 10
-position = Vector2(634, 78)
-rotation = 3.1375606
-max_health = 3
-target = NodePath("../Player")
-
-[node name="Gun" parent="." instance=ExtResource("13_rfjv2")]
-z_index = 5
-position = Vector2(160, 224)
-scale = Vector2(0.5, 0.5)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 unique_name_in_owner = true
@@ -303,85 +240,80 @@ z_as_relative = false
 tile_map_data = PackedByteArray("AAAJAAwAAgAAAAAAAGAKAAwAAgABAAAAAFALAAwAAgAAAAAAAGAMAAwAAgADAAAAAGANAAwAAgAAAAAAAGAOAAwAAgADAAAAAGARAAwAAgAAAAAAAGASAAwAAgAAAAAAAGATAAwAAgAAAAAAAGAUAAwAAgAAAAAAAGAVAAwAAgAAAAAAAGAWAAwAAgACAAAAADAIAAwAAgADAAAAAGAQAAwAAgADAAAAAGAHAAwAAgADAAAAAGAHAAsAAgAAAAAAAAAHAAoAAgAAAAAAAAAIAAkAAgACAAAAAFAMAAgAAgAAAAAAAAAOAAgAAgAAAAAAADAHAAkAAgADAAAAAAAIAAsAAgABAAAAAAAIAAoAAgABAAAAAAAHAAgAAgAAAAAAAAAHAAcAAgADAAAAAFAFAAcAAgADAAAAAGACAAcAAgADAAAAAAAFAAYAAgADAAAAADAEAAYAAgAAAAAAAFADAAYAAgAAAAAAAFACAAYAAgADAAAAAAACAAgAAgABAAAAAAACAAkAAgAAAAAAAAACAAoAAgAAAAAAAAACAAsAAgAAAAAAAAACAAwAAgACAAAAAGAEAAwAAgABAAAAAFADAAwAAgAAAAAAAGAFAAwAAgAAAAAAAGAGAAwAAgAAAAAAAGAFAAUAAgADAAAAAFAHAAUAAgADAAAAAGAIAAUAAgAAAAAAAGAJAAUAAgADAAAAAGAMAAIAAgADAAAAAFAMAAAAAgAAAAAAAFALAAAAAgABAAAAAFANAAAAAgABAAAAAFAPAAAAAgABAAAAAFAOAAAAAgADAAAAAFAIAAAAAgABAAAAAFAJAAAAAgAAAAAAAFAKAAAAAgAAAAAAAFAJAAQAAgAAAAAAAAAJAAMAAgAAAAAAAAAJAAIAAgADAAAAAFAHAAMAAgAAAAAAAAAHAAIAAgADAAAAAAAHAAAAAgADAAAAAFAGAAAAAgABAAAAAFAFAAAAAgAAAAAAAFACAAAAAgACAAAAAAACAAEAAgAAAAAAAAACAAIAAgAAAAAAAAACAAMAAgAAAAAAAAACAAQAAgAAAAAAAAACAAUAAgADAAAAAAAMAAMAAgAAAAAAADAOAAUAAgADAAAAADAMAAUAAgADAAAAAGAKAAUAAgAAAAAAAGAMAAQAAgAAAAAAADAKAAIAAgAAAAAAAFALAAIAAgAAAAAAAFAIAAIAAgAAAAAAAFARAAAAAgAAAAAAAFAQAAAAAgAAAAAAAFASAAAAAgADAAAAAFATAAAAAgABAAAAAFAVAAAAAgAAAAAAAFAUAAAAAgAAAAAAAFAWAAAAAgACAAAAAFAWAAEAAgAAAAAAADAWAAIAAgAAAAAAADAWAAMAAgADAAAAADAWAAQAAgAAAAAAADAWAAcAAgABAAAAAAAWAAkAAgADAAAAADAWAAgAAgAAAAAAADAWAAYAAgAAAAAAADAWAAUAAgAAAAAAADAQAAoAAgAAAAAAAAAMAAsAAgAAAAAAAAAMAAoAAgAAAAAAAAAMAAkAAgAAAAAAAAAOAAQAAgAAAAAAAAAOAAMAAgAAAAAAAAAOAAIAAgADAAAAADAOAAEAAgAAAAAAAAAOAAsAAgAAAAAAAAASAAEAAgAAAAAAAAADAAAAAgABAAAAAFAEAAAAAgAAAAAAAFANAAIAAgAAAAAAAFAQAAkAAgACAAAAAAAVAAkAAgAAAAAAAFAUAAkAAgAAAAAAAFATAAkAAgAAAAAAAFASAAkAAgAAAAAAAFARAAkAAgAAAAAAAFAWAAoAAgAAAAAAADATAAMAAgAAAAAAAGAVAAMAAgAAAAAAAGAUAAMAAgAAAAAAAGASAAMAAgADAAAAAAAOAAcAAgADAAAAADAIAAcAAgAAAAAAAFAKAAcAAgAAAAAAAFALAAcAAgAAAAAAAFAMAAcAAgADAAAAAFANAAcAAgAAAAAAAFAPAAwAAgAAAAAAAGA=")
 tile_set = SubResource("TileSet_ewbju")
 
-[node name="Cabinet" parent="NavigationRegion2D" instance=ExtResource("7_v158k")]
+[node name="Cabinet" parent="NavigationRegion2D" instance=ExtResource("11_kknv5")]
 position = Vector2(484, 250)
 rotation = -3.1415925
+script = null
 
-[node name="Bed" parent="NavigationRegion2D" instance=ExtResource("6_1l0tm")]
+[node name="Bed" parent="NavigationRegion2D" instance=ExtResource("12_hvooy")]
 position = Vector2(104, 360)
 rotation = 1.5707964
+script = null
 
 [node name="Dining" type="Node2D" parent="NavigationRegion2D"]
 position = Vector2(605.00006, 205)
 scale = Vector2(0.84, 0.84)
 
-[node name="DiningTable" parent="NavigationRegion2D/Dining" instance=ExtResource("6_rku1e")]
+[node name="DiningTable" parent="NavigationRegion2D/Dining" instance=ExtResource("13_qux84")]
 
-[node name="DiningChair" parent="NavigationRegion2D/Dining" instance=ExtResource("7_rfjv2")]
+[node name="DiningChair" parent="NavigationRegion2D/Dining" instance=ExtResource("14_iktsa")]
 position = Vector2(-74, 0)
 
-[node name="DiningChair2" parent="NavigationRegion2D/Dining" instance=ExtResource("7_rfjv2")]
+[node name="DiningChair2" parent="NavigationRegion2D/Dining" instance=ExtResource("14_iktsa")]
 position = Vector2(74, 0)
 rotation = 3.1415925
 
-[node name="DiningChair3" parent="NavigationRegion2D/Dining" instance=ExtResource("7_rfjv2")]
+[node name="DiningChair3" parent="NavigationRegion2D/Dining" instance=ExtResource("14_iktsa")]
 position = Vector2(20, -38)
 rotation = 1.5707964
 
-[node name="DiningChair4" parent="NavigationRegion2D/Dining" instance=ExtResource("7_rfjv2")]
+[node name="DiningChair4" parent="NavigationRegion2D/Dining" instance=ExtResource("14_iktsa")]
 position = Vector2(-14, -38)
 rotation = 1.5707964
 
-[node name="DiningChair5" parent="NavigationRegion2D/Dining" instance=ExtResource("7_rfjv2")]
+[node name="DiningChair5" parent="NavigationRegion2D/Dining" instance=ExtResource("14_iktsa")]
 position = Vector2(20, 38)
 rotation = -1.5707964
 
-[node name="DiningChair6" parent="NavigationRegion2D/Dining" instance=ExtResource("7_rfjv2")]
+[node name="DiningChair6" parent="NavigationRegion2D/Dining" instance=ExtResource("14_iktsa")]
 position = Vector2(-9, 38)
 rotation = -1.5707964
 
-[node name="LightSwitch" parent="NavigationRegion2D" instance=ExtResource("8_nb51f")]
+[node name="LightSwitch" parent="NavigationRegion2D" instance=ExtResource("15_0slmf")]
 position = Vector2(232, 282)
 rotation = -1.5707964
+script = null
 
-[node name="Nightstand" parent="NavigationRegion2D" instance=ExtResource("14_nb51f")]
+[node name="Nightstand" parent="NavigationRegion2D" instance=ExtResource("16_03iyt")]
 position = Vector2(105, 309)
+script = null
 
-[node name="Kitchen" parent="NavigationRegion2D" instance=ExtResource("14_nnt18")]
+[node name="Kitchen" parent="NavigationRegion2D" instance=ExtResource("17_616rj")]
 position = Vector2(624, 311)
 
-[node name="Desk" parent="NavigationRegion2D" instance=ExtResource("15_nnt18")]
+[node name="Desk" parent="NavigationRegion2D" instance=ExtResource("18_m2h6a")]
 position = Vector2(712, 64)
 
-[node name="OfficeChair" parent="NavigationRegion2D" instance=ExtResource("16_ewbju")]
+[node name="OfficeChair" parent="NavigationRegion2D" instance=ExtResource("19_dd3vi")]
 position = Vector2(668, 71)
 
-[node name="BathroomTable" parent="NavigationRegion2D" instance=ExtResource("19_iivbl")]
+[node name="BathroomTable" parent="NavigationRegion2D" instance=ExtResource("20_h5kyt")]
 position = Vector2(296, 152)
 rotation = 1.5707964
 
-[node name="baby_bed" parent="NavigationRegion2D" instance=ExtResource("21_fkdbe")]
+[node name="baby_bed" parent="NavigationRegion2D" instance=ExtResource("21_hmvu2")]
 position = Vector2(372, 258)
-
-[node name="Escape" type="RayCast2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(720, 384)
-target_position = Vector2(0, -32)
-script = ExtResource("14_1phco")
-
-[node name="EnemyNavTarget" type="Node2D" parent="Escape"]
-unique_name_in_owner = true
-position = Vector2(40, -13)
 
 [node name="ChildCarpet" type="Sprite2D" parent="."]
 position = Vector2(337, 338)
-texture = ExtResource("20_7nbq1")
+texture = ExtResource("23_t3quj")
 
 [node name="Toy1" type="Sprite2D" parent="."]
 position = Vector2(334, 339)
-texture = ExtResource("25_81klo")
+texture = ExtResource("24_jwrta")
 
 [node name="Map" type="CanvasLayer" parent="."]
+visible = false
 follow_viewport_enabled = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Map"]
@@ -393,51 +325,20 @@ z_as_relative = false
 tile_map_data = PackedByteArray("AAAJAAwAAgAAAAAAAGAKAAwAAgABAAAAAFALAAwAAgAAAAAAAGAMAAwAAgADAAAAAGANAAwAAgAAAAAAAGAOAAwAAgADAAAAAGARAAwAAgAAAAAAAGASAAwAAgAAAAAAAGATAAwAAgAAAAAAAGAUAAwAAgAAAAAAAGAVAAwAAgAAAAAAAGAWAAwAAgACAAAAADAIAAwAAgADAAAAAGAQAAwAAgADAAAAAGAHAAwAAgADAAAAAGAHAAsAAgAAAAAAAAAHAAoAAgAAAAAAAAAIAAkAAgACAAAAAFAMAAgAAgAAAAAAAAAOAAgAAgAAAAAAADAHAAkAAgADAAAAAAAIAAsAAgABAAAAAAAIAAoAAgABAAAAAAAHAAgAAgAAAAAAAAAHAAcAAgADAAAAAFAFAAcAAgADAAAAAGACAAcAAgADAAAAAAAFAAYAAgADAAAAADAEAAYAAgAAAAAAAFADAAYAAgAAAAAAAFACAAYAAgADAAAAAAACAAgAAgABAAAAAAACAAkAAgAAAAAAAAACAAoAAgAAAAAAAAACAAsAAgAAAAAAAAACAAwAAgACAAAAAGAEAAwAAgABAAAAAFADAAwAAgAAAAAAAGAFAAwAAgAAAAAAAGAGAAwAAgAAAAAAAGAFAAUAAgADAAAAAFAHAAUAAgADAAAAAGAIAAUAAgAAAAAAAGAJAAUAAgADAAAAAGAMAAIAAgADAAAAAFAMAAAAAgAAAAAAAFALAAAAAgABAAAAAFANAAAAAgABAAAAAFAPAAAAAgABAAAAAFAOAAAAAgADAAAAAFAIAAAAAgABAAAAAFAJAAAAAgAAAAAAAFAKAAAAAgAAAAAAAFAJAAQAAgAAAAAAAAAJAAMAAgAAAAAAAAAJAAIAAgADAAAAAFAHAAMAAgAAAAAAAAAHAAIAAgADAAAAAAAHAAAAAgADAAAAAFAGAAAAAgABAAAAAFAFAAAAAgAAAAAAAFACAAAAAgACAAAAAAACAAEAAgAAAAAAAAACAAIAAgAAAAAAAAACAAMAAgAAAAAAAAACAAQAAgAAAAAAAAACAAUAAgADAAAAAAAMAAMAAgAAAAAAADAOAAUAAgADAAAAADAMAAUAAgADAAAAAGAKAAUAAgAAAAAAAGAMAAQAAgAAAAAAADAKAAIAAgAAAAAAAFALAAIAAgAAAAAAAFAIAAIAAgAAAAAAAFARAAAAAgAAAAAAAFAQAAAAAgAAAAAAAFASAAAAAgADAAAAAFATAAAAAgABAAAAAFAVAAAAAgAAAAAAAFAUAAAAAgAAAAAAAFAWAAAAAgACAAAAAFAWAAEAAgAAAAAAADAWAAIAAgAAAAAAADAWAAMAAgADAAAAADAWAAQAAgAAAAAAADAWAAcAAgABAAAAAAAWAAkAAgADAAAAADAWAAgAAgAAAAAAADAWAAYAAgAAAAAAADAWAAUAAgAAAAAAADAQAAoAAgAAAAAAAAAMAAsAAgAAAAAAAAAMAAoAAgAAAAAAAAAMAAkAAgAAAAAAAAAOAAQAAgAAAAAAAAAOAAMAAgAAAAAAAAAOAAIAAgADAAAAADAOAAEAAgAAAAAAAAAOAAsAAgAAAAAAAAASAAEAAgAAAAAAAAADAAAAAgABAAAAAFAEAAAAAgAAAAAAAFANAAIAAgAAAAAAAFAQAAkAAgACAAAAAAAVAAkAAgAAAAAAAFAUAAkAAgAAAAAAAFATAAkAAgAAAAAAAFASAAkAAgAAAAAAAFARAAkAAgAAAAAAAFAWAAoAAgAAAAAAADATAAMAAgAAAAAAAGAVAAMAAgAAAAAAAGAUAAMAAgAAAAAAAGASAAMAAgADAAAAAAAOAAcAAgADAAAAADAIAAcAAgAAAAAAAFAKAAcAAgAAAAAAAFALAAcAAgAAAAAAAFAMAAcAAgADAAAAAFANAAcAAgAAAAAAAFAPAAwAAgAAAAAAAGA=")
 tile_set = SubResource("TileSet_ewbju")
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="Enemy" type="Sprite2D" parent="."]
+position = Vector2(613, 79)
+rotation = -3.146357
+texture = ExtResource("29_ei2dt")
 
-[node name="AmmoLabel" type="Label" parent="UI"]
-unique_name_in_owner = true
-offset_left = 19.0
-offset_top = 19.0
-offset_right = 163.0
-offset_bottom = 83.0
-text = "5/20"
-label_settings = SubResource("LabelSettings_fkdbe")
+[node name="Pistol" type="Sprite2D" parent="."]
+position = Vector2(161, 226)
+texture = ExtResource("28_d36il")
+region_enabled = true
+region_rect = Rect2(109.96916, 76.98109, 8.008186, 8.101501)
 
-[node name="TimerLabel" type="Label" parent="UI"]
-offset_left = 247.0
-offset_top = 19.0
-offset_right = 361.0
-offset_bottom = 71.0
-text = "0.00"
-label_settings = SubResource("LabelSettings_22asu")
-script = ExtResource("25_fkdbe")
-
-[node name="PauseMenu" parent="UI" instance=ExtResource("27_tgy6u")]
-
-[node name="ReloadAnimation" type="AnimatedSprite2D" parent="UI"]
-unique_name_in_owner = true
-visible = false
-position = Vector2(537, 464)
-rotation = 3.1415925
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_6uxt2")
-
-[node name="MarkerCanvasLayer" type="CanvasLayer" parent="."]
-unique_name_in_owner = true
-follow_viewport_enabled = true
-
-[node name="Node2D" type="Node2D" parent="MarkerCanvasLayer"]
-position = Vector2(160, 224)
-
-[node name="WaypointMarker" parent="MarkerCanvasLayer/Node2D" instance=ExtResource("27_81klo")]
-modulate = Color(0.5429604, 0.64250165, 0.32527396, 1)
-position = Vector2(0, -7)
-on_screen_offset = Vector2(0, -7)
-screen_margin = 20.0
-smoothing_speed = 4.0
-
-[connection signal="timeout" from="Player/ShootingPoint/ReloadTimer" to="Player/ShootingPoint" method="_on_reload_timer_timeout"]
-[connection signal="timeout" from="Player/ShootingPoint/ShootVolumeScoreTimer" to="Player/ShootingPoint" method="_on_shoot_volume_score_timer_timeout"]
-[connection signal="body_entered" from="Gun" to="Player" method="_on_teddy_bear_2_body_entered"]
-[connection signal="lights_toggled" from="NavigationRegion2D/LightSwitch" to="NavigationRegion2D/Nightstand" method="_on_light_switch_lights_toggled"]
+[node name="Objects" type="Sprite2D" parent="."]
+position = Vector2(759, 373)
+rotation = 3.1415927
+texture = ExtResource("28_d36il")
+region_enabled = true
+region_rect = Rect2(128.98607, 32.861893, 20.205994, 30.292309)
