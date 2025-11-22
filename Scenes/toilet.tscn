@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://14rpvvdu2eqw"]
+
+[ext_resource type="Texture2D" uid="uid://csn6d058hdt35" path="res://Assets/Sprites/objects.png" id="1_unj8y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ygave"]
+size = Vector2(24, 9)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b53y0"]
+height = 24.0
+
+[node name="Toilet" type="StaticBody2D"]
+
+[node name="Objects" type="Sprite2D" parent="."]
+position = Vector2(0, 16)
+texture = ExtResource("1_unj8y")
+region_enabled = true
+region_rect = Rect2(259.95996, 0.0075097084, 24.1315, 32.027218)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 27.5)
+shape = SubResource("RectangleShape2D_ygave")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, 12)
+shape = SubResource("CapsuleShape2D_b53y0")

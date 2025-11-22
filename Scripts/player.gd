@@ -8,6 +8,7 @@ var movement_enabled = true
 @export var sneak_sound: AudioStreamMP3
 @export var walk_sound: AudioStreamMP3
 @export var run_sound: AudioStreamMP3
+@onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
 enum sound_score {
 	SNEAK = 5,
@@ -93,3 +94,15 @@ func _on_teddy_bear_2_body_entered(body: Node2D) -> void:
 	if body.name == name:
 		picked_up_gun.emit()
 		has_gun = true
+
+
+func _on_exposed() -> void:
+	collision_shape.disabled = false
+	movement_enabled = true
+	visible = true
+
+
+func _on_hid() -> void:
+	collision_shape.disabled = true
+	movement_enabled = false
+	visible = false

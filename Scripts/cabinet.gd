@@ -1,5 +1,5 @@
 extends StaticBody2D
- 
+
 @onready var game_manager: GameManager = %GameManager
 @onready var toggles: Node2D = $Toggles
 @onready var closed_collision: CollisionShape2D = $ClosedCollisionShape
@@ -23,26 +23,29 @@ func _ready() -> void:
 	open_audio_timer.wait_time = open_audio_stream.stream.get_length()
 	close_audio_timer.wait_time = close_audio_stream.stream.get_length()
 
+
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"): 
 		is_in_range = true
-		game_manager.toggle_interaction_prompt()
+		game_manager.enable_interaction_prompt()
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	if body.is_in_group("Player"):
+	if body.is_in_group("Player") and not game_manager.player_is_hidden:
 		is_in_range = false
-		game_manager.toggle_interaction_prompt()
+		game_manager.disable_interaction_prompt()
+
 
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and not game_manager.player_is_hidden and is_in_range:
 		if can_open_close:
-			game_manager.hide_player()
+			game_manager.player_hid.emit()
 			close_cabinet()
 	elif Input.is_action_just_pressed("interact") and game_manager.player_is_hidden and is_in_range:
 		if can_open_close:
-			game_manager.expose_player()
+			game_manager.player_exposed.emit()
 			open_cabinet()
+
 
 func toggle_open_close():
 	for child in toggles.get_children():
@@ -50,7 +53,6 @@ func toggle_open_close():
 		node.visible = !node.visible
 	closed_collision.disabled = !closed_collision.disabled
 	opened_collision.disabled = !opened_collision.disabled
-
 
 func close_cabinet():
 	open_close_timer.start()
@@ -75,8 +77,7 @@ func _on_open_close_timer_timeout() -> void:
 
 
 func _on_close_audio_timer_timeout() -> void:
-	if not game_manager.volume_scores.erase(close_audio_stream):
-		print("cabinet: close audio stream did not exist")
+	game_manager.volume_scores.erase(close_audio_stream)
 
 
 func _on_open_audio_timer_timeout() -> void:

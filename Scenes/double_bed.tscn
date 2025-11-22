@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://day570dc7rg4w"]
+
+[ext_resource type="Texture2D" uid="uid://csn6d058hdt35" path="res://Assets/Sprites/objects.png" id="1_psy4s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hmtn3"]
+size = Vector2(64, 64)
+
+[node name="DoubleBed" type="StaticBody2D"]
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(0, 42)
+rotation = -1.5707964
+texture = ExtResource("1_psy4s")
+region_enabled = true
+region_rect = Rect2(682.9582, -0.026930809, 85.05414, 96.05394)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 32)
+shape = SubResource("RectangleShape2D_hmtn3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 32)
+rotation = -1.5707964
+texture = ExtResource("1_psy4s")
+region_enabled = true
+region_rect = Rect2(608.00604, -0.0028119087, 63.993103, 64.01882)

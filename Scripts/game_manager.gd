@@ -3,6 +3,9 @@ class_name GameManager
 
 var time := 0.0
 
+signal player_hid
+signal player_exposed
+
 @onready var enemy: Enemy = %Enemy
 @export var player: Player
 const PAUSE_MENU = preload("uid://c2as8aqc7jbyy")
@@ -22,19 +25,11 @@ var player_has_gun_in_hand = false
 func toggle_interaction_prompt():
 	player.interaction_prompt.visible = !player.interaction_prompt.visible
 
-func hide_player():
-	player.visible = false
-	player.movement_enabled = false
-	player_is_hidden = true
-	if enemy:
-		enemy._on_player_hid()
+func enable_interaction_prompt():
+	player.interaction_prompt.visible = true
 
-func expose_player():
-	player.visible = true
-	player.movement_enabled = true
-	player_is_hidden = false 
-	if enemy:
-		enemy._on_player_exposed()
+func disable_interaction_prompt():
+	player.interaction_prompt.visible = false
 
 func _process(delta: float) -> void:
 	time += delta
@@ -50,3 +45,11 @@ func save_score():
 	latest_score_file.store_float(time)
 	file.close()
 	latest_score_file.close()
+
+
+func _on_player_exposed() -> void:
+	player_is_hidden = false
+
+
+func _on_player_hid() -> void:
+	player_is_hidden = true

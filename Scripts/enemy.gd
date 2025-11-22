@@ -70,7 +70,7 @@ func _physics_process(delta: float) -> void:
 					start_hunt()
 					break
 	
-	if not game_manager.player_has_gun_in_hand:
+	if not game_manager.player_has_gun_in_hand and chasing:
 		navigation_agent.target_position = target.global_position 
 	
 	if not navigation_agent.is_navigation_finished():
