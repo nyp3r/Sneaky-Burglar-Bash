@@ -38,3 +38,15 @@ func expose_player():
 
 func _process(delta: float) -> void:
 	time += delta
+
+func save_score():
+	var latest_score_file = FileAccess.open("res://latest_score.txt", FileAccess.WRITE)
+	var file: FileAccess
+	file = FileAccess.open("res://scores.txt", FileAccess.READ_WRITE)
+	if file == null:
+		file = FileAccess.open("res://scores.txt", FileAccess.WRITE)
+	file.seek_end()
+	file.store_float(time)
+	latest_score_file.store_float(time)
+	file.close()
+	latest_score_file.close()
