@@ -3,8 +3,7 @@ class_name ShootingPoint
 
 const VOLUME_SCORE = 50
 
-const BULLET = preload("uid://pccngkaro4fo")
-@onready var reload_animation: AnimatedSprite2D = %ReloadAnimation
+const BULLET = preload("uid://pccngkaro4fo") 
 @onready var enemy: Enemy = %Enemy
 @onready var shoot_audio: AudioStreamPlayer2D = $ShootAudio
 @onready var game_manager: GameManager = %GameManager
@@ -46,13 +45,13 @@ func reload():
 	reload_timer.stop()
 	reload_timer.start()
 	reload_audio.play()
-	reload_animation.visible = true
-	reload_animation.play("default", reload_timer.wait_time)
+	player.reload_animation.visible = true
+	player.reload_animation.play("default", reload_timer.wait_time)
 	reloading = true
 
 func _on_reload_timer_timeout() -> void:
 	reloading = false
-	reload_animation.visible = false
+	player.reload_animation.visible = false
 	current_ammo -= MAX_CLIP_SIZE
 	current_clip_size = MAX_CLIP_SIZE
 	ammo_label.text = str(current_clip_size) + "/" + str(current_ammo)

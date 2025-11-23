@@ -24,9 +24,9 @@ const ANGLE_BETWEEN_RAYS := deg_to_rad(10)
 @onready var sound_ray_cast: RayCast2D = $SoundRayCast
 @onready var footstep_audio: AudioStreamPlayer2D = $FootstepAudio
 @onready var navigation_region: NavigationRegion2D = %NavigationRegion2D
-@export var target: Player
+@export var player: Player
 @onready var spawner_timer: Timer = $SpawnerTimer
-@onready var enemy_nav_target: Node2D = %EnemyNavTarget
+@onready var escape_position: Vector2 = %EnemyNavTarget.global_position
 @onready var escape: RayCast2D = %Escape
 
 @export var walk_sound: AudioStreamMP3
@@ -34,7 +34,8 @@ const ANGLE_BETWEEN_RAYS := deg_to_rad(10)
 @export var laugh_sound: AudioStreamMP3
 
 const MAX_SPACIAL_VOLUME = 300
-var chasing = false
+var chasing := false
+var discovered_player_with_pistol := false
 
 func generate_raycasts() -> void:
 	var ray_count := VISION_CONE_ANGLE / ANGLE_BETWEEN_RAYS
@@ -48,11 +49,11 @@ func generate_raycasts() -> void:
 
 func _ready() -> void:
 	generate_raycasts()
+	discovered_player_with_pistol = false
 	speed = WALK_SPEED
-var is_behind_cover = false
 
 func _physics_process(delta: float) -> void:
-	sound_ray_cast.target_position = sound_ray_cast.to_local(target.global_position)
+	sound_ray_cast.target_position = sound_ray_cast.to_local(player.global_position)
 	if not game_manager.player_is_hidden:
 		if sound_ray_cast.is_colliding() and not sound_ray_cast.get_collider().is_class("CharacterBody2D"): 
 			AudioServer.set_bus_effect_enabled(3, 0, true)
@@ -62,16 +63,19 @@ func _physics_process(delta: float) -> void:
 			footstep_audio.volume_db = sound.direct
 	
 	
-	if not chasing:
-		for child in get_children():
-			if child is RayCast2D:
-				var ray = child as RayCast2D
-				if ray.is_colliding() and ray.get_collider() is Player and ray.name != sound_ray_cast.name:
-					start_hunt()
-					break
+	for child in get_children():
+		if child is RayCast2D:
+			var ray = child as RayCast2D
+			if ray.is_colliding() and ray.get_collider() is Player and ray.name != sound_ray_cast.name:
+				if game_manager.player_has_gun_in_hand:
+					discovered_player_with_pistol = true 
+				start_hunt() 
+				break
 	
-	if not game_manager.player_has_gun_in_hand and chasing:
-		navigation_agent.target_position = target.global_position 
+	if not discovered_player_with_pistol and chasing:
+		navigation_agent.target_position = player.global_position
+	elif discovered_player_with_pistol and chasing and navigation_agent.target_position != escape_position:
+		navigation_agent.target_position = escape_position
 	
 	if not navigation_agent.is_navigation_finished():
 		look_at(navigation_agent.get_next_path_position())
@@ -84,6 +88,10 @@ func _physics_process(delta: float) -> void:
 	
 	var spacial_volume_score = get_spacial_volume_score()
 	if spacial_volume_score < 10 and spacial_volume_score >= 0:
+		for key in game_manager.volume_scores.keys():
+			var distance_to_player = global_position.distance_to(player.global_position)
+			if  (key.name == "ShootAudio" or key.name == "ReloadAudio") and distance_to_player / game_manager.volume_scores[key] < 10:
+				discovered_player_with_pistol = true
 		start_hunt()
 
 func start_hunt():
@@ -93,10 +101,10 @@ func start_hunt():
 		footstep_audio.play()
 		chasing = true
 		speed = SPRINT_SPEED
-		navigation_agent.target_position = enemy_nav_target.global_position
+		navigation_agent.target_position = escape_position
 
 func get_spacial_volume_score() -> int:
-	var distance_to_player = global_position.distance_to(target.global_position)
+	var distance_to_player = global_position.distance_to(player.global_position)
 	return distance_to_player / game_manager.current_volume_score
 
 func _on_bullet_hit(body):

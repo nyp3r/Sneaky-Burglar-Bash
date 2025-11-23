@@ -17,11 +17,8 @@ func load_scores():
 	var save_file = FileAccess.open("res://scores.txt", FileAccess.READ)
 	
 	var scores: Array
-	var i := 0
 	while !save_file.eof_reached():
 		scores.append(save_file.get_float())
-		print(scores[i])
-		i += 1
 	scores.sort()
 	
 	if scores.size() > 1: 

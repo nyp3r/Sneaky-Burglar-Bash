@@ -1,5 +1,7 @@
 extends Control
 
+func _ready() -> void:
+	FileAccess.open("res://scores.txt", FileAccess.WRITE)
 
 func _on_play_again_button_pressed() -> void:
 	GlobalInfo.set_ingame_music()

@@ -1,15 +1,19 @@
-[gd_scene load_steps=17 format=3 uid="uid://di3nwwsf4b3pg"]
+[gd_scene load_steps=38 format=3 uid="uid://di3nwwsf4b3pg"]
 
 [ext_resource type="Script" uid="uid://dqjaw5bs00hd6" path="res://Scripts/player.gd" id="1_kyqiw"]
 [ext_resource type="AudioStream" uid="uid://bj4qyvro61phd" path="res://Assets/Sound/Player/player_sneak_boot.mp3" id="2_52ee3"]
 [ext_resource type="AudioStream" uid="uid://d0kfxm7ebk6u1" path="res://Assets/Sound/Player/player_walk_boots.mp3" id="3_bhhdu"]
 [ext_resource type="AudioStream" uid="uid://cfs53s38q1rrf" path="res://Assets/Sound/Player/player_run_boot.mp3" id="4_megsn"]
-[ext_resource type="Script" uid="uid://b6n0cwtj3wmw4" path="res://Scripts/interaction_prompt.gd" id="4_nn08x"]
+[ext_resource type="Script" uid="uid://b6n0cwtj3wmw4" path="res://Scripts/player_ui.gd" id="4_nn08x"]
 [ext_resource type="Texture2D" uid="uid://csn6d058hdt35" path="res://Assets/Sprites/objects.png" id="5_yoq75"]
+[ext_resource type="Texture2D" uid="uid://jm1gmwbxghix" path="res://Assets/Sprites/Animations/reload_indicator.png" id="6_glx4g"]
 [ext_resource type="FontFile" uid="uid://c2nvekmrvmbwg" path="res://Assets/Fonts/Daydream DEMO.otf" id="6_yoq75"]
+[ext_resource type="Texture2D" uid="uid://ddvd0604igekf" path="res://Assets/Sprites/Animations/press_ctrl.png" id="7_miouo"]
 [ext_resource type="Script" uid="uid://d2tl2mlg2c5d" path="res://Scripts/States/Utility/state_machine.gd" id="8_megsn"]
 [ext_resource type="Script" uid="uid://cnljpitby5fgm" path="res://Scripts/armed.gd" id="9_yoq75"]
+[ext_resource type="Script" uid="uid://c20gnk2l2gq06" path="res://Scripts/interaction_prompt.gd" id="10_miouo"]
 [ext_resource type="Script" uid="uid://cqitagi37qlyh" path="res://Scripts/unarmed.gd" id="10_yoq75"]
+[ext_resource type="Script" uid="uid://bg163ve1kg6hd" path="res://Scripts/press_crouch_timer.gd" id="14_o3h8g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kyqiw"]
 radius = 7.0
@@ -37,6 +41,127 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 metadata/_snap_enabled = true
 metadata/_snap_count = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mucmn"]
+atlas = ExtResource("6_glx4g")
+region = Rect2(0, 0, 9, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8m3t6"]
+atlas = ExtResource("6_glx4g")
+region = Rect2(9, 0, 9, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ese38"]
+atlas = ExtResource("6_glx4g")
+region = Rect2(18, 0, 9, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oeip8"]
+atlas = ExtResource("6_glx4g")
+region = Rect2(27, 0, 9, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xe308"]
+atlas = ExtResource("6_glx4g")
+region = Rect2(36, 0, 9, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3cha"]
+atlas = ExtResource("6_glx4g")
+region = Rect2(45, 0, 9, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i26dy"]
+atlas = ExtResource("6_glx4g")
+region = Rect2(54, 0, 9, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmoi6"]
+atlas = ExtResource("6_glx4g")
+region = Rect2(63, 0, 9, 9)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o3h8g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mucmn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8m3t6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ese38")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oeip8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xe308")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3cha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i26dy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmoi6")
+}],
+"loop": false,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6uxt2"]
+atlas = ExtResource("7_miouo")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ym3tv"]
+atlas = ExtResource("7_miouo")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwj6o"]
+atlas = ExtResource("7_miouo")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3c8l"]
+atlas = ExtResource("7_miouo")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bu0y5"]
+atlas = ExtResource("7_miouo")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6a4tp"]
+atlas = ExtResource("7_miouo")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_631el"]
+atlas = ExtResource("7_miouo")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1e7my"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6uxt2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ym3tv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwj6o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f3c8l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bu0y5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6a4tp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_631el")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="LabelSettings" id="LabelSettings_nn08x"]
 font = ExtResource("6_yoq75")
@@ -93,6 +218,27 @@ rotation = 1.5707964
 scale = Vector2(0.5654729, 0.56547296)
 texture = SubResource("GradientTexture2D_gntrk")
 
+[node name="ReloadAnimation" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(1, 23)
+rotation = 3.1415925
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_o3h8g")
+offset = Vector2(-4, -4)
+script = ExtResource("4_nn08x")
+offset = Vector2(-4, -4)
+
+[node name="PressCrouchAnimation" type="AnimatedSprite2D" parent="."]
+visible = false
+light_mask = 0
+visibility_layer = 2
+z_index = 2480
+position = Vector2(1, -23)
+sprite_frames = SubResource("SpriteFrames_1e7my")
+offset = Vector2(4, -12)
+script = ExtResource("4_nn08x")
+offset = Vector2(4, -12)
+
 [node name="InteractionPrompt" type="Label" parent="."]
 visible = false
 z_index = 25
@@ -103,7 +249,7 @@ offset_bottom = 11.0
 pivot_offset = Vector2(4, 9)
 text = "e"
 label_settings = SubResource("LabelSettings_nn08x")
-script = ExtResource("4_nn08x")
+script = ExtResource("10_miouo")
 
 [node name="FootstepAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_bhhdu")
@@ -119,3 +265,10 @@ script = ExtResource("9_yoq75")
 
 [node name="Unarmed" type="Node" parent="StateMachine"]
 script = ExtResource("10_yoq75")
+
+[node name="PressCrouchTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+script = ExtResource("14_o3h8g")
+
+[connection signal="timeout" from="PressCrouchTimer" to="PressCrouchTimer" method="_on_timeout"]

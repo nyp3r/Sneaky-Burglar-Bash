@@ -1,4 +1,5 @@
-extends Control
+extends Node2D
+class_name PlayerUI
 
 @export var offset: Vector2 = Vector2(4, -4)
 

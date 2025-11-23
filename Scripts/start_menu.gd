@@ -2,10 +2,10 @@ extends Control
 
 
 func _on_start_button_pressed() -> void:
-	var scores_file = FileAccess.open("res://scores.txt", FileAccess.READ)
-	if scores_file == null:
-		GlobalInfo.set_ingame_music()
-		get_tree().call_deferred("change_scene_to_file", "res://Scenes/introduction.tscn")
+	#var scores_file = FileAccess.open("res://scores.txt", FileAccess.READ)
+	#if scores_file == nuldl:
+		#GlobalInfo.set_ingame_music()
+		#get_tree().call_deferred("change_scene_to_file", "res://Scenes/introduction.tscn")
 	
 	GlobalInfo.set_ingame_music()
 	get_tree().change_scene_to_file("res://Scenes/game.tscn")
