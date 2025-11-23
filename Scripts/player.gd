@@ -94,7 +94,7 @@ func resolve_collisions() -> void:
 func _on_teddy_bear_2_body_entered(body: Node2D) -> void:
 	if body.name == name:
 		picked_up_gun.emit()
-		has_gun = true
+		has_gun = true 
 
 
 func _on_exposed() -> void:
@@ -107,3 +107,13 @@ func _on_hid() -> void:
 	collision_shape.disabled = true
 	movement_enabled = false
 	visible = false
+
+
+func _on_gun_drawer_gun_picked_up() -> void:
+	picked_up_gun.emit()
+	movement_enabled = true
+	has_gun = true 
+
+
+func _on_gun_drawer_getting_gun() -> void:
+	movement_enabled = false

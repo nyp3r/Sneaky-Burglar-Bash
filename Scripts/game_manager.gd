@@ -19,8 +19,9 @@ var current_volume_score: int:
 		return biggest
 var volume_scores: Dictionary[AudioStreamPlayer2D, int]
 
-var player_is_hidden = false
-var player_has_gun_in_hand = false
+var player_is_hidden := false
+var player_has_gun_in_hand := false
+var player_has_key := false
 
 func toggle_interaction_prompt():
 	player.interaction_prompt.visible = !player.interaction_prompt.visible
@@ -52,4 +53,4 @@ func _on_player_exposed() -> void:
 
 
 func _on_player_hid() -> void:
-	player_is_hidden = true
+	player_is_hidden = true 
