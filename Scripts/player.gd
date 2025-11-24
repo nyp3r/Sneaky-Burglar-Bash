@@ -28,8 +28,8 @@ var sneaking = false
 @onready var armed_sprite: Sprite2D = $ArmedSprite
 @onready var game_manager: GameManager = %GameManager
 @onready var audio: AudioStreamPlayer2D = $FootstepAudio
-@onready var interaction_prompt: Label = $InteractionPrompt
-@onready var reload_animation: AnimatedSprite2D = $ReloadAnimation
+@onready var reload_animation: AnimatedSprite2D = $CanvasLayer/ReloadAnimation
+@onready var interaction_prompt: Label = $CanvasLayer/InteractionPrompt
 
 var has_gun = false
 

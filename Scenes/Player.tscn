@@ -1,17 +1,15 @@
-[gd_scene load_steps=38 format=3 uid="uid://di3nwwsf4b3pg"]
+[gd_scene load_steps=36 format=3 uid="uid://di3nwwsf4b3pg"]
 
 [ext_resource type="Script" uid="uid://dqjaw5bs00hd6" path="res://Scripts/player.gd" id="1_kyqiw"]
-[ext_resource type="AudioStream" uid="uid://bj4qyvro61phd" path="res://Assets/Sound/Player/player_sneak_boot.mp3" id="2_52ee3"]
-[ext_resource type="AudioStream" uid="uid://d0kfxm7ebk6u1" path="res://Assets/Sound/Player/player_walk_boots.mp3" id="3_bhhdu"]
+[ext_resource type="AudioStream" uid="uid://bdo5754167ehq" path="res://Assets/Sound/Player/cartoon_sneaking.mp3" id="2_glx4g"]
+[ext_resource type="AudioStream" uid="uid://ososawicy82d" path="res://Assets/Sound/Player/cartoon_walking.mp3" id="3_miouo"]
 [ext_resource type="AudioStream" uid="uid://cfs53s38q1rrf" path="res://Assets/Sound/Player/player_run_boot.mp3" id="4_megsn"]
-[ext_resource type="Script" uid="uid://b6n0cwtj3wmw4" path="res://Scripts/player_ui.gd" id="4_nn08x"]
 [ext_resource type="Texture2D" uid="uid://csn6d058hdt35" path="res://Assets/Sprites/objects.png" id="5_yoq75"]
 [ext_resource type="Texture2D" uid="uid://jm1gmwbxghix" path="res://Assets/Sprites/Animations/reload_indicator.png" id="6_glx4g"]
 [ext_resource type="FontFile" uid="uid://c2nvekmrvmbwg" path="res://Assets/Fonts/Daydream DEMO.otf" id="6_yoq75"]
 [ext_resource type="Texture2D" uid="uid://ddvd0604igekf" path="res://Assets/Sprites/Animations/press_ctrl.png" id="7_miouo"]
 [ext_resource type="Script" uid="uid://d2tl2mlg2c5d" path="res://Scripts/States/Utility/state_machine.gd" id="8_megsn"]
 [ext_resource type="Script" uid="uid://cnljpitby5fgm" path="res://Scripts/armed.gd" id="9_yoq75"]
-[ext_resource type="Script" uid="uid://c20gnk2l2gq06" path="res://Scripts/interaction_prompt.gd" id="10_miouo"]
 [ext_resource type="Script" uid="uid://cqitagi37qlyh" path="res://Scripts/unarmed.gd" id="10_yoq75"]
 [ext_resource type="Script" uid="uid://bg163ve1kg6hd" path="res://Scripts/press_crouch_timer.gd" id="14_o3h8g"]
 
@@ -165,16 +163,16 @@ animations = [{
 
 [sub_resource type="LabelSettings" id="LabelSettings_nn08x"]
 font = ExtResource("6_yoq75")
-font_size = 8
-outline_size = 3
+font_size = 32
+outline_size = 16
 outline_color = Color(0, 0, 0, 1)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_kyqiw")
-sneak_sound = ExtResource("2_52ee3")
-walk_sound = ExtResource("3_bhhdu")
+sneak_sound = ExtResource("2_glx4g")
+walk_sound = ExtResource("3_miouo")
 run_sound = ExtResource("4_megsn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -182,13 +180,13 @@ z_index = 20
 shape = SubResource("CircleShape2D_kyqiw")
 
 [node name="ArmedSprite" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(7, -2.3841858e-07)
 texture = ExtResource("5_yoq75")
 region_enabled = true
 region_rect = Rect2(128.93172, 64.97185, 28.241669, 30.15802)
 
 [node name="UnarmedSprite" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(3, 0)
 texture = ExtResource("5_yoq75")
 region_enabled = true
@@ -196,21 +194,21 @@ region_rect = Rect2(128.91437, 32.957653, 20.248856, 30.131466)
 
 [node name="FlashLight" type="PointLight2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(11.015694, 13.000829)
+position = Vector2(4.3524437, 4.900218)
 rotation = 3.926991
 scale = Vector2(1.4742185, 1.3914502)
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_kyqiw")
-offset = Vector2(-31.97461, 31.973145)
+offset = Vector2(-39.056076, 31.242708)
 
 [node name="GunLight" type="PointLight2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(21.013586, -0.0004776544)
+position = Vector2(6.3633995, 0.046188015)
 rotation = 3.926991
 scale = Vector2(1.3790007, 1.3702905)
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_kyqiw")
-offset = Vector2(-31.97461, 31.973145)
+offset = Vector2(-39.462822, 39.557117)
 
 [node name="PointLight" type="PointLight2D" parent="."]
 position = Vector2(0, -2.1316282e-14)
@@ -218,41 +216,8 @@ rotation = 1.5707964
 scale = Vector2(0.5654729, 0.56547296)
 texture = SubResource("GradientTexture2D_gntrk")
 
-[node name="ReloadAnimation" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(1, 23)
-rotation = 3.1415925
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_o3h8g")
-offset = Vector2(-4, -4)
-script = ExtResource("4_nn08x")
-offset = Vector2(-4, -4)
-
-[node name="PressCrouchAnimation" type="AnimatedSprite2D" parent="."]
-visible = false
-light_mask = 0
-visibility_layer = 2
-z_index = 2480
-position = Vector2(1, -23)
-sprite_frames = SubResource("SpriteFrames_1e7my")
-offset = Vector2(4, -12)
-script = ExtResource("4_nn08x")
-offset = Vector2(4, -12)
-
-[node name="InteractionPrompt" type="Label" parent="."]
-visible = false
-z_index = 25
-offset_left = 22.0
-offset_top = -5.0
-offset_right = 31.0
-offset_bottom = 11.0
-pivot_offset = Vector2(4, 9)
-text = "e"
-label_settings = SubResource("LabelSettings_nn08x")
-script = ExtResource("10_miouo")
-
 [node name="FootstepAudio" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_bhhdu")
+stream = ExtResource("3_miouo")
 bus = &"Gameplay"
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
@@ -270,5 +235,37 @@ script = ExtResource("10_yoq75")
 wait_time = 3.0
 one_shot = true
 script = ExtResource("14_o3h8g")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 811
+
+[node name="ReloadAnimation" type="AnimatedSprite2D" parent="CanvasLayer"]
+visible = false
+position = Vector2(783, 467)
+rotation = 3.1415925
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_o3h8g")
+offset = Vector2(-4.4960938, -4.5039063)
+
+[node name="PressCrouchAnimation" type="AnimatedSprite2D" parent="CanvasLayer"]
+visible = false
+light_mask = 0
+visibility_layer = 2
+z_index = 2480
+position = Vector2(905, 370)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_1e7my")
+offset = Vector2(8, 8)
+
+[node name="InteractionPrompt" type="Label" parent="CanvasLayer"]
+visible = false
+z_index = 25
+offset_left = 974.0
+offset_top = 491.0
+offset_right = 1007.0
+offset_bottom = 543.0
+pivot_offset = Vector2(4, 9)
+text = "e"
+label_settings = SubResource("LabelSettings_nn08x")
 
 [connection signal="timeout" from="PressCrouchTimer" to="PressCrouchTimer" method="_on_timeout"]

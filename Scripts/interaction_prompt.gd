@@ -2,6 +2,5 @@ extends Control
 
 @export var offset: Vector2 = Vector2(4, -4)
 
-func _process(_delta: float) -> void:
-	rotation = -owner.global_rotation
+func _physics_process(_delta: float) -> void:
 	global_position = owner.global_position + offset

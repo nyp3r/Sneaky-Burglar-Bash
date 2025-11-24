@@ -12,9 +12,9 @@ func _ready() -> void:
 
 func load_scores():
 	var score_labels: Array[Label] = [score_label0, score_label1, score_label2, score_label3, score_label4]
-	var latest_score_file = FileAccess.open("res://latest_score.txt", FileAccess.READ)
+	var latest_score_file = FileAccess.open("user://latest_score.txt", FileAccess.READ)
 	var latest_score := latest_score_file.get_float()
-	var save_file = FileAccess.open("res://scores.txt", FileAccess.READ)
+	var save_file = FileAccess.open("user://scores.txt", FileAccess.READ)
 	
 	var scores: Array
 	while !save_file.eof_reached():

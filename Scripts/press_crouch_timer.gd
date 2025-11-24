@@ -1,9 +1,9 @@
 extends Timer
 
-@onready var press_crouch_animation: AnimatedSprite2D = $"../PressCrouchAnimation"
+@onready var press_crouch_animation: AnimatedSprite2D = $"../CanvasLayer/PressCrouchAnimation"
 
 func _ready() -> void:
-	var scores_file = FileAccess.open("res://scores.txt", FileAccess.READ)
+	var scores_file = FileAccess.open("user://scores.txt", FileAccess.READ)
 	if scores_file == null:
 		press_crouch_animation.visible = true
 		press_crouch_animation.play()
