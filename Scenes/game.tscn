@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://ewigleghuhyb"]
+[gd_scene load_steps=49 format=4 uid="uid://ewigleghuhyb"]
 
 [ext_resource type="Script" uid="uid://dcrv568baw8fr" path="res://Scripts/game_manager.gd" id="1_wowpa"]
 [ext_resource type="PackedScene" uid="uid://di3nwwsf4b3pg" path="res://Scenes/Player.tscn" id="2_qxrlw"]
@@ -30,7 +30,9 @@
 [ext_resource type="PackedScene" uid="uid://c2as8aqc7jbyy" path="res://Scenes/Menus/pause_menu.tscn" id="27_tgy6u"]
 [ext_resource type="PackedScene" uid="uid://bi36c3rhwj1y1" path="res://Scenes/gun_drawer.tscn" id="31_8m3t6"]
 [ext_resource type="PackedScene" uid="uid://day570dc7rg4w" path="res://Scenes/double_bed.tscn" id="31_ese38"]
+[ext_resource type="Texture2D" uid="uid://csn6d058hdt35" path="res://Assets/Sprites/objects.png" id="31_oeip8"]
 [ext_resource type="PackedScene" uid="uid://cmeg4chuocqhm" path="res://Scenes/key.tscn" id="32_ese38"]
+[ext_resource type="Script" uid="uid://4531guvrcb54" path="res://Scripts/anti_rotation.gd" id="32_oeip8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h4fw4"]
 texture = ExtResource("2_wowpa")
@@ -369,6 +371,13 @@ on_screen_offset = Vector2(0, -7)
 screen_margin = 20.0
 smoothing_speed = 4.0
 
+[node name="Sprite2D" type="Sprite2D" parent="MarkerCanvasLayer/GunDrawerMarker/WaypointMarker"]
+position = Vector2(0.5, -10)
+texture = ExtResource("31_oeip8")
+region_enabled = true
+region_rect = Rect2(76.91445, 107.94296, 10.149353, 10.086319)
+script = ExtResource("32_oeip8")
+
 [node name="KeyMarker" type="Node2D" parent="MarkerCanvasLayer"]
 unique_name_in_owner = true
 position = Vector2(429, 41)
@@ -379,6 +388,13 @@ position = Vector2(0, -7)
 on_screen_offset = Vector2(0, -7)
 screen_margin = 20.0
 smoothing_speed = 4.0
+
+[node name="Sprite2D" type="Sprite2D" parent="MarkerCanvasLayer/KeyMarker/WaypointMarker"]
+position = Vector2(0.5, -10)
+texture = ExtResource("31_oeip8")
+region_enabled = true
+region_rect = Rect2(110.03072, 106.03541, 3.0139694, 7.9459305)
+script = ExtResource("32_oeip8")
 
 [node name="Key" parent="." instance=ExtResource("32_ese38")]
 position = Vector2(429, 46)

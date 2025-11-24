@@ -11,8 +11,8 @@ var movement_enabled = true
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
 enum sound_score {
-	SNEAK = 5,
-	WALK = 10,
+	SNEAK = 10,
+	WALK = 15,
 	RUN = 20
 }
 

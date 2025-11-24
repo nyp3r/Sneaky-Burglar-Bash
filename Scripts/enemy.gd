@@ -36,6 +36,7 @@ const ANGLE_BETWEEN_RAYS := deg_to_rad(10)
 const MAX_SPACIAL_VOLUME = 300
 var chasing := false
 var discovered_player_with_pistol := false
+var sound_occluded := false
 
 func generate_raycasts() -> void:
 	var ray_count := VISION_CONE_ANGLE / ANGLE_BETWEEN_RAYS
@@ -58,9 +59,11 @@ func _physics_process(delta: float) -> void:
 		if sound_ray_cast.is_colliding() and not sound_ray_cast.get_collider().is_class("CharacterBody2D"): 
 			AudioServer.set_bus_effect_enabled(3, 0, true)
 			footstep_audio.volume_db = sound.occluded
+			sound_occluded = true
 		else:
 			AudioServer.set_bus_effect_enabled(3, 0, false)
 			footstep_audio.volume_db = sound.direct
+			sound_occluded = false
 	
 	
 	for child in get_children():
@@ -105,6 +108,8 @@ func start_hunt():
 
 func get_spacial_volume_score() -> int:
 	var distance_to_player = global_position.distance_to(player.global_position)
+	if sound_occluded:
+		return distance_to_player * 2 / game_manager.current_volume_score
 	return distance_to_player / game_manager.current_volume_score
 
 func _on_bullet_hit(body):
@@ -138,7 +143,8 @@ func _on_player_hid() -> void:
 func _on_spawner_timer_timeout() -> void:
 	var navigation_region_rid := navigation_region.get_rid()
 	position = NavigationServer2D.region_get_random_point(navigation_region_rid, 0, false)
-	navigation_agent.target_position = NavigationServer2D.region_get_random_point(navigation_region.get_rid(), 0, false)
+	navigation_agent.target_position = NavigationServer2D.region_get_random_point(navigation_region_rid, 0, false)
+	
 
 
 func _on_navigation_finished() -> void:
