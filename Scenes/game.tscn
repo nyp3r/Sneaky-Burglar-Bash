@@ -372,7 +372,7 @@ screen_margin = 20.0
 smoothing_speed = 4.0
 
 [node name="Sprite2D" type="Sprite2D" parent="MarkerCanvasLayer/GunDrawerMarker/WaypointMarker"]
-position = Vector2(0.5, -10)
+position = Vector2(0.5, -12)
 texture = ExtResource("31_oeip8")
 region_enabled = true
 region_rect = Rect2(76.91445, 107.94296, 10.149353, 10.086319)
