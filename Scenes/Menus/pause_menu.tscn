@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2as8aqc7jbyy"]
+[gd_scene load_steps=4 format=3 uid="uid://c2as8aqc7jbyy"]
 
 [ext_resource type="Script" uid="uid://bqss0tdluc28j" path="res://Scripts/pause_menu.gd" id="1_1j166"]
 [ext_resource type="FontFile" uid="uid://c2nvekmrvmbwg" path="res://Assets/Fonts/Daydream DEMO.otf" id="2_tf3q2"]
+[ext_resource type="Script" uid="uid://b6g63yyqa2lip" path="res://Scenes/Menus/main_pause_menu.gd" id="2_yeo1y"]
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3
@@ -13,11 +14,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1j166")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="MainCavas" type="CanvasLayer" parent="."]
 layer = 10
-visible = false
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="ColorRect" type="ColorRect" parent="MainCavas"]
 modulate = Color(1, 1, 1, 0.6745098)
 offset_left = -23.0
 offset_top = -17.0
@@ -25,7 +25,7 @@ offset_right = 1161.0
 offset_bottom = 664.0
 color = Color(0, 0, 0, 1)
 
-[node name="ButtonContainer" type="VBoxContainer" parent="CanvasLayer"]
+[node name="ButtonContainer" type="VBoxContainer" parent="MainCavas"]
 layout_direction = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -40,8 +40,9 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 64
 alignment = 1
+script = ExtResource("2_yeo1y")
 
-[node name="ResumeButton" type="Button" parent="CanvasLayer/ButtonContainer"]
+[node name="ResumeButton" type="Button" parent="MainCavas/ButtonContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("2_tf3q2")
@@ -49,7 +50,7 @@ theme_override_font_sizes/font_size = 64
 text = "Resume"
 flat = true
 
-[node name="SettingsButton" type="Button" parent="CanvasLayer/ButtonContainer"]
+[node name="SettingsButton" type="Button" parent="MainCavas/ButtonContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_colors/font_outline_color = Color(0, 0.2765172, 0.5450768, 1)
@@ -58,7 +59,7 @@ theme_override_font_sizes/font_size = 64
 text = "Settings"
 flat = true
 
-[node name="MainMenuButton" type="Button" parent="CanvasLayer/ButtonContainer"]
+[node name="MainMenuButton" type="Button" parent="MainCavas/ButtonContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_colors/font_outline_color = Color(0, 0.2765172, 0.5450768, 1)
@@ -67,6 +68,6 @@ theme_override_font_sizes/font_size = 64
 text = "Main menu"
 flat = true
 
-[connection signal="pressed" from="CanvasLayer/ButtonContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/ButtonContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/ButtonContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="MainCavas/ButtonContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="MainCavas/ButtonContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="MainCavas/ButtonContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

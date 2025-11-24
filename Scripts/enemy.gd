@@ -29,6 +29,8 @@ const ANGLE_BETWEEN_RAYS := deg_to_rad(10)
 @onready var escape_position: Vector2 = %EnemyNavTarget.global_position
 @onready var escape: RayCast2D = %Escape
 
+@onready var audio_bus_index = AudioServer.get_bus_index("Enemy footsteps")
+
 @export var walk_sound: AudioStreamMP3
 @export var run_sound: AudioStreamMP3
 @export var laugh_sound: AudioStreamMP3
@@ -57,11 +59,11 @@ func _physics_process(delta: float) -> void:
 	sound_ray_cast.target_position = sound_ray_cast.to_local(player.global_position)
 	if not game_manager.player_is_hidden:
 		if sound_ray_cast.is_colliding() and not sound_ray_cast.get_collider().is_class("CharacterBody2D"): 
-			AudioServer.set_bus_effect_enabled(3, 0, true)
+			AudioServer.set_bus_effect_enabled(audio_bus_index, 0, true)
 			footstep_audio.volume_db = sound.occluded
 			sound_occluded = true
-		else:
-			AudioServer.set_bus_effect_enabled(3, 0, false)
+		else: 
+			AudioServer.set_bus_effect_enabled(audio_bus_index, 0, false)
 			footstep_audio.volume_db = sound.direct
 			sound_occluded = false
 	

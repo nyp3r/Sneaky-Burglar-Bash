@@ -8,6 +8,8 @@ var movement_enabled = true
 @export var sneak_sound: AudioStreamMP3
 @export var walk_sound: AudioStreamMP3
 @export var run_sound: AudioStreamMP3
+@export var smoothing_rotation_speed: float
+
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
 enum sound_score {
@@ -38,16 +40,14 @@ func get_input() -> Vector2:
 	velocity = input_direction * speed
 	return input_direction
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	var input_direction = get_input()
-	if input_direction != Vector2.ZERO:
-		rotation = input_direction.angle() + deg_to_rad(90)
 	
 	if movement_enabled:
 		if move_and_slide():
 			resolve_collisions()
 	
-	look_at(get_global_mouse_position())
+	rotation = lerp_angle(rotation, global_position.direction_to(get_global_mouse_position()).angle(), delta*smoothing_rotation_speed)
 	
 	if input_direction == Vector2.ZERO or not movement_enabled:
 		audio.stop()

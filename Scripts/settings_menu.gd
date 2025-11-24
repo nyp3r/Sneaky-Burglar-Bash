@@ -2,7 +2,6 @@ extends Control
 
 
 func _on_volume_button_pressed() -> void:
-	GlobalInfo.last_scene_path = scene_file_path
 	get_tree().change_scene_to_file("res://Scenes/Menus/volume_menu.tscn")
 
 

@@ -197,6 +197,7 @@ z_index = 10
 position = Vector2(765, 372)
 rotation = -3.1415927
 motion_mode = 0
+smoothing_rotation_speed = 10.0
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-3.0517578e-05, 0)
@@ -210,12 +211,14 @@ metadata/_custom_type_script = "uid://dr5ls8hlvsf40"
 [node name="ShootAudio" type="AudioStreamPlayer2D" parent="Player/ShootingPoint"]
 position = Vector2(-13, 0)
 stream = ExtResource("6_mg4q0")
+bus = &"Ingame SFX"
 
 [node name="ReloadTimer" type="Timer" parent="Player/ShootingPoint"]
 one_shot = true
 
 [node name="ReloadAudio" type="AudioStreamPlayer2D" parent="Player/ShootingPoint"]
 stream = ExtResource("7_vm72l")
+bus = &"Ingame SFX"
 
 [node name="ShootVolumeScoreTimer" type="Timer" parent="Player/ShootingPoint"]
 one_shot = true

@@ -42,7 +42,7 @@ autoplay = true
 max_distance = 300.0
 attenuation = 0.43527573
 panning_strength = 3.0
-bus = &"Enemy"
+bus = &"Enemy footsteps"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 

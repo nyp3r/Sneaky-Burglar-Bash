@@ -74,6 +74,11 @@ position = Vector2(-5, 0)
 scale = Vector2(1.0625, 1.0625)
 texture = SubResource("GradientTexture2D_4e4eg")
 
+[node name="OpenPointLight" type="PointLight2D" parent="Toggles"]
+position = Vector2(4, 0)
+scale = Vector2(0.49999997, 0.5000002)
+texture = SubResource("GradientTexture2D_4e4eg")
+
 [node name="OpenedLightOccluder" type="LightOccluder2D" parent="Toggles"]
 position = Vector2(8, 0)
 occluder = SubResource("OccluderPolygon2D_6ogna")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://vsftyn4vferc"]
 
+[ext_resource type="Script" uid="uid://chm4cc35aagik" path="res://Scripts/volume_menu.gd" id="1_aioto"]
 [ext_resource type="FontFile" uid="uid://c2nvekmrvmbwg" path="res://Assets/Fonts/Daydream DEMO.otf" id="1_wyoki"]
-[ext_resource type="Script" uid="uid://cu2f7wqo3a4m3" path="res://Scripts/general_slider.gd" id="2_aioto"]
 [ext_resource type="Script" uid="uid://doneew4j7roeo" path="res://Scripts/volume_menu_back_button.gd" id="3_u1psj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_g82af"]
@@ -9,15 +9,34 @@ font = ExtResource("1_wyoki")
 font_size = 32
 outline_color = Color(0, 0.2784314, 0.54509807, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_aioto"]
+[sub_resource type="LabelSettings" id="LabelSettings_wyoki"]
 font = ExtResource("1_wyoki")
 font_size = 32
 outline_size = 16
-outline_color = Color(0, 0, 0, 1)
+outline_color = Color(0, 0, 0.54509807, 1)
 
-[node name="VolumeMenu" type="Node2D"]
+[node name="VolumeMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_aioto")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BackButton" type="Button" parent="CanvasLayer"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 304.0
+offset_bottom = 132.0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0.2765172, 0.5450768, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("1_wyoki")
+theme_override_font_sizes/font_size = 64
+text = "Back
+"
+flat = true
+script = ExtResource("3_u1psj")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 8
@@ -33,20 +52,7 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="BackButton" type="Button" parent="CanvasLayer/VBoxContainer"]
-layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0.2765172, 0.5450768, 1)
-theme_override_constants/outline_size = 20
-theme_override_fonts/font = ExtResource("1_wyoki")
-theme_override_font_sizes/font_size = 64
-text = "Back
-"
-flat = true
-script = ExtResource("3_u1psj")
-
-[node name="Spacing2" type="Label" parent="CanvasLayer/VBoxContainer"]
+[node name="Spacing" type="Label" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/outline_size = 20
 label_settings = SubResource("LabelSettings_g82af")
@@ -60,44 +66,118 @@ alignment = 2
 [node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/GeneralContainer"]
 layout_mode = 2
 theme_override_constants/outline_size = 20
-text = "General"
+text = "Master"
 label_settings = SubResource("LabelSettings_g82af")
 
-[node name="GeneralSlider" type="HSlider" parent="CanvasLayer/VBoxContainer/GeneralContainer"]
+[node name="MasterSlider" type="HSlider" parent="CanvasLayer/VBoxContainer/GeneralContainer"]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_vertical = 4
-script = ExtResource("2_aioto")
+max_value = 1.0
+step = 0.01
+value = 1.0
 
-[node name="GeneralContainer2" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+[node name="Spacing2" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 20
+label_settings = SubResource("LabelSettings_g82af")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SFXLabel" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 20
+text = "Sound effects"
+label_settings = SubResource("LabelSettings_wyoki")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SFXContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
 alignment = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/GeneralContainer2"]
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/SFXContainer"]
 layout_mode = 2
 theme_override_constants/outline_size = 20
-text = "Gameplay"
+text = "General"
 label_settings = SubResource("LabelSettings_g82af")
 
-[node name="GeneralSlider" type="HSlider" parent="CanvasLayer/VBoxContainer/GeneralContainer2"]
+[node name="SFXSlider" type="HSlider" parent="CanvasLayer/VBoxContainer/SFXContainer"]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
 
-[node name="Spacing" type="Label" parent="CanvasLayer/VBoxContainer"]
+[node name="IngameSFXContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/IngameSFXContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 20
+text = "Ingame"
+label_settings = SubResource("LabelSettings_g82af")
+
+[node name="IngameSFXSlider" type="HSlider" parent="CanvasLayer/VBoxContainer/IngameSFXContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="MenuSFXContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/MenuSFXContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 20
+text = "Menu"
+label_settings = SubResource("LabelSettings_g82af")
+
+[node name="MenuSFXSlider" type="HSlider" parent="CanvasLayer/VBoxContainer/MenuSFXContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="Spacing3" type="Label" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/outline_size = 20
 label_settings = SubResource("LabelSettings_g82af")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MusicCategoryLabel" type="Label" parent="CanvasLayer/VBoxContainer"]
+[node name="MusicLabel" type="Label" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/outline_size = 20
 text = "Music"
-label_settings = SubResource("LabelSettings_aioto")
+label_settings = SubResource("LabelSettings_wyoki")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="MusicContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/MusicContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 20
+text = "General"
+label_settings = SubResource("LabelSettings_g82af")
+
+[node name="MusicSlider" type="HSlider" parent="CanvasLayer/VBoxContainer/MusicContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
 
 [node name="IngameMusicContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
@@ -109,10 +189,13 @@ theme_override_constants/outline_size = 20
 text = "Ingame"
 label_settings = SubResource("LabelSettings_g82af")
 
-[node name="GeneralSlider" type="HSlider" parent="CanvasLayer/VBoxContainer/IngameMusicContainer"]
+[node name="IngameMusicSlider" type="HSlider" parent="CanvasLayer/VBoxContainer/IngameMusicContainer"]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
 
 [node name="MenuMusicContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
@@ -124,10 +207,33 @@ theme_override_constants/outline_size = 20
 text = "Menu"
 label_settings = SubResource("LabelSettings_g82af")
 
-[node name="GeneralSlider" type="HSlider" parent="CanvasLayer/VBoxContainer/MenuMusicContainer"]
+[node name="MenuMusicSlider" type="HSlider" parent="CanvasLayer/VBoxContainer/MenuMusicContainer"]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
 
-[connection signal="pressed" from="CanvasLayer/VBoxContainer/BackButton" to="CanvasLayer/VBoxContainer/BackButton" method="_on_pressed"]
-[connection signal="drag_ended" from="CanvasLayer/VBoxContainer/GeneralContainer/GeneralSlider" to="CanvasLayer/VBoxContainer/GeneralContainer/GeneralSlider" method="_on_drag_ended"]
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 108.0
+offset_top = 132.0
+offset_right = 250.0
+offset_bottom = 155.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Doesn't work atm."
+
+[connection signal="pressed" from="CanvasLayer/BackButton" to="CanvasLayer/BackButton" method="_on_pressed"]
+[connection signal="value_changed" from="CanvasLayer/VBoxContainer/GeneralContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/VBoxContainer/SFXContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/VBoxContainer/IngameSFXContainer/IngameSFXSlider" to="." method="_on_ingame_sfx_slider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/VBoxContainer/MenuSFXContainer/MenuSFXSlider" to="." method="_on_menu_sfx_slider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/VBoxContainer/MusicContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/VBoxContainer/IngameMusicContainer/IngameMusicSlider" to="." method="_on_ingame_music_slider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/VBoxContainer/MenuMusicContainer/MenuMusicSlider" to="." method="_on_menu_music_slider_value_changed"]

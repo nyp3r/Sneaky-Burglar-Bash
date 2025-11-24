@@ -219,7 +219,7 @@ texture = SubResource("GradientTexture2D_gntrk")
 [node name="FootstepAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_miouo")
 volume_db = -5.958
-bus = &"Gameplay"
+bus = &"Ingame SFX"
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("8_megsn")

@@ -275,15 +275,15 @@ shape = SubResource("RectangleShape2D_jk5gd")
 
 [node name="UnlockAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_od7v3")
-bus = &"Gameplay"
+bus = &"Ingame SFX"
 
 [node name="ShakeAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_i46nl")
-bus = &"Gameplay"
+bus = &"Ingame SFX"
 
 [node name="PickupAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_5xgow")
-bus = &"Gameplay"
+bus = &"Ingame SFX"
 
 [node name="UnlockTimer" type="Timer" parent="."]
 one_shot = true
