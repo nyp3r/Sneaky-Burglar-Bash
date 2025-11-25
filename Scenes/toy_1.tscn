@@ -1,6 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://daw1p8d7i01af"]
-
-[ext_resource type="Texture2D" uid="uid://il05ytfdaynn" path="res://Assets/Sprites/Objects/toy1.png" id="1_j4bow"]
+[gd_scene format=3 uid="uid://c11o4807bcvyw"]
 
 [node name="Toy1" type="RigidBody2D"]
 
@@ -8,4 +6,3 @@
 polygon = PackedVector2Array(-3, -5, 3, -5, 3, 1, 1, 1, 1, 8, -1, 8, -1, 1, -3, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_j4bow")

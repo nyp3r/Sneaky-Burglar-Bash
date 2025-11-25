@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://ewigleghuhyb"]
+[gd_scene load_steps=47 format=4 uid="uid://ewigleghuhyb"]
 
 [ext_resource type="Script" uid="uid://dcrv568baw8fr" path="res://Scripts/game_manager.gd" id="1_wowpa"]
 [ext_resource type="PackedScene" uid="uid://di3nwwsf4b3pg" path="res://Scenes/Player.tscn" id="2_qxrlw"]
@@ -157,12 +157,6 @@ occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_nnt18")
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8m3t6"]
-load_path = "res://.godot/imported/child_carpet.png-ce2b21d4d0960835831d159ef33f5051.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ese38"]
-load_path = "res://.godot/imported/toy1.png-b8074617fea68ac264e1d434dda2c1d2.ctex"
-
 [sub_resource type="LabelSettings" id="LabelSettings_fkdbe"]
 font = ExtResource("25_tgy6u")
 font_size = 64
@@ -180,6 +174,7 @@ script = ExtResource("1_wowpa")
 player = NodePath("../Player")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="GroundTileMap" type="TileMapLayer" parent="."]
@@ -232,7 +227,6 @@ unique_name_in_owner = true
 z_index = 10
 position = Vector2(634, 78)
 rotation = 3.1375606
-max_health = 3
 player = NodePath("../Player")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
@@ -320,11 +314,15 @@ position = Vector2(40, -13)
 
 [node name="ChildCarpet" type="Sprite2D" parent="."]
 position = Vector2(337, 338)
-texture = SubResource("CompressedTexture2D_8m3t6")
+texture = ExtResource("31_oeip8")
+region_enabled = true
+region_rect = Rect2(39.999153, 7.991043, 48.023415, 48.01821)
 
 [node name="Toy" type="Sprite2D" parent="."]
 position = Vector2(334, 339)
-texture = SubResource("CompressedTexture2D_ese38")
+texture = ExtResource("31_oeip8")
+region_enabled = true
+region_rect = Rect2(13.014248, 73.98805, 5.991192, 13.030296)
 
 [node name="Map" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
