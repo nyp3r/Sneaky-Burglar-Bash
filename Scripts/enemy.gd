@@ -33,7 +33,6 @@ const ANGLE_BETWEEN_RAYS := deg_to_rad(10)
 
 @export var walk_sound: AudioStreamMP3
 @export var run_sound: AudioStreamMP3
-@export var laugh_sound: AudioStreamMP3
 
 const MAX_SPACIAL_VOLUME = 300
 var chasing := false

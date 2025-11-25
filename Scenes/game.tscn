@@ -20,10 +20,8 @@
 [ext_resource type="PackedScene" uid="uid://o7losaualib0" path="res://Scenes/desk.tscn" id="15_nnt18"]
 [ext_resource type="PackedScene" uid="uid://c1i0w8531fv70" path="res://Scenes/office_chair.tscn" id="16_ewbju"]
 [ext_resource type="PackedScene" uid="uid://b0tgclm5ygw36" path="res://Scenes/bathroom_table.tscn" id="19_iivbl"]
-[ext_resource type="Texture2D" uid="uid://vw8j715pu1ih" path="res://Assets/Sprites/Objects/child_carpet.png" id="20_7nbq1"]
 [ext_resource type="PackedScene" uid="uid://b6ocr04t125ba" path="res://Scenes/baby_bed.tscn" id="21_fkdbe"]
 [ext_resource type="PackedScene" uid="uid://14rpvvdu2eqw" path="res://Scenes/toilet.tscn" id="22_8m3t6"]
-[ext_resource type="Texture2D" uid="uid://il05ytfdaynn" path="res://Assets/Sprites/Objects/toy1.png" id="25_81klo"]
 [ext_resource type="Script" uid="uid://d1r87324j2uu8" path="res://Scripts/timer_label.gd" id="25_fkdbe"]
 [ext_resource type="FontFile" uid="uid://c2nvekmrvmbwg" path="res://Assets/Fonts/Daydream DEMO.otf" id="25_tgy6u"]
 [ext_resource type="PackedScene" uid="uid://bj1faf3kchvjo" path="res://Scenes/waypoint_marker.tscn" id="27_81klo"]
@@ -158,6 +156,12 @@ tile_size = Vector2i(32, 32)
 occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_nnt18")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8m3t6"]
+load_path = "res://.godot/imported/child_carpet.png-ce2b21d4d0960835831d159ef33f5051.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ese38"]
+load_path = "res://.godot/imported/toy1.png-b8074617fea68ac264e1d434dda2c1d2.ctex"
 
 [sub_resource type="LabelSettings" id="LabelSettings_fkdbe"]
 font = ExtResource("25_tgy6u")
@@ -316,11 +320,11 @@ position = Vector2(40, -13)
 
 [node name="ChildCarpet" type="Sprite2D" parent="."]
 position = Vector2(337, 338)
-texture = ExtResource("20_7nbq1")
+texture = SubResource("CompressedTexture2D_8m3t6")
 
 [node name="Toy" type="Sprite2D" parent="."]
 position = Vector2(334, 339)
-texture = ExtResource("25_81klo")
+texture = SubResource("CompressedTexture2D_ese38")
 
 [node name="Map" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true

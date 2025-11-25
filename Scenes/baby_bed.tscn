@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b6ocr04t125ba"]
 
-[ext_resource type="Texture2D" uid="uid://lhmb0rcr6dd2" path="res://Assets/Sprites/Objects/baby_bed.png" id="1_plabc"]
+[ext_resource type="Texture2D" uid="uid://csn6d058hdt35" path="res://Assets/Sprites/objects.png" id="1_plabc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nl5gb"]
 size = Vector2(40, 20)
@@ -12,3 +12,5 @@ shape = SubResource("RectangleShape2D_nl5gb")
 
 [node name="BabyBed" type="Sprite2D" parent="."]
 texture = ExtResource("1_plabc")
+region_enabled = true
+region_rect = Rect2(45.004738, 70.00137, 39.988403, 20.01458)

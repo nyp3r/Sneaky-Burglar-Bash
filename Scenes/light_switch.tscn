@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ld7plmowoqq3"]
 
-[ext_resource type="Texture2D" uid="uid://dk6l6rjg0f73o" path="res://Assets/Sprites/Objects/switch.png" id="1_06m6k"]
 [ext_resource type="Script" uid="uid://c1q3m8t4hjhq2" path="res://Scripts/light_switch.gd" id="1_ysq76"]
+[ext_resource type="Texture2D" uid="uid://csn6d058hdt35" path="res://Assets/Sprites/objects.png" id="2_2qx2t"]
 [ext_resource type="AudioStream" uid="uid://bvt3t0qf5oev" path="res://Assets/Sound/light-switch.mp3" id="3_2qx2t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mjrfg"]
@@ -15,7 +15,9 @@ position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_mjrfg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_06m6k")
+texture = ExtResource("2_2qx2t")
+region_enabled = true
+region_rect = Rect2(11.01375, 32.01023, 9.989124, 4.010235)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_2qx2t")

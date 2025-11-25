@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://nh6itc03a132"]
 
 [ext_resource type="Script" uid="uid://bgqwyrxfx55s0" path="res://Scripts/bed.gd" id="1_8uqln"]
-[ext_resource type="Texture2D" uid="uid://d23oa0dvcceq2" path="res://Assets/Sprites/Objects/bed.jpg" id="1_yfxyx"]
+[ext_resource type="Texture2D" uid="uid://csn6d058hdt35" path="res://Assets/Sprites/objects.png" id="2_8uqln"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8uqln"]
 size = Vector2(64, 32)
@@ -42,7 +42,9 @@ shadow_enabled = true
 texture = SubResource("GradientTexture2D_ki1gv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_yfxyx")
+texture = ExtResource("2_8uqln")
+region_enabled = true
+region_rect = Rect2(128.01295, 0.00313735, 64.08681, 32.027565)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

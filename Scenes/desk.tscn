@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://o7losaualib0"]
 
-[ext_resource type="Texture2D" uid="uid://c53xd7bb6qrdc" path="res://Assets/Sprites/Objects/Desk.png" id="1_825yk"]
+[ext_resource type="Texture2D" uid="uid://csn6d058hdt35" path="res://Assets/Sprites/objects.png" id="1_825yk"]
 
 [node name="Desk" type="StaticBody2D"]
 
@@ -8,5 +8,7 @@
 polygon = PackedVector2Array(0, -28, -15, -28, -12, -31, -12, -36, -15, -39, -20, -39, -23, -36, -23, -31, -20, -28, -34, -28, -34, -10, -30, 0, -29, 1, -29, 11, -30, 13, -34, 23, -34, 40, 0, 40)
 
 [node name="Desk" type="Sprite2D" parent="."]
-position = Vector2(-17, 0)
+position = Vector2(-17, 1)
 texture = ExtResource("1_825yk")
+region_enabled = true
+region_rect = Rect2(206.0189, 29.730724, 33.90544, 78.2652)

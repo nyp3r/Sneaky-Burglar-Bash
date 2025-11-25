@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://vnmg3vtft0mr"]
 
 [ext_resource type="Script" uid="uid://cmys6fwkl350h" path="res://Scripts/nightstand.gd" id="1_pislf"]
-[ext_resource type="Texture2D" uid="uid://bqcvqpwu2ao8x" path="res://Assets/Sprites/Objects/Nightstand.png" id="1_qh6by"]
+[ext_resource type="Texture2D" uid="uid://csn6d058hdt35" path="res://Assets/Sprites/objects.png" id="2_pislf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pislf"]
 size = Vector2(26, 26)
@@ -24,7 +24,9 @@ script = ExtResource("1_pislf")
 shape = SubResource("RectangleShape2D_pislf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_qh6by")
+texture = ExtResource("2_pislf")
+region_enabled = true
+region_rect = Rect2(96.98667, 0.9751451, 30.044373, 30.052265)
 
 [node name="PointLight" type="PointLight2D" parent="."]
 visible = false
