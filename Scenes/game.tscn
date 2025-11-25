@@ -335,6 +335,7 @@ tile_map_data = PackedByteArray("AAAJAAwAAgAAAAAAAGAKAAwAAgABAAAAAFALAAwAAgAAAAA
 tile_set = SubResource("TileSet_ewbju")
 
 [node name="UI" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="AmmoLabel" type="Label" parent="UI"]
 unique_name_in_owner = true
@@ -357,6 +358,7 @@ script = ExtResource("25_fkdbe")
 metadata/_edit_use_anchors_ = true
 
 [node name="PauseMenu" parent="UI" instance=ExtResource("27_tgy6u")]
+pivot_offset = Vector2(485, 142)
 metadata/_edit_use_anchors_ = true
 
 [node name="MarkerCanvasLayer" type="CanvasLayer" parent="."]
