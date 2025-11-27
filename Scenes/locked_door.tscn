@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://dluqtltqrjbow"]
+
+[ext_resource type="Script" uid="uid://dsoiqvebxbl2e" path="res://Scripts/locked_door.gd" id="1_43430"]
+[ext_resource type="Texture2D" uid="uid://dyh31cen7xebb" path="res://Assets/Sprites/door.png" id="1_vqfuk"]
+[ext_resource type="AudioStream" uid="uid://h5pudltv5k8" path="res://Assets/Sound/trying-to-open-a-locked-door-104302.mp3" id="3_x7wjr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_43430"]
+size = Vector2(32, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x7wjr"]
+size = Vector2(32, 5)
+
+[node name="Door" type="StaticBody2D"]
+script = ExtResource("1_43430")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_43430")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_vqfuk")
+
+[node name="WrongSideAudio" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, 9)
+stream = ExtResource("3_x7wjr")
+volume_db = -16.521
+
+[node name="WrongSideArea2D" type="Area2D" parent="."]
+position = Vector2(0, 9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WrongSideArea2D"]
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_x7wjr")
+
+[node name="EnterArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnterArea2D"]
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_x7wjr")
+
+[connection signal="body_entered" from="WrongSideArea2D" to="." method="_on_wrong_side_area_2d_body_entered"]
+[connection signal="body_exited" from="WrongSideArea2D" to="." method="_on_wrong_side_area_2d_body_exited"]
+[connection signal="body_entered" from="EnterArea2D" to="." method="_on_enter_area_2d_body_entered"]
+[connection signal="body_exited" from="EnterArea2D" to="." method="_on_enter_area_2d_body_exited"]

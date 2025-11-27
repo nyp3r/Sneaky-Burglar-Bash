@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://bst260v3sqgrj"]
+
+[ext_resource type="Texture2D" uid="uid://b88gr4r4c0tkv" path="res://Assets/Sprites/Animations/floor_entrance.png" id="1_rrycb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_778ou"]
+size = Vector2(16, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62oy6"]
+atlas = ExtResource("1_rrycb")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ia7i"]
+atlas = ExtResource("1_rrycb")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ncey"]
+atlas = ExtResource("1_rrycb")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_icge0"]
+atlas = ExtResource("1_rrycb")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_71s11"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_62oy6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ia7i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ncey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_icge0")
+}],
+"loop": false,
+"name": &"default",
+"speed": 7.0
+}]
+
+[node name="HiddenFloor" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-16, 4)
+shape = SubResource("RectangleShape2D_778ou")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_71s11")
+frame = 2

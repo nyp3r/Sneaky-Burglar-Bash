@@ -8,6 +8,8 @@ signal player_exposed
 
 @onready var enemy: Enemy = %Enemy
 @export var player: Player
+@onready var gun_drawer_marker: Node2D = %GunDrawerMarker
+@onready var key_marker: Node2D = %KeyMarker
 const PAUSE_MENU = preload("uid://c2as8aqc7jbyy")
 
 var current_volume_score: int:
@@ -22,6 +24,10 @@ var volume_scores: Dictionary[AudioStreamPlayer2D, int]
 var player_is_hidden := false
 var player_has_gun_in_hand := false
 var player_has_key := false
+
+func _ready() -> void:
+	gun_drawer_marker.visible = false
+	key_marker.visible = true
 
 func toggle_interaction_prompt():
 	player.interaction_prompt.visible = !player.interaction_prompt.visible
