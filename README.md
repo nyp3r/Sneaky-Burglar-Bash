@@ -26,13 +26,29 @@ All programming files are under "Scripts"
 #### anti_rotation.gd
 this isn't being used anymore. It used to make sure the interaction indicator for the player doesn't rotate with them.
 #### armed.gd
-this is the armed state. It simply changes the visibility of different nodes and sets the status flag for indicating if the player has the gun in their hand.
+For the armed state. It simply changes the visibility of different nodes and sets the status flag for indicating if the player has the gun in their hand.
 Under physics process, it checks for if the players presses the button for switching item. If true, then set the state to unarmed.
 #### bed.gd
-this is the script for the bed scene. It allows the player to hide from the enemy if they are next to the bed and presses the interaction key.
+For the bed scene. It allows the player to hide from the enemy if they are next to the bed and presses the interaction key.
 #### bullet.gd
-This is for the bullet that gets instantiated when the player shoots. It just moves the bullet each frame in the direction it's facing. When the bullet hits something, it makes sure it disconnects the bullet from the body it entered before the bullet gets destroyed (AKA freed). This is to not get an error when one is trying to access the other.
+For the bullet that gets instantiated when the player shoots. It just moves the bullet each frame in the direction it's facing. When the bullet hits something, it makes sure it disconnects the bullet from the body it entered before the bullet gets destroyed (AKA freed). This is to not get an error when one is trying to access the other.
 #### button.gd
 It's got a bad name. It should be called play_button.gd, because it is the script for the button in the main game. It changes the music volume and changes the scene to the actual game, instead of the menu.
 #### cabinet.gd
-The script for the cabinet, which the player can hide in. It's like the bed, except it makes a sound.
+For the cabinet, which the player can hide in. It's like the bed, except it makes a sound. When the player is in range of the cabinet and presses the interaction button, it makes the sound, hides/exposes the player and hides/exposes the things that need to indicate the new state. An improvement here is that I could use a state machine for this like for the player being armed/unarmed. I decided not to access the player object, but only the game_manager (which we will get to). This is because you want to minimize where values gets changed from.
+#### continue_button.gd
+Changes the scene to game, which is the gameplay
+#### cutscene_animation.gd
+Starts the cutscene, which is a short tutorial for the game. I didn't end up using it, because I don't like tutorials in other games.
+#### end_menu.gd
+For the end menu. Changes scenes according to the button the player presses. I'm not sure why I open the scores.txt file. 
+#### enemy.gd
+For the enemy. Sets the movement speed, health, vision cone, hearing, where to walk, where to spawn at the start of the game. 
+##### _on_player_exposed() & _on_player_hid()
+They are callback functions for the player_hid and player_exposed signals in game_manager.gd. So when the player hides somewhere, this gets called, since it's connected to the game manager. It disables/enables the vision cone raycasts, because the player doesn't really change position when they hide.
+##### _on_navigation_finished()
+When the enemy is just wandering around, he has to keep moving. The way he wanders, is he just picks a spot in the house and walks there. When he gets there, he needs to find somewhere else to walk to to keep wandering. So he just gets a new random position to walk to.
+##### _on_bullet_hit(body)
+This gets called every time the bullet hits something, so the function first checks if it did hit the enemy. If it was actually the enemy that was hit, the enemy loses 1 health. If they are then at 0 health, he dies and the player succeeded.
+##### get_spacial_volume_score()
+Takes the volume score from the game manager and mixes it with the distance to the player. This gives a spatial score that gets used somewhere else to check if the enemy can hear the player.
