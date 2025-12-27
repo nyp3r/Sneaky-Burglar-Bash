@@ -15,7 +15,13 @@ I follow the official Godot style guide. This makes it easier to get help from o
 I used the statemachine for the player being unarmed/armed.
 One reason for this is, I could easily use a statemachine implementation from someone else. It comes from this video: https://www.youtube.com/watch?v=ow_Lum-Agbs&t=302s&pp=ygUaZ29kb3QgZmluaXRlIHN0YXRlIG1hY2hpbmXSBwkJTQoBhyohjO8%3D
 Another is that it's only 2 states, and a finite statemachine is simple compared to others. I don't think 2 states justifies a more complex design pattern.
-#### Ad-hog flags
+#### Status flags
+I have flags here:
+Are used there:
+#### Signals
+Signals is Godot's own design pattern. If you have a node that you want to send information to other nodes, you can connect those other nodes to the signal. I use a lot in this project:
+
+
 
 Why this layout and these choices?
 
