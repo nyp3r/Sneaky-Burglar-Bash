@@ -2,11 +2,20 @@
 #### Video Demo:  https://youtu.be/n0bICfq6t18
 #### Play the game: https://nyp3r.itch.io/sneaky-burglar-attack
 
-#### Description:
+## Description:
 
 Sneaky Burglar Bash is a small  game made in Godot project. It's a top down stealth game, where you are getting robbed and have to sneak past the robber to get your gun and kill them.
+Godot officially supports GDScript (Godot's own language), C# and C/C++. I chose GDScript, since it's made for Godot and allows for faster and easier development.
 
-The project is organised using Godot's scene system and plain GDScript files for gameplay logic. It is best opened with Godot (open the project.godot file) and run from there. The included video demo shows the core interactions and the intended feel.
+### Style
+I follow the official Godot style guide. This makes it easier to get help from other Godot developers. I didn't reach out to anyone for this project, but I will continue to use Godot to develop games, so I might as well use it.
+
+### Design patterns
+#### Finite statemachine
+I used the statemachine for the player being unarmed/armed.
+One reason for this is, I could easily use a statemachine implementation from someone else. It comes from this video: https://www.youtube.com/watch?v=ow_Lum-Agbs&t=302s&pp=ygUaZ29kb3QgZmluaXRlIHN0YXRlIG1hY2hpbmXSBwkJTQoBhyohjO8%3D
+Another is that it's only 2 states, and a finite statemachine is simple compared to others. I don't think 2 states justifies a more complex design pattern.
+#### Ad-hog flags
 
 Why this layout and these choices?
 
