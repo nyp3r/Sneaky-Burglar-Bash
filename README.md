@@ -1,9 +1,10 @@
 # SNEAKY BURGLAR BASH
-#### Video Demo:  [https://youtu.be/n0bICfq6t18]
+#### Video Demo:  https://youtu.be/n0bICfq6t18
+#### Play the game: https://nyp3r.itch.io/sneaky-burglar-attack
 
 #### Description:
 
-Sneaky Burglar Bash is a small Godot project and prototype focused on simple stealth and burglary mechanics. The goal of the project was to explore direction, collision, and state-driven player behaviour in a compact, easily-inspectable Godot project. It is intentionally modest in scope: rather than building a full commercial game, this repository demonstrates patterns and structural decisions that make iterating on gameplay quick and maintainable.
+Sneaky Burglar Bash is a small  game made in Godot project. It's a top down stealth game, where you are getting robbed and have to sneak past the robber to get your gun and kill them.
 
 The project is organised using Godot's scene system and plain GDScript files for gameplay logic. It is best opened with Godot (open the project.godot file) and run from there. The included video demo shows the core interactions and the intended feel.
 
@@ -58,3 +59,7 @@ Running the project
 3. For contribution: follow the code style already used (Godot's GDScript style guide) and prefer small, focused commits that add or refactor one thing at a time.
 
 If you want more detail about a particular script or scene, tell me which file and I can add a more detailed description or an in-code documentation comment. Thanks for checking out Sneaky Burglar Bash.
+``` ````
+
+Next steps
+- If you'd like, I can add in-file comments for any specific script (e.g., the player script or any AI scripts), expand the "Running the project" section with exact input mappings, or include a short development roadmap. Which would you like me to do next?
