@@ -16,13 +16,12 @@ Under Scripts/States/Utility, state.gd & state_machine.gd is code coming from th
 I used the statemachine for the player being unarmed/armed.
 The files are under the folder Scripts, named unarmed.gd & armed.gd.
 #### Status flags
-I have flags here:
-Are used there:
+Used status flags in a variety of things. They are the simples form, which makes them good for small things.
 #### Signals
 Signals is Godot's own design pattern. If you have a node that you want to send information to other nodes, you can connect those other nodes to the signal. I use a lot in this project.
 
-All programming files are under "Scripts"
 ### Files
+All programming files are under "Scripts"
 #### anti_rotation.gd
 this isn't being used anymore. It used to make sure the interaction indicator for the player doesn't rotate with them.
 #### armed.gd
