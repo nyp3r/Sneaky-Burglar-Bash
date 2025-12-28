@@ -43,7 +43,7 @@ Starts the cutscene, which is a short tutorial for the game. I didn't end up usi
 #### end_menu.gd
 For the end menu. Changes scenes according to the button the player presses. I'm not sure why I open the scores.txt file. 
 #### enemy.gd
-For the enemy. Sets the movement speed, health, vision cone, hearing, where to walk, where to spawn at the start of the game. 
+For the enemy. Sets the movement speed, health, vision cone, hearing, where to walk, where to spawn at the start of the game.
 ##### _on_player_exposed() & _on_player_hid()
 They are callback functions for the player_hid and player_exposed signals in game_manager.gd. So when the player hides somewhere, this gets called, since it's connected to the game manager. It disables/enables the vision cone raycasts, because the player doesn't really change position when they hide.
 ##### _on_navigation_finished()
@@ -52,3 +52,25 @@ When the enemy is just wandering around, he has to keep moving. The way he wande
 This gets called every time the bullet hits something, so the function first checks if it did hit the enemy. If it was actually the enemy that was hit, the enemy loses 1 health. If they are then at 0 health, he dies and the player succeeded.
 ##### get_spacial_volume_score()
 Takes the volume score from the game manager and mixes it with the distance to the player. This gives a spatial score that gets used somewhere else to check if the enemy can hear the player.
+##### generate_raycasts()
+Creates the vision cone for the enemy. As you can see, the vision cone is made up of raycasts. 10 To be exact
+##### _physics_process(delta: float)
+this function gets called a variable amount every frame.
+Quite a big function. 
+**Line 58 to 67** is about the enemy's footsteps. If there is a wall between the enemy and player, the sound will be set to the ones for occlusion. This is done by having a raycast from the enemy to the player. If the raycast detects anything that's of class "TileMapLayer", there is probably a wall between the two characters.
+**Line 70 to 77** are about the vision cone, so this is where we check for the vision cone colliding with the player. The enemy will then react accordingly
+At **line 79 to 82** we make sure the enemy runs to the escape if they saw the player with a gun, but if not they will run for the player.
+**Line 84 to 91** applies movement by the navigation agent which looks at a navigation region of the house. The navigation agent uses an a* algorithm to find the best path. The enemy's body rotates according to where the next path position is. There are many path positions in a whole path.
+**Line 93 to 99** gives hearing to the enemy using the function get_spacial_volume_score. If the score is over a certain number, it was loud enough for the enemy to hear it. This part also checks for if the enemy could hear a reload or shot. If he could, he has found out the enemy has a gun. A problem here is that there are magic numbers. I should've made a variable or atleast a comment describing what the numbers are.
+##### start_hunt()
+This sets the enemy to run. Not sure why it's sets the target position to escape position. Should maybe be called escape instead.
+#### escape.gd
+Checks for if the enemy has escaped by checking if the raycast is colliding with the enemy.
+#### game_manager.gd
+The main script, which accesses everything. Other scripts will use this to change variables of other scripts. It has the volumes scores for the enemy to hear, the interaction prompt appearing, saves the score in the scores.txt file, changes the player_is_hidden flag.
+#### general_slider.gd
+Sets the volume when the user has stopped dragging the slider.
+#### global.gd
+Script for holding the data that should be independent of what scene is used.
+#### gun_drawer.gd
+Script for the drawer that the player opens to get the gun. 
