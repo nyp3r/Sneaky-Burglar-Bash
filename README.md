@@ -73,4 +73,53 @@ Sets the volume when the user has stopped dragging the slider.
 #### global.gd
 Script for holding the data that should be independent of what scene is used.
 #### gun_drawer.gd
-Script for the drawer that the player opens to get the gun. 
+Script for the drawer that the player opens to get the gun. Starts animation if the player opens the drawer and checks if the player has the key.
+#### gun_pickup.gd
+Old script where the player just ran over the gun to pick it up.
+#### highscore_number_label.gd
+Sets the highscore label on the success menu to the highscore with a limited amount of decimals
+#### interaction_prompt.gd
+Sets the interaction prompt position to the player with an offset
+#### key.gd
+Pickup logic for the key that unlocks the gun drawer
+#### light_switch.gd
+Turns on the light in the bedroom when player is next the switch and presses the interaction button
+#### locked_door.gd
+Script for the door close to the key. Makes sure you can only open it if you have the key. This is so the player has an easier time getting to the drawer.
+#### main_pause_menu.gd
+Menu for when the player pauses. The settings menu button is bugged though.
+#### nightstand.gd
+Has single callback function for the light switch.
+#### pause_menu.gd
+Not sure why there are 2 pause menu scripts.
+#### player.gd
+Player movement, hiding and gun pickup logic.
+#### player_audio_listener.gd
+Sets the player audio listener's position the player. Makes sure you get the correct sound volume.
+#### player_ui.gd
+Like the player audio listener and interaction prompt scripts.
+#### press_crouch_timer.gd
+I don't remember having a crouch animation.
+#### quit_button.gd
+Quits the game when you press the quit button in the main menu.
+#### score_labels.gd
+Sets the score labels from the score.txt file in the success menu.
+#### settings_menu.gd
+Logic for settings buttons.
+#### shooting_point.gd
+Allows the player to shoot. Creates the bullets with the bullet.gd script.
+#### start_button.gd
+Starts the game when the player presses the start button.
+#### start_menu.gd
+Logic for the buttons in the start menu.
+#### timer_label.gd
+Changes the text each second to the time since start of game.
+#### unarmed.gd
+For the unarmed state. Makes sure the player doesn't have the gun in hand and can't shoot.
+#### volume_menu.gd
+Logic for setting the volumes for different things when the player stops holding the slider.
+#### volume_menu_back_button.gd
+Changes the scene to the volume settings menu, when the player presses the back button.
+#### waypoint_marker.gd
+**This is from a youtube video: https://youtu.be/iny4KAtVMCg**
+For the waypoints to key and gun drawer
